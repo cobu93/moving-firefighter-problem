@@ -9,8 +9,6 @@
 typedef unsigned int uint;
 
 
-
-
 float tau(
     TREE* tree,
     uint origin,
@@ -71,6 +69,7 @@ void get_feasible(
     uint root,
     uint firefighter_position, 
     float current_time,
+    float t_propagation,
     uint* feasible,
     float* distances,
     uint* hops_memory
@@ -90,7 +89,7 @@ void get_feasible(
         distances[i] = distance;
         feasible[i] = 0;
         
-        if(current_time + distance < n_hops){
+        if(current_time + distance < n_hops * t_propagation){
             feasible[i] = 1;
         }
     }
@@ -140,6 +139,7 @@ int mfp_dp_opt(
     uint root, 
     uint firefighter_position, 
     float current_time, 
+    float t_propagation,
     MEMORY* memory, 
     uint* hops_memory,
     uint** subtree_memory
@@ -149,7 +149,7 @@ int mfp_dp_opt(
         return 0;
     }
 
-    if(current_time > height){
+    if(current_time > height * t_propagation){
         return 0;
     }    
 
@@ -164,7 +164,7 @@ int mfp_dp_opt(
 
     uint* feasible = (uint*) malloc(n_nodes * sizeof(uint));    
     float* distances = (float*) malloc(n_nodes * sizeof(float));    
-    get_feasible(tree, forest, root, firefighter_position, current_time, feasible, distances, hops_memory);    
+    get_feasible(tree, forest, root, firefighter_position, current_time, t_propagation, feasible, distances, hops_memory);    
     
     uint i;
     int n_subtree, n_subforest, cardinality;
@@ -190,6 +190,7 @@ int mfp_dp_opt(
                                     root, 
                                     i, 
                                     current_time + distances[i],
+                                    t_propagation,
                                     memory,
                                     hops_memory,
                                     subtree_memory
@@ -223,7 +224,7 @@ int mfp_dp_opt(
 // ---------------------------------------------------------------------
 // ---------------------------------------------------------------------
 
-void mfp_dp_solver(TREE tree, int root, int firefighter_position, int* optimal){
+void mfp_dp_solver(TREE tree, int root, int firefighter_position, float t_propagation, int* optimal){
 
     uint height, n_forest;
     uint* forest;
@@ -259,7 +260,7 @@ void mfp_dp_solver(TREE tree, int root, int firefighter_position, int* optimal){
     MEMORY* memory;
     init_memory(&memory);
 
-    opt = mfp_dp_opt(&tree, height, forest, n_forest, (uint) root, (uint) firefighter_position, 0, memory, hops_memory, subtree_memory);
+    opt = mfp_dp_opt(&tree, height, forest, n_forest, (uint) root, (uint) firefighter_position, 0, t_propagation, memory, hops_memory, subtree_memory);
 
     if(opt >= tree.n_nodes){
         opt = -1;
