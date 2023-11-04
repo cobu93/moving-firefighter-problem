@@ -142,13 +142,8 @@ int mfp_dp_opt(
     float t_propagation,
     MEMORY* memory, 
     uint* hops_memory,
-    uint** subtree_memory,
-    uint recursion_limit
+    uint** subtree_memory
     ){
-
-    if(recursion_limit < 0){
-        return 0;
-    }
     
     if(n_forest == 0){
         return 0;
@@ -198,8 +193,7 @@ int mfp_dp_opt(
                                     t_propagation,
                                     memory,
                                     hops_memory,
-                                    subtree_memory,
-                                    recursion_limit - 1
+                                    subtree_memory
                                 );
 
             if(val > max_val){
@@ -232,7 +226,7 @@ int mfp_dp_opt(
 
 void mfp_dp_solver(TREE tree, int root, int firefighter_position, float t_propagation, int* optimal){
 
-    uint height, n_forest, n_leaves;
+    uint height, n_forest;
     uint* forest;
     uint* hops_memory;
     uint** subtree_memory;
@@ -241,7 +235,6 @@ void mfp_dp_solver(TREE tree, int root, int firefighter_position, float t_propag
     uint opt = 0;
 
     height = tree_to_directed(&tree, root);
-    n_leaves = compute_n_leaves(&tree);
     forest = (uint*)malloc(tree.n_nodes * sizeof(uint));
     hops_memory = (uint*) calloc(tree.n_nodes, sizeof(uint));
     subtree_memory = (uint**) calloc(tree.n_nodes, sizeof(uint*));
@@ -267,20 +260,7 @@ void mfp_dp_solver(TREE tree, int root, int firefighter_position, float t_propag
     MEMORY* memory;
     init_memory(&memory);
 
-    opt = mfp_dp_opt(
-        &tree, 
-        height, 
-        forest, 
-        n_forest, 
-        (uint) root, 
-        (uint) firefighter_position, 
-        0, 
-        t_propagation, 
-        memory, 
-        hops_memory, 
-        subtree_memory,
-        n_leaves
-        );
+    opt = mfp_dp_opt(&tree, height, forest, n_forest, (uint) root, (uint) firefighter_position, 0, t_propagation, memory, hops_memory, subtree_memory);
 
     if(opt >= tree.n_nodes){
         opt = -1;

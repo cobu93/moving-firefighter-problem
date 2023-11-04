@@ -35,3 +35,21 @@ uint tree_to_directed(TREE* tree, uint root){
     free(visited);
     return height;
 }
+
+uint compute_n_leaves(TREE* tree){
+    uint i, j, leaves = 0;
+    float n_edges;
+
+    for(i=0; i < tree->n_nodes; i++){
+        n_edges = 0;
+        for(j=0; j < tree->n_nodes; j++){
+            n_edges += tree->edges[i][j];
+        }
+
+        if(n_edges == 0){
+            leaves++;
+        }
+    }
+
+    return leaves;
+}
