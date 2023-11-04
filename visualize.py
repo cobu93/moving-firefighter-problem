@@ -9,7 +9,9 @@ def plot_tree(tree):
     ax = plt.axes(projection="3d")
     ax.scatter(nodes[:, 0], nodes[:, 1], nodes[:, 2])
 
-    for e in tree.edges:
+    edges = np.argwhere(tree.edges != 0)
+
+    for e in edges:
         o_x, o_y, o_z = nodes[e[0]]
         d_x, d_y, d_z = nodes[e[1]]
         ax.plot3D([o_x, d_x], [o_y, d_y], [o_z, d_z])
