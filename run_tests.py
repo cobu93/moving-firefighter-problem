@@ -11,16 +11,31 @@ runners = {
     # Restricted sequence length to number of leaves
     # Pre-filled hops and subtrees
     # Accepts propagation time
-    "dynamic_programming": DynamicProgramming(),
+    "dynamic_programming": {
+            "runner": DynamicProgramming(),
+            "max_nodes": 14
+    },
     # Unrestricted sequence length to number of leaves
     # Pre-filled hops and subtrees
     # Accepts propagation time
-    "dynamic_programming_unrestricted_length": DynamicProgramming(so_file="./dp/mfp_unrestricted_length.so"),
+    "dynamic_programming_unrestricted_length": {
+            "runner": DynamicProgramming(so_file="./dp/mfp_unrestricted_length.so"),
+            "max_nodes": 14
+    },
     # Dynamic computing of hops and subtrees
     # Default propagation time to 1
-    "dynamic_programming_dynamic_computing": DynamicProgramming(so_file="./dp/mfp_dynamic_computing.so"),
-    "iqcp": IQCP(),
-    "ilp": ILP(),
+    "dynamic_programming_dynamic_computing": {
+            "runner": DynamicProgramming(so_file="./dp/mfp_dynamic_computing.so"),
+            "max_nodes": 14
+    },
+    "iqcp": {
+            "runner": IQCP(),
+            "max_nodes": 25
+    },
+    "ilp": {
+            "runner": ILP(),
+            "max_nodes": 25
+    },
 }
 
 n_nodes = np.arange(MIN_NODES, MAX_NODES + 1).astype(int)
@@ -30,9 +45,11 @@ n_samples = N_SAMPLES
 results = {}
 experiments = []
 
+
 propagation_time = 1.
 
 for n_i, n in enumerate(n_nodes):
+    skipped = np.zeros(len(runners), dtype=bool)
     for s in range(n_samples):
 
         initial_ff_position = np.random.rand(3)
@@ -52,8 +69,15 @@ for n_i, n in enumerate(n_nodes):
 
         optimals = np.zeros(len(runners))
 
+        
         for r_i, r in enumerate(runners):
-            optimal, duration = runners[r].run(tree, root, initial_ff_position, propagation_time)
+            if n > runners[r]["max_nodes"]:
+                print("Runner execution skipped due to the number of nodes")
+                skipped[r_i] = True
+                continue
+
+            skipped[r_i] = False
+            optimal, duration = runners[r]["runner"].run(tree, root, initial_ff_position, propagation_time)
 
             if r not in results:
                 results[r] = []
@@ -66,7 +90,9 @@ for n_i, n in enumerate(n_nodes):
 
             optimals[r_i] = optimal
 
-            if not np.all(optimals[:r_i] == optimal):
+            non_skipped = np.argwhere(skipped[:r_i] == False).flatten()
+
+            if not np.all(optimals[non_skipped] == optimal):
                 raise ValueError(f"Runner {r} gaves an inconsistent result:", optimals)
 
 
