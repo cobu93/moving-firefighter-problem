@@ -77,11 +77,12 @@ class IQCP:
             end = time.time()
 
             optimal = m.ObjVal
-            #result = []
-            #for v in m.getVars():
-            #    result.append(v.X)
+            
+            optimal_path = []
+            for v in m.getVars():
+                optimal_path.append(v.X)
 
-            #result = np.array(result).reshape(tree.nodes.shape[0], -1)
-
-
-        return optimal, end - start
+            optimal_path = np.array(optimal_path).reshape(tree.nodes.shape[0], -1)
+            optimal_path = [-1] + np.argwhere(optimal_path.T == 1)[:, 1].tolist()
+            
+        return optimal, optimal_path, end - start

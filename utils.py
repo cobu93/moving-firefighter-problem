@@ -19,6 +19,10 @@ class Tree:
             for o, d in edges:
                 self.edges[o, d] = 1
                 self.edges[d, o] = 1
+    
+    @property
+    def is_directed(self):
+        return self.__is_directed__
 
     def add_firefighter_position(self, pos):
         if (self.nodes_positions.shape[0] == self.nodes.shape[0]):
@@ -95,15 +99,14 @@ class Tree:
 
         return np.array(nodes)
         
-            
-            
-        return np.array(ancestors)
 
 
 
 class TREE(Structure):
     _fields_ = [
         ("n_nodes", c_int),
+        ("height", c_int),
+        ("n_leaves", c_int),
         ("nodes", POINTER(c_int)),
         ("nodes_x", POINTER(c_float)),
         ("nodes_y", POINTER(c_float)),
@@ -114,11 +117,16 @@ class TREE(Structure):
 
 
 def tree_to_structure(tree):
+    assert tree.is_directed, "The tree must be converted to directed"
+
     n_nodes = tree.nodes.shape[0]
     n_positions = tree.nodes_positions.shape[0]
+    n_leaves = (int) (np.argwhere(tree.edges.sum(axis=-1) == 0).flatten().shape[0])
 
     return TREE(
         n_nodes,
+        tree.height,
+        n_leaves,
         (c_int * n_nodes)(*tree.nodes.tolist()),
         (c_float * n_positions)(*tree.nodes_positions[:, 0].tolist()),
         (c_float * n_positions)(*tree.nodes_positions[:, 1].tolist()),

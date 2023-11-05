@@ -1,6 +1,8 @@
 
 typedef struct {    
     int n_nodes;
+    int height;
+    int n_leaves;
     int* nodes;
     float* nodes_x;
     float* nodes_y;

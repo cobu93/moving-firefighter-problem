@@ -143,10 +143,11 @@ int mfp_dp_opt(
     MEMORY* memory, 
     uint* hops_memory,
     uint** subtree_memory,
-    uint recursion_limit
+    uint recursion_limit,
+    int* opt_path
     ){
 
-    if(recursion_limit < 0){
+    if(recursion_limit <= 0){
         return 0;
     }
     
@@ -171,21 +172,27 @@ int mfp_dp_opt(
     float* distances = (float*) malloc(n_nodes * sizeof(float));    
     get_feasible(tree, forest, root, firefighter_position, current_time, t_propagation, feasible, distances, hops_memory);    
     
-    uint i;
+    uint i, j;
     int n_subtree, n_subforest, cardinality;
     int val, max_val = 0;
     uint* subtree;
     uint* subforest;
+    int* opt_sub_path;
 
     subforest = (uint*) malloc(n_nodes * sizeof(uint));
+    opt_sub_path = (int*) malloc((recursion_limit - 1) * sizeof(int));
     
     for(i = 0; i < n_nodes; i++){
         if(feasible[i] == 1){
             memset(subforest, 0, n_nodes * sizeof(uint));
             n_subforest = 0;
             cardinality = 0;
-
+    
             compute_subforest(forest, subtree_memory[i], n_nodes, subforest, &n_subforest, &cardinality);   
+           
+            for(j = 0; j < recursion_limit - 1; j++){
+                opt_sub_path[j] = -1;
+            }
 
             val = cardinality + mfp_dp_opt(
                                     tree, 
@@ -199,15 +206,23 @@ int mfp_dp_opt(
                                     memory,
                                     hops_memory,
                                     subtree_memory,
-                                    recursion_limit - 1
+                                    recursion_limit - 1,
+                                    opt_sub_path
                                 );
 
             if(val > max_val){
                 max_val = val;
+                opt_path[0] = i;
+
+                for(j = 0; j < recursion_limit - 1; j++){
+                    opt_path[j + 1] = opt_sub_path[j];
+                }
+
             }
         }
     }
 
+    free(opt_sub_path);
     free(subforest);
     free(feasible);
     free(distances);
@@ -230,9 +245,9 @@ int mfp_dp_opt(
 // ---------------------------------------------------------------------
 // ---------------------------------------------------------------------
 
-void mfp_dp_solver(TREE tree, int root, int firefighter_position, float t_propagation, int* optimal){
+void mfp_dp_solver(TREE tree, int root, int firefighter_position, float t_propagation, int* optimal, int* opt_path){
 
-    uint height, n_forest, n_leaves;
+    uint n_forest, height, n_leaves;
     uint* forest;
     uint* hops_memory;
     uint** subtree_memory;
@@ -240,8 +255,11 @@ void mfp_dp_solver(TREE tree, int root, int firefighter_position, float t_propag
 
     uint opt = 0;
 
-    height = tree_to_directed(&tree, root);
-    n_leaves = compute_n_leaves(&tree);
+    //height = tree_to_directed(&tree, root);
+    //n_leaves = compute_n_leaves(&tree);
+
+    height = (uint) tree.height;
+    n_leaves = (uint) tree.n_leaves;
     forest = (uint*)malloc(tree.n_nodes * sizeof(uint));
     hops_memory = (uint*) calloc(tree.n_nodes, sizeof(uint));
     subtree_memory = (uint**) calloc(tree.n_nodes, sizeof(uint*));
@@ -263,6 +281,9 @@ void mfp_dp_solver(TREE tree, int root, int firefighter_position, float t_propag
         }
     }
    
+    for(i = 0; i < n_leaves; i++){
+        opt_path[i] = -1;
+    }
     
     MEMORY* memory;
     init_memory(&memory);
@@ -279,17 +300,20 @@ void mfp_dp_solver(TREE tree, int root, int firefighter_position, float t_propag
         memory, 
         hops_memory, 
         subtree_memory,
-        n_leaves
+        n_leaves,
+        opt_path
         );
 
     if(opt >= tree.n_nodes){
         opt = -1;
     }
 
+    
     delete_memory(&memory);
     free(forest);
     free(hops_memory);
     free(subtree_memory);
 
     (*optimal) = opt;
+    
 }

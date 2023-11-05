@@ -11,23 +11,24 @@ runners = {
     # Restricted sequence length to number of leaves
     # Pre-filled hops and subtrees
     # Accepts propagation time
+    # Recovers the solution
     "dynamic_programming": {
             "runner": DynamicProgramming(),
-            "max_nodes": 14
+            "max_nodes": 17
     },
     # Unrestricted sequence length to number of leaves
     # Pre-filled hops and subtrees
     # Accepts propagation time
-    "dynamic_programming_unrestricted_length": {
-            "runner": DynamicProgramming(so_file="./dp/mfp_unrestricted_length.so"),
-            "max_nodes": 14
-    },
+    #"dynamic_programming_unrestricted_length": {
+    #        "runner": DynamicProgramming(so_file="./dp/mfp_unrestricted_length.so"),
+    #        "max_nodes": 15
+    #},
     # Dynamic computing of hops and subtrees
     # Default propagation time to 1
-    "dynamic_programming_dynamic_computing": {
-            "runner": DynamicProgramming(so_file="./dp/mfp_dynamic_computing.so"),
-            "max_nodes": 14
-    },
+    #"dynamic_programming_dynamic_computing": {
+    #        "runner": DynamicProgramming(so_file="./dp/mfp_dynamic_computing.so"),
+    #        "max_nodes": 15
+    #},
     "iqcp": {
             "runner": IQCP(),
             "max_nodes": 25
@@ -77,7 +78,7 @@ for n_i, n in enumerate(n_nodes):
                 continue
 
             skipped[r_i] = False
-            optimal, duration = runners[r]["runner"].run(tree, root, initial_ff_position, propagation_time)
+            optimal, solution, duration = runners[r]["runner"].run(tree, root, initial_ff_position, propagation_time)
 
             if r not in results:
                 results[r] = []
@@ -85,6 +86,7 @@ for n_i, n in enumerate(n_nodes):
             results[r].append({
                 "experiment": experiment_id,
                 "duration": duration,
+                "solution": solution,
                 "optimal": optimal
             })
 
