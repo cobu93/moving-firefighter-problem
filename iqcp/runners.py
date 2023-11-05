@@ -1,5 +1,3 @@
-import time
-
 import gurobipy as gp
 from gurobipy import GRB
 
@@ -71,11 +69,9 @@ class IQCP:
         with gp.Env() as env, gp.Model(env=env) as m:
             m.setParam("MIPGap", 0)
             
-            start = time.time()
             self.__setup_problem__(tree, root, t_propagation, m)
             m.optimize()
-            end = time.time()
-
+            
             optimal = m.ObjVal
             
             optimal_path = []
@@ -85,4 +81,4 @@ class IQCP:
             optimal_path = np.array(optimal_path).reshape(tree.nodes.shape[0], -1)
             optimal_path = [-1] + np.argwhere(optimal_path.T == 1)[:, 1].tolist()
             
-        return optimal, optimal_path, end - start
+        return optimal, optimal_path

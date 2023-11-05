@@ -1,5 +1,3 @@
-import time
-
 import gurobipy as gp
 from gurobipy import GRB
 
@@ -138,11 +136,9 @@ class ILP:
         with gp.Env() as env, gp.Model(env=env) as m:
             m.setParam("MIPGap", 0)
 
-            start = time.time()
             self.__setup_problem__(tree, root, t_propagation, m)
             m.optimize()
-            end = time.time()
-
+            
             optimal = m.ObjVal
             result = []
             first = []
@@ -160,6 +156,5 @@ class ILP:
                 next_node = np.argwhere(result[:, :, i] == 1)
                 if next_node.shape[0] > 0:
                     optimal_path += [int(np.argwhere(result[:, :, i] == 1)[0, 1])]
-                
 
-        return optimal, optimal_path, end - start
+        return optimal, optimal_path

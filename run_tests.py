@@ -6,6 +6,7 @@ import numpy as np
 from config import MAX_NODES, MIN_NODES, N_SAMPLES, RESULTS_DIR, RESULTS_FILE, EXPERIMENTS_FILE
 import json 
 import os
+import time
 
 runners = {
     # Restricted sequence length to number of leaves
@@ -78,14 +79,16 @@ for n_i, n in enumerate(n_nodes):
                 continue
 
             skipped[r_i] = False
-            optimal, solution, duration = runners[r]["runner"].run(tree, root, initial_ff_position, propagation_time)
+            start = time.time()
+            optimal, solution = runners[r]["runner"].run(tree, root, initial_ff_position, propagation_time)
+            end = time.time()
 
             if r not in results:
                 results[r] = []
 
             results[r].append({
                 "experiment": experiment_id,
-                "duration": duration,
+                "duration": end - start,
                 "solution": solution,
                 "optimal": optimal
             })
