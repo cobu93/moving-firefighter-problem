@@ -2,29 +2,4011 @@
     "dynamic_programming": [
         {
             "experiment": 1,
-            "duration": 6.914138793945312e-05,
+            "duration": 2.3126602172851562e-05,
+            "optimal": 1
+        },
+        {
+            "experiment": 2,
+            "duration": 1.6689300537109375e-05,
+            "optimal": 0
+        },
+        {
+            "experiment": 3,
+            "duration": 1.4543533325195312e-05,
+            "optimal": 0
+        },
+        {
+            "experiment": 4,
+            "duration": 1.6927719116210938e-05,
+            "optimal": 2
+        },
+        {
+            "experiment": 5,
+            "duration": 1.4781951904296875e-05,
+            "optimal": 1
+        },
+        {
+            "experiment": 6,
+            "duration": 1.3113021850585938e-05,
+            "optimal": 1
+        },
+        {
+            "experiment": 7,
+            "duration": 1.52587890625e-05,
+            "optimal": 1
+        },
+        {
+            "experiment": 8,
+            "duration": 1.3828277587890625e-05,
+            "optimal": 0
+        },
+        {
+            "experiment": 9,
+            "duration": 1.5974044799804688e-05,
+            "optimal": 0
+        },
+        {
+            "experiment": 10,
+            "duration": 1.5020370483398438e-05,
+            "optimal": 2
+        },
+        {
+            "experiment": 11,
+            "duration": 1.4781951904296875e-05,
+            "optimal": 1
+        },
+        {
+            "experiment": 12,
+            "duration": 1.3828277587890625e-05,
+            "optimal": 0
+        },
+        {
+            "experiment": 13,
+            "duration": 1.2874603271484375e-05,
+            "optimal": 0
+        },
+        {
+            "experiment": 14,
+            "duration": 1.430511474609375e-05,
+            "optimal": 1
+        },
+        {
+            "experiment": 15,
+            "duration": 1.3589859008789062e-05,
+            "optimal": 0
+        },
+        {
+            "experiment": 16,
+            "duration": 2.1696090698242188e-05,
+            "optimal": 1
+        },
+        {
+            "experiment": 17,
+            "duration": 1.3589859008789062e-05,
+            "optimal": 1
+        },
+        {
+            "experiment": 18,
+            "duration": 2.288818359375e-05,
+            "optimal": 0
+        },
+        {
+            "experiment": 19,
+            "duration": 1.4066696166992188e-05,
+            "optimal": 2
+        },
+        {
+            "experiment": 20,
+            "duration": 1.4781951904296875e-05,
+            "optimal": 0
+        },
+        {
+            "experiment": 21,
+            "duration": 1.8596649169921875e-05,
+            "optimal": 2
+        },
+        {
+            "experiment": 22,
+            "duration": 1.8835067749023438e-05,
+            "optimal": 1
+        },
+        {
+            "experiment": 23,
+            "duration": 1.7642974853515625e-05,
+            "optimal": 2
+        },
+        {
+            "experiment": 24,
+            "duration": 1.9550323486328125e-05,
+            "optimal": 2
+        },
+        {
+            "experiment": 25,
+            "duration": 1.9311904907226562e-05,
+            "optimal": 2
+        },
+        {
+            "experiment": 26,
+            "duration": 1.9073486328125e-05,
+            "optimal": 1
+        },
+        {
+            "experiment": 27,
+            "duration": 1.8835067749023438e-05,
+            "optimal": 2
+        },
+        {
+            "experiment": 28,
+            "duration": 2.0265579223632812e-05,
+            "optimal": 2
+        },
+        {
+            "experiment": 29,
+            "duration": 1.71661376953125e-05,
+            "optimal": 2
+        },
+        {
+            "experiment": 30,
+            "duration": 1.621246337890625e-05,
+            "optimal": 1
+        },
+        {
+            "experiment": 31,
+            "duration": 1.9311904907226562e-05,
+            "optimal": 1
+        },
+        {
+            "experiment": 32,
+            "duration": 1.9311904907226562e-05,
+            "optimal": 3
+        },
+        {
+            "experiment": 33,
+            "duration": 1.8596649169921875e-05,
+            "optimal": 3
+        },
+        {
+            "experiment": 34,
+            "duration": 1.8596649169921875e-05,
+            "optimal": 3
+        },
+        {
+            "experiment": 35,
+            "duration": 1.71661376953125e-05,
+            "optimal": 2
+        },
+        {
+            "experiment": 36,
+            "duration": 1.8358230590820312e-05,
+            "optimal": 2
+        },
+        {
+            "experiment": 37,
+            "duration": 1.9311904907226562e-05,
+            "optimal": 3
+        },
+        {
+            "experiment": 38,
+            "duration": 1.9311904907226562e-05,
+            "optimal": 1
+        },
+        {
+            "experiment": 39,
+            "duration": 1.5735626220703125e-05,
+            "optimal": 1
+        },
+        {
+            "experiment": 40,
+            "duration": 1.6689300537109375e-05,
+            "optimal": 2
+        },
+        {
+            "experiment": 41,
+            "duration": 2.288818359375e-05,
+            "optimal": 4
+        },
+        {
+            "experiment": 42,
+            "duration": 2.574920654296875e-05,
+            "optimal": 3
+        },
+        {
+            "experiment": 43,
+            "duration": 2.6941299438476562e-05,
+            "optimal": 4
+        },
+        {
+            "experiment": 44,
+            "duration": 3.4809112548828125e-05,
+            "optimal": 3
+        },
+        {
+            "experiment": 45,
+            "duration": 2.765655517578125e-05,
+            "optimal": 3
+        },
+        {
+            "experiment": 46,
+            "duration": 2.5272369384765625e-05,
+            "optimal": 4
+        },
+        {
+            "experiment": 47,
+            "duration": 2.4318695068359375e-05,
+            "optimal": 2
+        },
+        {
+            "experiment": 48,
+            "duration": 1.5974044799804688e-05,
+            "optimal": 1
+        },
+        {
+            "experiment": 49,
+            "duration": 3.266334533691406e-05,
+            "optimal": 2
+        },
+        {
+            "experiment": 50,
+            "duration": 2.4557113647460938e-05,
+            "optimal": 4
+        },
+        {
+            "experiment": 51,
+            "duration": 2.5272369384765625e-05,
+            "optimal": 3
+        },
+        {
+            "experiment": 52,
+            "duration": 2.765655517578125e-05,
+            "optimal": 3
+        },
+        {
+            "experiment": 53,
+            "duration": 1.9788742065429688e-05,
+            "optimal": 4
+        },
+        {
+            "experiment": 54,
+            "duration": 2.09808349609375e-05,
+            "optimal": 3
+        },
+        {
+            "experiment": 55,
+            "duration": 2.1219253540039062e-05,
+            "optimal": 3
+        },
+        {
+            "experiment": 56,
+            "duration": 2.47955322265625e-05,
+            "optimal": 4
+        },
+        {
+            "experiment": 57,
+            "duration": 2.193450927734375e-05,
+            "optimal": 2
+        },
+        {
+            "experiment": 58,
+            "duration": 3.361701965332031e-05,
+            "optimal": 4
+        },
+        {
+            "experiment": 59,
+            "duration": 1.9311904907226562e-05,
+            "optimal": 2
+        },
+        {
+            "experiment": 60,
+            "duration": 2.6702880859375e-05,
+            "optimal": 2
+        },
+        {
+            "experiment": 61,
+            "duration": 2.86102294921875e-05,
             "optimal": 5
+        },
+        {
+            "experiment": 62,
+            "duration": 3.4809112548828125e-05,
+            "optimal": 4
+        },
+        {
+            "experiment": 63,
+            "duration": 6.341934204101562e-05,
+            "optimal": 5
+        },
+        {
+            "experiment": 64,
+            "duration": 3.1948089599609375e-05,
+            "optimal": 4
+        },
+        {
+            "experiment": 65,
+            "duration": 2.3603439331054688e-05,
+            "optimal": 4
+        },
+        {
+            "experiment": 66,
+            "duration": 5.316734313964844e-05,
+            "optimal": 4
+        },
+        {
+            "experiment": 67,
+            "duration": 4.7206878662109375e-05,
+            "optimal": 5
+        },
+        {
+            "experiment": 68,
+            "duration": 1.5497207641601562e-05,
+            "optimal": 0
+        },
+        {
+            "experiment": 69,
+            "duration": 3.1948089599609375e-05,
+            "optimal": 5
+        },
+        {
+            "experiment": 70,
+            "duration": 3.0517578125e-05,
+            "optimal": 1
+        },
+        {
+            "experiment": 71,
+            "duration": 3.62396240234375e-05,
+            "optimal": 3
+        },
+        {
+            "experiment": 72,
+            "duration": 4.124641418457031e-05,
+            "optimal": 5
+        },
+        {
+            "experiment": 73,
+            "duration": 3.600120544433594e-05,
+            "optimal": 5
+        },
+        {
+            "experiment": 74,
+            "duration": 2.2649765014648438e-05,
+            "optimal": 3
+        },
+        {
+            "experiment": 75,
+            "duration": 3.814697265625e-05,
+            "optimal": 4
+        },
+        {
+            "experiment": 76,
+            "duration": 8.106231689453125e-05,
+            "optimal": 5
+        },
+        {
+            "experiment": 77,
+            "duration": 2.2411346435546875e-05,
+            "optimal": 3
+        },
+        {
+            "experiment": 78,
+            "duration": 1.6450881958007812e-05,
+            "optimal": 1
+        },
+        {
+            "experiment": 79,
+            "duration": 4.00543212890625e-05,
+            "optimal": 3
+        },
+        {
+            "experiment": 80,
+            "duration": 3.2901763916015625e-05,
+            "optimal": 5
+        },
+        {
+            "experiment": 81,
+            "duration": 4.9591064453125e-05,
+            "optimal": 6
+        },
+        {
+            "experiment": 82,
+            "duration": 3.4809112548828125e-05,
+            "optimal": 3
+        },
+        {
+            "experiment": 83,
+            "duration": 2.7179718017578125e-05,
+            "optimal": 2
+        },
+        {
+            "experiment": 84,
+            "duration": 4.1484832763671875e-05,
+            "optimal": 3
+        },
+        {
+            "experiment": 85,
+            "duration": 9.822845458984375e-05,
+            "optimal": 6
+        },
+        {
+            "experiment": 86,
+            "duration": 2.9325485229492188e-05,
+            "optimal": 2
+        },
+        {
+            "experiment": 87,
+            "duration": 5.9604644775390625e-05,
+            "optimal": 4
+        },
+        {
+            "experiment": 88,
+            "duration": 0.00010633468627929688,
+            "optimal": 6
+        },
+        {
+            "experiment": 89,
+            "duration": 2.8371810913085938e-05,
+            "optimal": 2
+        },
+        {
+            "experiment": 90,
+            "duration": 7.295608520507812e-05,
+            "optimal": 5
+        },
+        {
+            "experiment": 91,
+            "duration": 4.792213439941406e-05,
+            "optimal": 3
+        },
+        {
+            "experiment": 92,
+            "duration": 6.29425048828125e-05,
+            "optimal": 6
+        },
+        {
+            "experiment": 93,
+            "duration": 4.076957702636719e-05,
+            "optimal": 3
+        },
+        {
+            "experiment": 94,
+            "duration": 6.556510925292969e-05,
+            "optimal": 5
+        },
+        {
+            "experiment": 95,
+            "duration": 3.814697265625e-05,
+            "optimal": 3
+        },
+        {
+            "experiment": 96,
+            "duration": 9.822845458984375e-05,
+            "optimal": 6
+        },
+        {
+            "experiment": 97,
+            "duration": 4.363059997558594e-05,
+            "optimal": 3
+        },
+        {
+            "experiment": 98,
+            "duration": 6.079673767089844e-05,
+            "optimal": 6
+        },
+        {
+            "experiment": 99,
+            "duration": 3.147125244140625e-05,
+            "optimal": 4
+        },
+        {
+            "experiment": 100,
+            "duration": 6.4849853515625e-05,
+            "optimal": 5
+        },
+        {
+            "experiment": 101,
+            "duration": 3.7670135498046875e-05,
+            "optimal": 3
+        },
+        {
+            "experiment": 102,
+            "duration": 7.104873657226562e-05,
+            "optimal": 5
+        },
+        {
+            "experiment": 103,
+            "duration": 0.00020074844360351562,
+            "optimal": 6
+        },
+        {
+            "experiment": 104,
+            "duration": 2.6941299438476562e-05,
+            "optimal": 2
+        },
+        {
+            "experiment": 105,
+            "duration": 0.00011491775512695312,
+            "optimal": 6
+        },
+        {
+            "experiment": 106,
+            "duration": 0.00011777877807617188,
+            "optimal": 5
+        },
+        {
+            "experiment": 107,
+            "duration": 0.0001480579376220703,
+            "optimal": 6
+        },
+        {
+            "experiment": 108,
+            "duration": 6.651878356933594e-05,
+            "optimal": 4
+        },
+        {
+            "experiment": 109,
+            "duration": 9.822845458984375e-05,
+            "optimal": 7
+        },
+        {
+            "experiment": 110,
+            "duration": 0.00014352798461914062,
+            "optimal": 7
+        },
+        {
+            "experiment": 111,
+            "duration": 0.0001895427703857422,
+            "optimal": 6
+        },
+        {
+            "experiment": 112,
+            "duration": 4.7206878662109375e-05,
+            "optimal": 4
+        },
+        {
+            "experiment": 113,
+            "duration": 0.0001380443572998047,
+            "optimal": 5
+        },
+        {
+            "experiment": 114,
+            "duration": 5.316734313964844e-05,
+            "optimal": 4
+        },
+        {
+            "experiment": 115,
+            "duration": 6.341934204101562e-05,
+            "optimal": 4
+        },
+        {
+            "experiment": 116,
+            "duration": 0.000156402587890625,
+            "optimal": 6
+        },
+        {
+            "experiment": 117,
+            "duration": 7.295608520507812e-05,
+            "optimal": 4
+        },
+        {
+            "experiment": 118,
+            "duration": 9.751319885253906e-05,
+            "optimal": 6
+        },
+        {
+            "experiment": 119,
+            "duration": 5.1975250244140625e-05,
+            "optimal": 3
+        },
+        {
+            "experiment": 120,
+            "duration": 7.867813110351562e-05,
+            "optimal": 5
+        },
+        {
+            "experiment": 121,
+            "duration": 0.0002295970916748047,
+            "optimal": 6
+        },
+        {
+            "experiment": 122,
+            "duration": 0.0002770423889160156,
+            "optimal": 6
+        },
+        {
+            "experiment": 123,
+            "duration": 0.00017380714416503906,
+            "optimal": 6
+        },
+        {
+            "experiment": 124,
+            "duration": 7.200241088867188e-05,
+            "optimal": 6
+        },
+        {
+            "experiment": 125,
+            "duration": 0.0002307891845703125,
+            "optimal": 8
+        },
+        {
+            "experiment": 126,
+            "duration": 0.00016689300537109375,
+            "optimal": 7
+        },
+        {
+            "experiment": 127,
+            "duration": 0.0003402233123779297,
+            "optimal": 7
+        },
+        {
+            "experiment": 128,
+            "duration": 0.0006062984466552734,
+            "optimal": 7
+        },
+        {
+            "experiment": 129,
+            "duration": 0.00012302398681640625,
+            "optimal": 5
+        },
+        {
+            "experiment": 130,
+            "duration": 0.0001430511474609375,
+            "optimal": 6
+        },
+        {
+            "experiment": 131,
+            "duration": 0.0003077983856201172,
+            "optimal": 7
+        },
+        {
+            "experiment": 132,
+            "duration": 0.0002465248107910156,
+            "optimal": 7
+        },
+        {
+            "experiment": 133,
+            "duration": 0.00011277198791503906,
+            "optimal": 6
+        },
+        {
+            "experiment": 134,
+            "duration": 7.843971252441406e-05,
+            "optimal": 5
+        },
+        {
+            "experiment": 135,
+            "duration": 0.00024366378784179688,
+            "optimal": 8
+        },
+        {
+            "experiment": 136,
+            "duration": 0.0007147789001464844,
+            "optimal": 7
+        },
+        {
+            "experiment": 137,
+            "duration": 4.935264587402344e-05,
+            "optimal": 4
+        },
+        {
+            "experiment": 138,
+            "duration": 0.0002639293670654297,
+            "optimal": 7
+        },
+        {
+            "experiment": 139,
+            "duration": 0.00017380714416503906,
+            "optimal": 6
+        },
+        {
+            "experiment": 140,
+            "duration": 0.00036072731018066406,
+            "optimal": 8
+        },
+        {
+            "experiment": 141,
+            "duration": 0.0012197494506835938,
+            "optimal": 7
+        },
+        {
+            "experiment": 142,
+            "duration": 0.0007030963897705078,
+            "optimal": 8
+        },
+        {
+            "experiment": 143,
+            "duration": 0.0002887248992919922,
+            "optimal": 8
+        },
+        {
+            "experiment": 144,
+            "duration": 0.001678466796875,
+            "optimal": 8
+        },
+        {
+            "experiment": 145,
+            "duration": 0.001966714859008789,
+            "optimal": 8
+        },
+        {
+            "experiment": 146,
+            "duration": 0.0008080005645751953,
+            "optimal": 8
+        },
+        {
+            "experiment": 147,
+            "duration": 6.556510925292969e-05,
+            "optimal": 4
+        },
+        {
+            "experiment": 148,
+            "duration": 6.842613220214844e-05,
+            "optimal": 5
+        },
+        {
+            "experiment": 149,
+            "duration": 0.001346588134765625,
+            "optimal": 9
+        },
+        {
+            "experiment": 150,
+            "duration": 0.00014543533325195312,
+            "optimal": 4
+        },
+        {
+            "experiment": 151,
+            "duration": 0.0004942417144775391,
+            "optimal": 9
+        },
+        {
+            "experiment": 152,
+            "duration": 0.00027298927307128906,
+            "optimal": 6
+        },
+        {
+            "experiment": 153,
+            "duration": 0.00036334991455078125,
+            "optimal": 7
+        },
+        {
+            "experiment": 154,
+            "duration": 0.0008790493011474609,
+            "optimal": 7
+        },
+        {
+            "experiment": 155,
+            "duration": 0.0003483295440673828,
+            "optimal": 6
+        },
+        {
+            "experiment": 156,
+            "duration": 0.0002644062042236328,
+            "optimal": 7
+        },
+        {
+            "experiment": 157,
+            "duration": 0.001119852066040039,
+            "optimal": 8
+        },
+        {
+            "experiment": 158,
+            "duration": 0.00031566619873046875,
+            "optimal": 7
+        },
+        {
+            "experiment": 159,
+            "duration": 0.0007188320159912109,
+            "optimal": 7
+        },
+        {
+            "experiment": 160,
+            "duration": 0.0001983642578125,
+            "optimal": 7
         }
     ],
     "dynamic_programming_unrestricted_length": [
         {
             "experiment": 1,
-            "duration": 4.6253204345703125e-05,
+            "duration": 1.430511474609375e-05,
+            "optimal": 1
+        },
+        {
+            "experiment": 2,
+            "duration": 7.62939453125e-06,
+            "optimal": 0
+        },
+        {
+            "experiment": 3,
+            "duration": 7.867813110351562e-06,
+            "optimal": 0
+        },
+        {
+            "experiment": 4,
+            "duration": 8.821487426757812e-06,
+            "optimal": 2
+        },
+        {
+            "experiment": 5,
+            "duration": 8.821487426757812e-06,
+            "optimal": 1
+        },
+        {
+            "experiment": 6,
+            "duration": 8.106231689453125e-06,
+            "optimal": 1
+        },
+        {
+            "experiment": 7,
+            "duration": 8.344650268554688e-06,
+            "optimal": 1
+        },
+        {
+            "experiment": 8,
+            "duration": 6.67572021484375e-06,
+            "optimal": 0
+        },
+        {
+            "experiment": 9,
+            "duration": 8.344650268554688e-06,
+            "optimal": 0
+        },
+        {
+            "experiment": 10,
+            "duration": 8.821487426757812e-06,
+            "optimal": 2
+        },
+        {
+            "experiment": 11,
+            "duration": 9.298324584960938e-06,
+            "optimal": 1
+        },
+        {
+            "experiment": 12,
+            "duration": 8.106231689453125e-06,
+            "optimal": 0
+        },
+        {
+            "experiment": 13,
+            "duration": 7.867813110351562e-06,
+            "optimal": 0
+        },
+        {
+            "experiment": 14,
+            "duration": 8.344650268554688e-06,
+            "optimal": 1
+        },
+        {
+            "experiment": 15,
+            "duration": 7.867813110351562e-06,
+            "optimal": 0
+        },
+        {
+            "experiment": 16,
+            "duration": 1.0251998901367188e-05,
+            "optimal": 1
+        },
+        {
+            "experiment": 17,
+            "duration": 8.58306884765625e-06,
+            "optimal": 1
+        },
+        {
+            "experiment": 18,
+            "duration": 7.3909759521484375e-06,
+            "optimal": 0
+        },
+        {
+            "experiment": 19,
+            "duration": 7.62939453125e-06,
+            "optimal": 2
+        },
+        {
+            "experiment": 20,
+            "duration": 8.58306884765625e-06,
+            "optimal": 0
+        },
+        {
+            "experiment": 21,
+            "duration": 1.1444091796875e-05,
+            "optimal": 2
+        },
+        {
+            "experiment": 22,
+            "duration": 9.5367431640625e-06,
+            "optimal": 1
+        },
+        {
+            "experiment": 23,
+            "duration": 1.0728836059570312e-05,
+            "optimal": 2
+        },
+        {
+            "experiment": 24,
+            "duration": 1.239776611328125e-05,
+            "optimal": 2
+        },
+        {
+            "experiment": 25,
+            "duration": 1.1444091796875e-05,
+            "optimal": 2
+        },
+        {
+            "experiment": 26,
+            "duration": 1.1444091796875e-05,
+            "optimal": 1
+        },
+        {
+            "experiment": 27,
+            "duration": 1.2159347534179688e-05,
+            "optimal": 2
+        },
+        {
+            "experiment": 28,
+            "duration": 1.2874603271484375e-05,
+            "optimal": 2
+        },
+        {
+            "experiment": 29,
+            "duration": 1.1444091796875e-05,
+            "optimal": 2
+        },
+        {
+            "experiment": 30,
+            "duration": 1.0013580322265625e-05,
+            "optimal": 1
+        },
+        {
+            "experiment": 31,
+            "duration": 1.049041748046875e-05,
+            "optimal": 1
+        },
+        {
+            "experiment": 32,
+            "duration": 1.2159347534179688e-05,
+            "optimal": 3
+        },
+        {
+            "experiment": 33,
+            "duration": 1.2159347534179688e-05,
+            "optimal": 3
+        },
+        {
+            "experiment": 34,
+            "duration": 1.2159347534179688e-05,
+            "optimal": 3
+        },
+        {
+            "experiment": 35,
+            "duration": 1.1444091796875e-05,
+            "optimal": 2
+        },
+        {
+            "experiment": 36,
+            "duration": 1.1444091796875e-05,
+            "optimal": 2
+        },
+        {
+            "experiment": 37,
+            "duration": 1.1444091796875e-05,
+            "optimal": 3
+        },
+        {
+            "experiment": 38,
+            "duration": 1.1444091796875e-05,
+            "optimal": 1
+        },
+        {
+            "experiment": 39,
+            "duration": 9.298324584960938e-06,
+            "optimal": 1
+        },
+        {
+            "experiment": 40,
+            "duration": 1.0728836059570312e-05,
+            "optimal": 2
+        },
+        {
+            "experiment": 41,
+            "duration": 1.5735626220703125e-05,
+            "optimal": 4
+        },
+        {
+            "experiment": 42,
+            "duration": 1.6927719116210938e-05,
+            "optimal": 3
+        },
+        {
+            "experiment": 43,
+            "duration": 1.5974044799804688e-05,
+            "optimal": 4
+        },
+        {
+            "experiment": 44,
+            "duration": 1.621246337890625e-05,
+            "optimal": 3
+        },
+        {
+            "experiment": 45,
+            "duration": 1.5974044799804688e-05,
+            "optimal": 3
+        },
+        {
+            "experiment": 46,
+            "duration": 1.71661376953125e-05,
+            "optimal": 4
+        },
+        {
+            "experiment": 47,
+            "duration": 1.5974044799804688e-05,
+            "optimal": 2
+        },
+        {
+            "experiment": 48,
+            "duration": 9.298324584960938e-06,
+            "optimal": 1
+        },
+        {
+            "experiment": 49,
+            "duration": 1.7881393432617188e-05,
+            "optimal": 2
+        },
+        {
+            "experiment": 50,
+            "duration": 1.8835067749023438e-05,
+            "optimal": 4
+        },
+        {
+            "experiment": 51,
+            "duration": 1.6450881958007812e-05,
+            "optimal": 3
+        },
+        {
+            "experiment": 52,
+            "duration": 1.9073486328125e-05,
+            "optimal": 3
+        },
+        {
+            "experiment": 53,
+            "duration": 1.3828277587890625e-05,
+            "optimal": 4
+        },
+        {
+            "experiment": 54,
+            "duration": 1.4781951904296875e-05,
+            "optimal": 3
+        },
+        {
+            "experiment": 55,
+            "duration": 1.52587890625e-05,
+            "optimal": 3
+        },
+        {
+            "experiment": 56,
+            "duration": 1.7642974853515625e-05,
+            "optimal": 4
+        },
+        {
+            "experiment": 57,
+            "duration": 1.33514404296875e-05,
+            "optimal": 2
+        },
+        {
+            "experiment": 58,
+            "duration": 2.4080276489257812e-05,
+            "optimal": 4
+        },
+        {
+            "experiment": 59,
+            "duration": 1.3113021850585938e-05,
+            "optimal": 2
+        },
+        {
+            "experiment": 60,
+            "duration": 1.8596649169921875e-05,
+            "optimal": 2
+        },
+        {
+            "experiment": 61,
+            "duration": 1.7642974853515625e-05,
             "optimal": 5
+        },
+        {
+            "experiment": 62,
+            "duration": 2.4557113647460938e-05,
+            "optimal": 4
+        },
+        {
+            "experiment": 63,
+            "duration": 3.814697265625e-05,
+            "optimal": 5
+        },
+        {
+            "experiment": 64,
+            "duration": 2.384185791015625e-05,
+            "optimal": 4
+        },
+        {
+            "experiment": 65,
+            "duration": 1.7404556274414062e-05,
+            "optimal": 4
+        },
+        {
+            "experiment": 66,
+            "duration": 3.5762786865234375e-05,
+            "optimal": 4
+        },
+        {
+            "experiment": 67,
+            "duration": 3.719329833984375e-05,
+            "optimal": 5
+        },
+        {
+            "experiment": 68,
+            "duration": 9.5367431640625e-06,
+            "optimal": 0
+        },
+        {
+            "experiment": 69,
+            "duration": 2.384185791015625e-05,
+            "optimal": 5
+        },
+        {
+            "experiment": 70,
+            "duration": 1.52587890625e-05,
+            "optimal": 1
+        },
+        {
+            "experiment": 71,
+            "duration": 1.8596649169921875e-05,
+            "optimal": 3
+        },
+        {
+            "experiment": 72,
+            "duration": 2.7179718017578125e-05,
+            "optimal": 5
+        },
+        {
+            "experiment": 73,
+            "duration": 2.574920654296875e-05,
+            "optimal": 5
+        },
+        {
+            "experiment": 74,
+            "duration": 1.5735626220703125e-05,
+            "optimal": 3
+        },
+        {
+            "experiment": 75,
+            "duration": 2.86102294921875e-05,
+            "optimal": 4
+        },
+        {
+            "experiment": 76,
+            "duration": 4.172325134277344e-05,
+            "optimal": 5
+        },
+        {
+            "experiment": 77,
+            "duration": 1.5020370483398438e-05,
+            "optimal": 3
+        },
+        {
+            "experiment": 78,
+            "duration": 1.0728836059570312e-05,
+            "optimal": 1
+        },
+        {
+            "experiment": 79,
+            "duration": 3.5762786865234375e-05,
+            "optimal": 3
+        },
+        {
+            "experiment": 80,
+            "duration": 2.574920654296875e-05,
+            "optimal": 5
+        },
+        {
+            "experiment": 81,
+            "duration": 3.6716461181640625e-05,
+            "optimal": 6
+        },
+        {
+            "experiment": 82,
+            "duration": 2.5033950805664062e-05,
+            "optimal": 3
+        },
+        {
+            "experiment": 83,
+            "duration": 2.09808349609375e-05,
+            "optimal": 2
+        },
+        {
+            "experiment": 84,
+            "duration": 2.4557113647460938e-05,
+            "optimal": 3
+        },
+        {
+            "experiment": 85,
+            "duration": 5.3882598876953125e-05,
+            "optimal": 6
+        },
+        {
+            "experiment": 86,
+            "duration": 1.8596649169921875e-05,
+            "optimal": 2
+        },
+        {
+            "experiment": 87,
+            "duration": 3.743171691894531e-05,
+            "optimal": 4
+        },
+        {
+            "experiment": 88,
+            "duration": 7.152557373046875e-05,
+            "optimal": 6
+        },
+        {
+            "experiment": 89,
+            "duration": 1.8596649169921875e-05,
+            "optimal": 2
+        },
+        {
+            "experiment": 90,
+            "duration": 5.53131103515625e-05,
+            "optimal": 5
+        },
+        {
+            "experiment": 91,
+            "duration": 3.314018249511719e-05,
+            "optimal": 3
+        },
+        {
+            "experiment": 92,
+            "duration": 5.7220458984375e-05,
+            "optimal": 6
+        },
+        {
+            "experiment": 93,
+            "duration": 2.3126602172851562e-05,
+            "optimal": 3
+        },
+        {
+            "experiment": 94,
+            "duration": 4.7206878662109375e-05,
+            "optimal": 5
+        },
+        {
+            "experiment": 95,
+            "duration": 2.7894973754882812e-05,
+            "optimal": 3
+        },
+        {
+            "experiment": 96,
+            "duration": 7.343292236328125e-05,
+            "optimal": 6
+        },
+        {
+            "experiment": 97,
+            "duration": 2.7179718017578125e-05,
+            "optimal": 3
+        },
+        {
+            "experiment": 98,
+            "duration": 3.8623809814453125e-05,
+            "optimal": 6
+        },
+        {
+            "experiment": 99,
+            "duration": 2.3603439331054688e-05,
+            "optimal": 4
+        },
+        {
+            "experiment": 100,
+            "duration": 5.340576171875e-05,
+            "optimal": 5
+        },
+        {
+            "experiment": 101,
+            "duration": 2.4318695068359375e-05,
+            "optimal": 3
+        },
+        {
+            "experiment": 102,
+            "duration": 5.888938903808594e-05,
+            "optimal": 5
+        },
+        {
+            "experiment": 103,
+            "duration": 0.00017070770263671875,
+            "optimal": 6
+        },
+        {
+            "experiment": 104,
+            "duration": 1.5497207641601562e-05,
+            "optimal": 2
+        },
+        {
+            "experiment": 105,
+            "duration": 9.608268737792969e-05,
+            "optimal": 6
+        },
+        {
+            "experiment": 106,
+            "duration": 9.250640869140625e-05,
+            "optimal": 5
+        },
+        {
+            "experiment": 107,
+            "duration": 0.0001163482666015625,
+            "optimal": 6
+        },
+        {
+            "experiment": 108,
+            "duration": 5.125999450683594e-05,
+            "optimal": 4
+        },
+        {
+            "experiment": 109,
+            "duration": 7.843971252441406e-05,
+            "optimal": 7
+        },
+        {
+            "experiment": 110,
+            "duration": 0.00011801719665527344,
+            "optimal": 7
+        },
+        {
+            "experiment": 111,
+            "duration": 0.00014543533325195312,
+            "optimal": 6
+        },
+        {
+            "experiment": 112,
+            "duration": 3.7670135498046875e-05,
+            "optimal": 4
+        },
+        {
+            "experiment": 113,
+            "duration": 0.00010895729064941406,
+            "optimal": 5
+        },
+        {
+            "experiment": 114,
+            "duration": 3.647804260253906e-05,
+            "optimal": 4
+        },
+        {
+            "experiment": 115,
+            "duration": 4.3392181396484375e-05,
+            "optimal": 4
+        },
+        {
+            "experiment": 116,
+            "duration": 0.00012254714965820312,
+            "optimal": 6
+        },
+        {
+            "experiment": 117,
+            "duration": 5.125999450683594e-05,
+            "optimal": 4
+        },
+        {
+            "experiment": 118,
+            "duration": 6.914138793945312e-05,
+            "optimal": 6
+        },
+        {
+            "experiment": 119,
+            "duration": 3.933906555175781e-05,
+            "optimal": 3
+        },
+        {
+            "experiment": 120,
+            "duration": 6.103515625e-05,
+            "optimal": 5
+        },
+        {
+            "experiment": 121,
+            "duration": 0.0001914501190185547,
+            "optimal": 6
+        },
+        {
+            "experiment": 122,
+            "duration": 0.0002281665802001953,
+            "optimal": 6
+        },
+        {
+            "experiment": 123,
+            "duration": 0.0001201629638671875,
+            "optimal": 6
+        },
+        {
+            "experiment": 124,
+            "duration": 5.412101745605469e-05,
+            "optimal": 6
+        },
+        {
+            "experiment": 125,
+            "duration": 0.0001685619354248047,
+            "optimal": 8
+        },
+        {
+            "experiment": 126,
+            "duration": 0.000125885009765625,
+            "optimal": 7
+        },
+        {
+            "experiment": 127,
+            "duration": 0.00029087066650390625,
+            "optimal": 7
+        },
+        {
+            "experiment": 128,
+            "duration": 0.0004749298095703125,
+            "optimal": 7
+        },
+        {
+            "experiment": 129,
+            "duration": 9.226799011230469e-05,
+            "optimal": 5
+        },
+        {
+            "experiment": 130,
+            "duration": 0.00012040138244628906,
+            "optimal": 6
+        },
+        {
+            "experiment": 131,
+            "duration": 0.00026988983154296875,
+            "optimal": 7
+        },
+        {
+            "experiment": 132,
+            "duration": 0.00021529197692871094,
+            "optimal": 7
+        },
+        {
+            "experiment": 133,
+            "duration": 9.012222290039062e-05,
+            "optimal": 6
+        },
+        {
+            "experiment": 134,
+            "duration": 6.0558319091796875e-05,
+            "optimal": 5
+        },
+        {
+            "experiment": 135,
+            "duration": 0.00017380714416503906,
+            "optimal": 8
+        },
+        {
+            "experiment": 136,
+            "duration": 0.0006461143493652344,
+            "optimal": 7
+        },
+        {
+            "experiment": 137,
+            "duration": 3.457069396972656e-05,
+            "optimal": 4
+        },
+        {
+            "experiment": 138,
+            "duration": 0.00020503997802734375,
+            "optimal": 7
+        },
+        {
+            "experiment": 139,
+            "duration": 0.000125885009765625,
+            "optimal": 6
+        },
+        {
+            "experiment": 140,
+            "duration": 0.00028634071350097656,
+            "optimal": 8
+        },
+        {
+            "experiment": 141,
+            "duration": 0.0010385513305664062,
+            "optimal": 7
+        },
+        {
+            "experiment": 142,
+            "duration": 0.0006346702575683594,
+            "optimal": 8
+        },
+        {
+            "experiment": 143,
+            "duration": 0.00022077560424804688,
+            "optimal": 8
+        },
+        {
+            "experiment": 144,
+            "duration": 0.0014171600341796875,
+            "optimal": 8
+        },
+        {
+            "experiment": 145,
+            "duration": 0.0017766952514648438,
+            "optimal": 8
+        },
+        {
+            "experiment": 146,
+            "duration": 0.0007145404815673828,
+            "optimal": 8
+        },
+        {
+            "experiment": 147,
+            "duration": 5.245208740234375e-05,
+            "optimal": 4
+        },
+        {
+            "experiment": 148,
+            "duration": 5.5789947509765625e-05,
+            "optimal": 5
+        },
+        {
+            "experiment": 149,
+            "duration": 0.0010573863983154297,
+            "optimal": 9
+        },
+        {
+            "experiment": 150,
+            "duration": 0.00010752677917480469,
+            "optimal": 4
+        },
+        {
+            "experiment": 151,
+            "duration": 0.00042557716369628906,
+            "optimal": 9
+        },
+        {
+            "experiment": 152,
+            "duration": 0.00020623207092285156,
+            "optimal": 6
+        },
+        {
+            "experiment": 153,
+            "duration": 0.00024056434631347656,
+            "optimal": 7
+        },
+        {
+            "experiment": 154,
+            "duration": 0.0007939338684082031,
+            "optimal": 7
+        },
+        {
+            "experiment": 155,
+            "duration": 0.00029087066650390625,
+            "optimal": 6
+        },
+        {
+            "experiment": 156,
+            "duration": 0.0002193450927734375,
+            "optimal": 7
+        },
+        {
+            "experiment": 157,
+            "duration": 0.0008924007415771484,
+            "optimal": 8
+        },
+        {
+            "experiment": 158,
+            "duration": 0.00025463104248046875,
+            "optimal": 7
+        },
+        {
+            "experiment": 159,
+            "duration": 0.0006597042083740234,
+            "optimal": 7
+        },
+        {
+            "experiment": 160,
+            "duration": 0.0001723766326904297,
+            "optimal": 7
         }
     ],
     "dynamic_programming_dynamic_computing": [
         {
             "experiment": 1,
-            "duration": 4.100799560546875e-05,
+            "duration": 1.2874603271484375e-05,
+            "optimal": 1
+        },
+        {
+            "experiment": 2,
+            "duration": 8.106231689453125e-06,
+            "optimal": 0
+        },
+        {
+            "experiment": 3,
+            "duration": 6.67572021484375e-06,
+            "optimal": 0
+        },
+        {
+            "experiment": 4,
+            "duration": 8.344650268554688e-06,
+            "optimal": 2
+        },
+        {
+            "experiment": 5,
+            "duration": 7.867813110351562e-06,
+            "optimal": 1
+        },
+        {
+            "experiment": 6,
+            "duration": 7.867813110351562e-06,
+            "optimal": 1
+        },
+        {
+            "experiment": 7,
+            "duration": 8.106231689453125e-06,
+            "optimal": 1
+        },
+        {
+            "experiment": 8,
+            "duration": 6.4373016357421875e-06,
+            "optimal": 0
+        },
+        {
+            "experiment": 9,
+            "duration": 7.3909759521484375e-06,
+            "optimal": 0
+        },
+        {
+            "experiment": 10,
+            "duration": 8.821487426757812e-06,
+            "optimal": 2
+        },
+        {
+            "experiment": 11,
+            "duration": 8.344650268554688e-06,
+            "optimal": 1
+        },
+        {
+            "experiment": 12,
+            "duration": 7.152557373046875e-06,
+            "optimal": 0
+        },
+        {
+            "experiment": 13,
+            "duration": 6.67572021484375e-06,
+            "optimal": 0
+        },
+        {
+            "experiment": 14,
+            "duration": 8.106231689453125e-06,
+            "optimal": 1
+        },
+        {
+            "experiment": 15,
+            "duration": 7.152557373046875e-06,
+            "optimal": 0
+        },
+        {
+            "experiment": 16,
+            "duration": 9.5367431640625e-06,
+            "optimal": 1
+        },
+        {
+            "experiment": 17,
+            "duration": 7.62939453125e-06,
+            "optimal": 1
+        },
+        {
+            "experiment": 18,
+            "duration": 5.9604644775390625e-06,
+            "optimal": 0
+        },
+        {
+            "experiment": 19,
+            "duration": 7.152557373046875e-06,
+            "optimal": 2
+        },
+        {
+            "experiment": 20,
+            "duration": 7.3909759521484375e-06,
+            "optimal": 0
+        },
+        {
+            "experiment": 21,
+            "duration": 9.5367431640625e-06,
+            "optimal": 2
+        },
+        {
+            "experiment": 22,
+            "duration": 8.58306884765625e-06,
+            "optimal": 1
+        },
+        {
+            "experiment": 23,
+            "duration": 9.298324584960938e-06,
+            "optimal": 2
+        },
+        {
+            "experiment": 24,
+            "duration": 1.0728836059570312e-05,
+            "optimal": 2
+        },
+        {
+            "experiment": 25,
+            "duration": 9.775161743164062e-06,
+            "optimal": 2
+        },
+        {
+            "experiment": 26,
+            "duration": 9.5367431640625e-06,
+            "optimal": 1
+        },
+        {
+            "experiment": 27,
+            "duration": 1.0728836059570312e-05,
+            "optimal": 2
+        },
+        {
+            "experiment": 28,
+            "duration": 1.1682510375976562e-05,
+            "optimal": 2
+        },
+        {
+            "experiment": 29,
+            "duration": 1.0013580322265625e-05,
+            "optimal": 2
+        },
+        {
+            "experiment": 30,
+            "duration": 9.059906005859375e-06,
+            "optimal": 1
+        },
+        {
+            "experiment": 31,
+            "duration": 9.059906005859375e-06,
+            "optimal": 1
+        },
+        {
+            "experiment": 32,
+            "duration": 1.1682510375976562e-05,
+            "optimal": 3
+        },
+        {
+            "experiment": 33,
+            "duration": 1.0967254638671875e-05,
+            "optimal": 3
+        },
+        {
+            "experiment": 34,
+            "duration": 1.049041748046875e-05,
+            "optimal": 3
+        },
+        {
+            "experiment": 35,
+            "duration": 1.0013580322265625e-05,
+            "optimal": 2
+        },
+        {
+            "experiment": 36,
+            "duration": 1.0013580322265625e-05,
+            "optimal": 2
+        },
+        {
+            "experiment": 37,
+            "duration": 1.1205673217773438e-05,
+            "optimal": 3
+        },
+        {
+            "experiment": 38,
+            "duration": 9.5367431640625e-06,
+            "optimal": 1
+        },
+        {
+            "experiment": 39,
+            "duration": 7.62939453125e-06,
+            "optimal": 1
+        },
+        {
+            "experiment": 40,
+            "duration": 9.775161743164062e-06,
+            "optimal": 2
+        },
+        {
+            "experiment": 41,
+            "duration": 1.4066696166992188e-05,
+            "optimal": 4
+        },
+        {
+            "experiment": 42,
+            "duration": 1.4543533325195312e-05,
+            "optimal": 3
+        },
+        {
+            "experiment": 43,
+            "duration": 1.5020370483398438e-05,
+            "optimal": 4
+        },
+        {
+            "experiment": 44,
+            "duration": 1.430511474609375e-05,
+            "optimal": 3
+        },
+        {
+            "experiment": 45,
+            "duration": 1.430511474609375e-05,
+            "optimal": 3
+        },
+        {
+            "experiment": 46,
+            "duration": 2.09808349609375e-05,
+            "optimal": 4
+        },
+        {
+            "experiment": 47,
+            "duration": 1.7881393432617188e-05,
+            "optimal": 2
+        },
+        {
+            "experiment": 48,
+            "duration": 8.58306884765625e-06,
+            "optimal": 1
+        },
+        {
+            "experiment": 49,
+            "duration": 1.71661376953125e-05,
+            "optimal": 2
+        },
+        {
+            "experiment": 50,
+            "duration": 1.6927719116210938e-05,
+            "optimal": 4
+        },
+        {
+            "experiment": 51,
+            "duration": 1.52587890625e-05,
+            "optimal": 3
+        },
+        {
+            "experiment": 52,
+            "duration": 1.811981201171875e-05,
+            "optimal": 3
+        },
+        {
+            "experiment": 53,
+            "duration": 1.2636184692382812e-05,
+            "optimal": 4
+        },
+        {
+            "experiment": 54,
+            "duration": 1.3589859008789062e-05,
+            "optimal": 3
+        },
+        {
+            "experiment": 55,
+            "duration": 1.430511474609375e-05,
+            "optimal": 3
+        },
+        {
+            "experiment": 56,
+            "duration": 1.621246337890625e-05,
+            "optimal": 4
+        },
+        {
+            "experiment": 57,
+            "duration": 1.1920928955078125e-05,
+            "optimal": 2
+        },
+        {
+            "experiment": 58,
+            "duration": 1.7881393432617188e-05,
+            "optimal": 4
+        },
+        {
+            "experiment": 59,
+            "duration": 1.33514404296875e-05,
+            "optimal": 2
+        },
+        {
+            "experiment": 60,
+            "duration": 1.33514404296875e-05,
+            "optimal": 2
+        },
+        {
+            "experiment": 61,
+            "duration": 1.52587890625e-05,
             "optimal": 5
+        },
+        {
+            "experiment": 62,
+            "duration": 2.2411346435546875e-05,
+            "optimal": 4
+        },
+        {
+            "experiment": 63,
+            "duration": 3.5762786865234375e-05,
+            "optimal": 5
+        },
+        {
+            "experiment": 64,
+            "duration": 2.193450927734375e-05,
+            "optimal": 4
+        },
+        {
+            "experiment": 65,
+            "duration": 1.621246337890625e-05,
+            "optimal": 4
+        },
+        {
+            "experiment": 66,
+            "duration": 3.743171691894531e-05,
+            "optimal": 4
+        },
+        {
+            "experiment": 67,
+            "duration": 3.266334533691406e-05,
+            "optimal": 5
+        },
+        {
+            "experiment": 68,
+            "duration": 7.152557373046875e-06,
+            "optimal": 0
+        },
+        {
+            "experiment": 69,
+            "duration": 2.288818359375e-05,
+            "optimal": 5
+        },
+        {
+            "experiment": 70,
+            "duration": 1.430511474609375e-05,
+            "optimal": 1
+        },
+        {
+            "experiment": 71,
+            "duration": 1.6689300537109375e-05,
+            "optimal": 3
+        },
+        {
+            "experiment": 72,
+            "duration": 2.5033950805664062e-05,
+            "optimal": 5
+        },
+        {
+            "experiment": 73,
+            "duration": 2.2411346435546875e-05,
+            "optimal": 5
+        },
+        {
+            "experiment": 74,
+            "duration": 1.3828277587890625e-05,
+            "optimal": 3
+        },
+        {
+            "experiment": 75,
+            "duration": 2.5987625122070312e-05,
+            "optimal": 4
+        },
+        {
+            "experiment": 76,
+            "duration": 3.9577484130859375e-05,
+            "optimal": 5
+        },
+        {
+            "experiment": 77,
+            "duration": 1.2636184692382812e-05,
+            "optimal": 3
+        },
+        {
+            "experiment": 78,
+            "duration": 9.775161743164062e-06,
+            "optimal": 1
+        },
+        {
+            "experiment": 79,
+            "duration": 2.2411346435546875e-05,
+            "optimal": 3
+        },
+        {
+            "experiment": 80,
+            "duration": 2.3603439331054688e-05,
+            "optimal": 5
+        },
+        {
+            "experiment": 81,
+            "duration": 4.100799560546875e-05,
+            "optimal": 6
+        },
+        {
+            "experiment": 82,
+            "duration": 2.3365020751953125e-05,
+            "optimal": 3
+        },
+        {
+            "experiment": 83,
+            "duration": 1.52587890625e-05,
+            "optimal": 2
+        },
+        {
+            "experiment": 84,
+            "duration": 2.3603439331054688e-05,
+            "optimal": 3
+        },
+        {
+            "experiment": 85,
+            "duration": 5.125999450683594e-05,
+            "optimal": 6
+        },
+        {
+            "experiment": 86,
+            "duration": 1.5735626220703125e-05,
+            "optimal": 2
+        },
+        {
+            "experiment": 87,
+            "duration": 3.24249267578125e-05,
+            "optimal": 4
+        },
+        {
+            "experiment": 88,
+            "duration": 5.269050598144531e-05,
+            "optimal": 6
+        },
+        {
+            "experiment": 89,
+            "duration": 1.5735626220703125e-05,
+            "optimal": 2
+        },
+        {
+            "experiment": 90,
+            "duration": 5.1975250244140625e-05,
+            "optimal": 5
+        },
+        {
+            "experiment": 91,
+            "duration": 2.8133392333984375e-05,
+            "optimal": 3
+        },
+        {
+            "experiment": 92,
+            "duration": 6.270408630371094e-05,
+            "optimal": 6
+        },
+        {
+            "experiment": 93,
+            "duration": 2.0742416381835938e-05,
+            "optimal": 3
+        },
+        {
+            "experiment": 94,
+            "duration": 4.482269287109375e-05,
+            "optimal": 5
+        },
+        {
+            "experiment": 95,
+            "duration": 2.5510787963867188e-05,
+            "optimal": 3
+        },
+        {
+            "experiment": 96,
+            "duration": 6.842613220214844e-05,
+            "optimal": 6
+        },
+        {
+            "experiment": 97,
+            "duration": 2.4557113647460938e-05,
+            "optimal": 3
+        },
+        {
+            "experiment": 98,
+            "duration": 3.504753112792969e-05,
+            "optimal": 6
+        },
+        {
+            "experiment": 99,
+            "duration": 3.075599670410156e-05,
+            "optimal": 4
+        },
+        {
+            "experiment": 100,
+            "duration": 5.14984130859375e-05,
+            "optimal": 5
+        },
+        {
+            "experiment": 101,
+            "duration": 2.3126602172851562e-05,
+            "optimal": 3
+        },
+        {
+            "experiment": 102,
+            "duration": 5.555152893066406e-05,
+            "optimal": 5
+        },
+        {
+            "experiment": 103,
+            "duration": 0.0001633167266845703,
+            "optimal": 6
+        },
+        {
+            "experiment": 104,
+            "duration": 1.2874603271484375e-05,
+            "optimal": 2
+        },
+        {
+            "experiment": 105,
+            "duration": 0.00012803077697753906,
+            "optimal": 6
+        },
+        {
+            "experiment": 106,
+            "duration": 8.821487426757812e-05,
+            "optimal": 5
+        },
+        {
+            "experiment": 107,
+            "duration": 0.00011777877807617188,
+            "optimal": 6
+        },
+        {
+            "experiment": 108,
+            "duration": 4.792213439941406e-05,
+            "optimal": 4
+        },
+        {
+            "experiment": 109,
+            "duration": 7.534027099609375e-05,
+            "optimal": 7
+        },
+        {
+            "experiment": 110,
+            "duration": 0.00010395050048828125,
+            "optimal": 7
+        },
+        {
+            "experiment": 111,
+            "duration": 0.00014257431030273438,
+            "optimal": 6
+        },
+        {
+            "experiment": 112,
+            "duration": 3.600120544433594e-05,
+            "optimal": 4
+        },
+        {
+            "experiment": 113,
+            "duration": 0.00010418891906738281,
+            "optimal": 5
+        },
+        {
+            "experiment": 114,
+            "duration": 3.314018249511719e-05,
+            "optimal": 4
+        },
+        {
+            "experiment": 115,
+            "duration": 3.981590270996094e-05,
+            "optimal": 4
+        },
+        {
+            "experiment": 116,
+            "duration": 0.00013017654418945312,
+            "optimal": 6
+        },
+        {
+            "experiment": 117,
+            "duration": 4.172325134277344e-05,
+            "optimal": 4
+        },
+        {
+            "experiment": 118,
+            "duration": 6.437301635742188e-05,
+            "optimal": 6
+        },
+        {
+            "experiment": 119,
+            "duration": 3.123283386230469e-05,
+            "optimal": 3
+        },
+        {
+            "experiment": 120,
+            "duration": 6.079673767089844e-05,
+            "optimal": 5
+        },
+        {
+            "experiment": 121,
+            "duration": 0.00019240379333496094,
+            "optimal": 6
+        },
+        {
+            "experiment": 122,
+            "duration": 0.00022912025451660156,
+            "optimal": 6
+        },
+        {
+            "experiment": 123,
+            "duration": 0.00011682510375976562,
+            "optimal": 6
+        },
+        {
+            "experiment": 124,
+            "duration": 5.316734313964844e-05,
+            "optimal": 6
+        },
+        {
+            "experiment": 125,
+            "duration": 0.00016307830810546875,
+            "optimal": 8
+        },
+        {
+            "experiment": 126,
+            "duration": 0.0001201629638671875,
+            "optimal": 7
+        },
+        {
+            "experiment": 127,
+            "duration": 0.00029468536376953125,
+            "optimal": 7
+        },
+        {
+            "experiment": 128,
+            "duration": 0.0004620552062988281,
+            "optimal": 7
+        },
+        {
+            "experiment": 129,
+            "duration": 9.107589721679688e-05,
+            "optimal": 5
+        },
+        {
+            "experiment": 130,
+            "duration": 0.00012063980102539062,
+            "optimal": 6
+        },
+        {
+            "experiment": 131,
+            "duration": 0.00026106834411621094,
+            "optimal": 7
+        },
+        {
+            "experiment": 132,
+            "duration": 0.00021696090698242188,
+            "optimal": 7
+        },
+        {
+            "experiment": 133,
+            "duration": 8.654594421386719e-05,
+            "optimal": 6
+        },
+        {
+            "experiment": 134,
+            "duration": 6.127357482910156e-05,
+            "optimal": 5
+        },
+        {
+            "experiment": 135,
+            "duration": 0.0001678466796875,
+            "optimal": 8
+        },
+        {
+            "experiment": 136,
+            "duration": 0.0005900859832763672,
+            "optimal": 7
+        },
+        {
+            "experiment": 137,
+            "duration": 3.0994415283203125e-05,
+            "optimal": 4
+        },
+        {
+            "experiment": 138,
+            "duration": 0.00019598007202148438,
+            "optimal": 7
+        },
+        {
+            "experiment": 139,
+            "duration": 0.00012373924255371094,
+            "optimal": 6
+        },
+        {
+            "experiment": 140,
+            "duration": 0.0002827644348144531,
+            "optimal": 8
+        },
+        {
+            "experiment": 141,
+            "duration": 0.0010519027709960938,
+            "optimal": 7
+        },
+        {
+            "experiment": 142,
+            "duration": 0.0006363391876220703,
+            "optimal": 8
+        },
+        {
+            "experiment": 143,
+            "duration": 0.00022554397583007812,
+            "optimal": 8
+        },
+        {
+            "experiment": 144,
+            "duration": 0.0014081001281738281,
+            "optimal": 8
+        },
+        {
+            "experiment": 145,
+            "duration": 0.0017380714416503906,
+            "optimal": 8
+        },
+        {
+            "experiment": 146,
+            "duration": 0.0007152557373046875,
+            "optimal": 8
+        },
+        {
+            "experiment": 147,
+            "duration": 3.6716461181640625e-05,
+            "optimal": 4
+        },
+        {
+            "experiment": 148,
+            "duration": 5.3882598876953125e-05,
+            "optimal": 5
+        },
+        {
+            "experiment": 149,
+            "duration": 0.0010368824005126953,
+            "optimal": 9
+        },
+        {
+            "experiment": 150,
+            "duration": 0.00010323524475097656,
+            "optimal": 4
+        },
+        {
+            "experiment": 151,
+            "duration": 0.00042510032653808594,
+            "optimal": 9
+        },
+        {
+            "experiment": 152,
+            "duration": 0.0001995563507080078,
+            "optimal": 6
+        },
+        {
+            "experiment": 153,
+            "duration": 0.0002353191375732422,
+            "optimal": 7
+        },
+        {
+            "experiment": 154,
+            "duration": 0.0008087158203125,
+            "optimal": 7
+        },
+        {
+            "experiment": 155,
+            "duration": 0.0002956390380859375,
+            "optimal": 6
+        },
+        {
+            "experiment": 156,
+            "duration": 0.00021839141845703125,
+            "optimal": 7
+        },
+        {
+            "experiment": 157,
+            "duration": 0.0009002685546875,
+            "optimal": 8
+        },
+        {
+            "experiment": 158,
+            "duration": 0.0002503395080566406,
+            "optimal": 7
+        },
+        {
+            "experiment": 159,
+            "duration": 0.000667572021484375,
+            "optimal": 7
+        },
+        {
+            "experiment": 160,
+            "duration": 0.00017452239990234375,
+            "optimal": 7
         }
     ],
     "iqcp": [
         {
             "experiment": 1,
-            "duration": 0.060799598693847656,
+            "duration": 0.04090690612792969,
+            "optimal": 1.0
+        },
+        {
+            "experiment": 2,
+            "duration": 0.0034322738647460938,
+            "optimal": -0.0
+        },
+        {
+            "experiment": 3,
+            "duration": 0.003313302993774414,
+            "optimal": -0.0
+        },
+        {
+            "experiment": 4,
+            "duration": 0.0036330223083496094,
+            "optimal": 2.0
+        },
+        {
+            "experiment": 5,
+            "duration": 0.0035865306854248047,
+            "optimal": 1.0
+        },
+        {
+            "experiment": 6,
+            "duration": 0.009807109832763672,
+            "optimal": 1.0
+        },
+        {
+            "experiment": 7,
+            "duration": 0.003381490707397461,
+            "optimal": 1.0
+        },
+        {
+            "experiment": 8,
+            "duration": 0.009326457977294922,
+            "optimal": -0.0
+        },
+        {
+            "experiment": 9,
+            "duration": 0.003422260284423828,
+            "optimal": -0.0
+        },
+        {
+            "experiment": 10,
+            "duration": 0.0033769607543945312,
+            "optimal": 2.0
+        },
+        {
+            "experiment": 11,
+            "duration": 0.003443479537963867,
+            "optimal": 1.0
+        },
+        {
+            "experiment": 12,
+            "duration": 0.00348663330078125,
+            "optimal": -0.0
+        },
+        {
+            "experiment": 13,
+            "duration": 0.003308534622192383,
+            "optimal": -0.0
+        },
+        {
+            "experiment": 14,
+            "duration": 0.009442567825317383,
+            "optimal": 1.0
+        },
+        {
+            "experiment": 15,
+            "duration": 0.008645772933959961,
+            "optimal": -0.0
+        },
+        {
+            "experiment": 16,
+            "duration": 0.008966207504272461,
+            "optimal": 1.0
+        },
+        {
+            "experiment": 17,
+            "duration": 0.0028443336486816406,
+            "optimal": 1.0
+        },
+        {
+            "experiment": 18,
+            "duration": 0.008784294128417969,
+            "optimal": -0.0
+        },
+        {
+            "experiment": 19,
+            "duration": 0.003393411636352539,
+            "optimal": 2.0
+        },
+        {
+            "experiment": 20,
+            "duration": 0.00843501091003418,
+            "optimal": -0.0
+        },
+        {
+            "experiment": 21,
+            "duration": 0.013681650161743164,
+            "optimal": 2.0
+        },
+        {
+            "experiment": 22,
+            "duration": 0.02865743637084961,
+            "optimal": 1.0
+        },
+        {
+            "experiment": 23,
+            "duration": 0.011550426483154297,
+            "optimal": 2.0
+        },
+        {
+            "experiment": 24,
+            "duration": 0.003317117691040039,
+            "optimal": 2.0
+        },
+        {
+            "experiment": 25,
+            "duration": 0.0033676624298095703,
+            "optimal": 2.0
+        },
+        {
+            "experiment": 26,
+            "duration": 0.016810894012451172,
+            "optimal": 1.0
+        },
+        {
+            "experiment": 27,
+            "duration": 0.0033140182495117188,
+            "optimal": 2.0
+        },
+        {
+            "experiment": 28,
+            "duration": 0.003494739532470703,
+            "optimal": 2.0
+        },
+        {
+            "experiment": 29,
+            "duration": 0.003633737564086914,
+            "optimal": 2.0
+        },
+        {
+            "experiment": 30,
+            "duration": 0.012229442596435547,
+            "optimal": 1.0
+        },
+        {
+            "experiment": 31,
+            "duration": 0.012604236602783203,
+            "optimal": 1.0
+        },
+        {
+            "experiment": 32,
+            "duration": 0.0033376216888427734,
+            "optimal": 3.0
+        },
+        {
+            "experiment": 33,
+            "duration": 0.013421058654785156,
+            "optimal": 3.0
+        },
+        {
+            "experiment": 34,
+            "duration": 0.01307535171508789,
+            "optimal": 3.0
+        },
+        {
+            "experiment": 35,
+            "duration": 0.003452777862548828,
+            "optimal": 2.0
+        },
+        {
+            "experiment": 36,
+            "duration": 0.012753725051879883,
+            "optimal": 2.0
+        },
+        {
+            "experiment": 37,
+            "duration": 0.0133056640625,
+            "optimal": 3.0
+        },
+        {
+            "experiment": 38,
+            "duration": 0.012507915496826172,
+            "optimal": 1.0
+        },
+        {
+            "experiment": 39,
+            "duration": 0.026336193084716797,
+            "optimal": 1.0
+        },
+        {
+            "experiment": 40,
+            "duration": 0.003149271011352539,
+            "optimal": 2.0
+        },
+        {
+            "experiment": 41,
+            "duration": 0.017358064651489258,
+            "optimal": 4.0
+        },
+        {
+            "experiment": 42,
+            "duration": 0.016383886337280273,
+            "optimal": 3.0
+        },
+        {
+            "experiment": 43,
+            "duration": 0.0036940574645996094,
+            "optimal": 4.0
+        },
+        {
+            "experiment": 44,
+            "duration": 0.0036385059356689453,
+            "optimal": 3.0
+        },
+        {
+            "experiment": 45,
+            "duration": 0.016953706741333008,
+            "optimal": 3.0
+        },
+        {
+            "experiment": 46,
+            "duration": 0.017362594604492188,
+            "optimal": 4.0
+        },
+        {
+            "experiment": 47,
+            "duration": 0.01799917221069336,
+            "optimal": 2.0
+        },
+        {
+            "experiment": 48,
+            "duration": 0.03791666030883789,
+            "optimal": 1.0
+        },
+        {
+            "experiment": 49,
+            "duration": 0.017226219177246094,
+            "optimal": 2.0
+        },
+        {
+            "experiment": 50,
+            "duration": 0.01618790626525879,
+            "optimal": 4.0
+        },
+        {
+            "experiment": 51,
+            "duration": 0.0035216808319091797,
+            "optimal": 3.0
+        },
+        {
+            "experiment": 52,
+            "duration": 0.0034761428833007812,
+            "optimal": 3.0
+        },
+        {
+            "experiment": 53,
+            "duration": 0.01572704315185547,
+            "optimal": 4.0
+        },
+        {
+            "experiment": 54,
+            "duration": 0.01607036590576172,
+            "optimal": 3.0
+        },
+        {
+            "experiment": 55,
+            "duration": 0.0032553672790527344,
+            "optimal": 3.0
+        },
+        {
+            "experiment": 56,
+            "duration": 0.015976428985595703,
+            "optimal": 4.0
+        },
+        {
+            "experiment": 57,
+            "duration": 0.0414276123046875,
+            "optimal": 2.0
+        },
+        {
+            "experiment": 58,
+            "duration": 0.01632380485534668,
+            "optimal": 4.0
+        },
+        {
+            "experiment": 59,
+            "duration": 0.04204607009887695,
+            "optimal": 2.0
+        },
+        {
+            "experiment": 60,
+            "duration": 0.016462087631225586,
+            "optimal": 2.0
+        },
+        {
+            "experiment": 61,
+            "duration": 0.05651354789733887,
             "optimal": 5.0
+        },
+        {
+            "experiment": 62,
+            "duration": 0.004027605056762695,
+            "optimal": 4.0
+        },
+        {
+            "experiment": 63,
+            "duration": 0.02263665199279785,
+            "optimal": 5.0
+        },
+        {
+            "experiment": 64,
+            "duration": 0.0037560462951660156,
+            "optimal": 4.0
+        },
+        {
+            "experiment": 65,
+            "duration": 0.021713972091674805,
+            "optimal": 4.0
+        },
+        {
+            "experiment": 66,
+            "duration": 0.022819042205810547,
+            "optimal": 4.0
+        },
+        {
+            "experiment": 67,
+            "duration": 0.05524158477783203,
+            "optimal": 5.0
+        },
+        {
+            "experiment": 68,
+            "duration": 0.1585533618927002,
+            "optimal": -0.0
+        },
+        {
+            "experiment": 69,
+            "duration": 0.023759126663208008,
+            "optimal": 5.0
+        },
+        {
+            "experiment": 70,
+            "duration": 0.05705690383911133,
+            "optimal": 1.0
+        },
+        {
+            "experiment": 71,
+            "duration": 0.023844003677368164,
+            "optimal": 3.0
+        },
+        {
+            "experiment": 72,
+            "duration": 0.023743152618408203,
+            "optimal": 5.0
+        },
+        {
+            "experiment": 73,
+            "duration": 0.003936052322387695,
+            "optimal": 5.0
+        },
+        {
+            "experiment": 74,
+            "duration": 0.05643463134765625,
+            "optimal": 3.0
+        },
+        {
+            "experiment": 75,
+            "duration": 0.02364206314086914,
+            "optimal": 4.0
+        },
+        {
+            "experiment": 76,
+            "duration": 0.0038051605224609375,
+            "optimal": 5.0
+        },
+        {
+            "experiment": 77,
+            "duration": 0.019979238510131836,
+            "optimal": 3.0
+        },
+        {
+            "experiment": 78,
+            "duration": 0.0952906608581543,
+            "optimal": 1.0
+        },
+        {
+            "experiment": 79,
+            "duration": 0.05516958236694336,
+            "optimal": 3.0
+        },
+        {
+            "experiment": 80,
+            "duration": 0.02073812484741211,
+            "optimal": 5.0
+        },
+        {
+            "experiment": 81,
+            "duration": 0.07224249839782715,
+            "optimal": 6.0
+        },
+        {
+            "experiment": 82,
+            "duration": 0.02744460105895996,
+            "optimal": 3.0
+        },
+        {
+            "experiment": 83,
+            "duration": 0.07129740715026855,
+            "optimal": 2.0
+        },
+        {
+            "experiment": 84,
+            "duration": 0.07414507865905762,
+            "optimal": 3.0
+        },
+        {
+            "experiment": 85,
+            "duration": 0.07008910179138184,
+            "optimal": 6.0
+        },
+        {
+            "experiment": 86,
+            "duration": 0.13276195526123047,
+            "optimal": 2.0
+        },
+        {
+            "experiment": 87,
+            "duration": 0.0701744556427002,
+            "optimal": 4.0
+        },
+        {
+            "experiment": 88,
+            "duration": 0.028879880905151367,
+            "optimal": 6.0
+        },
+        {
+            "experiment": 89,
+            "duration": 0.07031488418579102,
+            "optimal": 2.0
+        },
+        {
+            "experiment": 90,
+            "duration": 0.0713036060333252,
+            "optimal": 5.0
+        },
+        {
+            "experiment": 91,
+            "duration": 0.13853168487548828,
+            "optimal": 3.0
+        },
+        {
+            "experiment": 92,
+            "duration": 0.028234004974365234,
+            "optimal": 6.0
+        },
+        {
+            "experiment": 93,
+            "duration": 0.07289743423461914,
+            "optimal": 3.0
+        },
+        {
+            "experiment": 94,
+            "duration": 0.027714014053344727,
+            "optimal": 5.0
+        },
+        {
+            "experiment": 95,
+            "duration": 0.1371164321899414,
+            "optimal": 3.0
+        },
+        {
+            "experiment": 96,
+            "duration": 0.07466006278991699,
+            "optimal": 6.0
+        },
+        {
+            "experiment": 97,
+            "duration": 0.13716435432434082,
+            "optimal": 3.0
+        },
+        {
+            "experiment": 98,
+            "duration": 0.029840946197509766,
+            "optimal": 6.0
+        },
+        {
+            "experiment": 99,
+            "duration": 0.026192188262939453,
+            "optimal": 4.0
+        },
+        {
+            "experiment": 100,
+            "duration": 0.026958703994750977,
+            "optimal": 5.0
+        },
+        {
+            "experiment": 101,
+            "duration": 0.17396783828735352,
+            "optimal": 3.0
+        },
+        {
+            "experiment": 102,
+            "duration": 0.09278249740600586,
+            "optimal": 5.0
+        },
+        {
+            "experiment": 103,
+            "duration": 0.1709728240966797,
+            "optimal": 6.0
+        },
+        {
+            "experiment": 104,
+            "duration": 0.17018842697143555,
+            "optimal": 2.0
+        },
+        {
+            "experiment": 105,
+            "duration": 0.0357058048248291,
+            "optimal": 6.0
+        },
+        {
+            "experiment": 106,
+            "duration": 0.09242010116577148,
+            "optimal": 5.0
+        },
+        {
+            "experiment": 107,
+            "duration": 0.03606462478637695,
+            "optimal": 6.0
+        },
+        {
+            "experiment": 108,
+            "duration": 0.18808197975158691,
+            "optimal": 4.0
+        },
+        {
+            "experiment": 109,
+            "duration": 0.09297490119934082,
+            "optimal": 7.0
+        },
+        {
+            "experiment": 110,
+            "duration": 0.174605131149292,
+            "optimal": 7.0
+        },
+        {
+            "experiment": 111,
+            "duration": 0.09341096878051758,
+            "optimal": 6.0
+        },
+        {
+            "experiment": 112,
+            "duration": 0.17817258834838867,
+            "optimal": 4.0
+        },
+        {
+            "experiment": 113,
+            "duration": 0.10053300857543945,
+            "optimal": 5.0
+        },
+        {
+            "experiment": 114,
+            "duration": 0.17623448371887207,
+            "optimal": 4.0
+        },
+        {
+            "experiment": 115,
+            "duration": 0.17323994636535645,
+            "optimal": 4.0
+        },
+        {
+            "experiment": 116,
+            "duration": 0.0369417667388916,
+            "optimal": 6.0
+        },
+        {
+            "experiment": 117,
+            "duration": 0.09297394752502441,
+            "optimal": 4.0
+        },
+        {
+            "experiment": 118,
+            "duration": 0.09548735618591309,
+            "optimal": 6.0
+        },
+        {
+            "experiment": 119,
+            "duration": 0.19405841827392578,
+            "optimal": 3.0
+        },
+        {
+            "experiment": 120,
+            "duration": 0.09319329261779785,
+            "optimal": 5.0
+        },
+        {
+            "experiment": 121,
+            "duration": 0.21671128273010254,
+            "optimal": 6.0
+        },
+        {
+            "experiment": 122,
+            "duration": 0.20926237106323242,
+            "optimal": 6.0
+        },
+        {
+            "experiment": 123,
+            "duration": 0.21569371223449707,
+            "optimal": 6.0
+        },
+        {
+            "experiment": 124,
+            "duration": 0.22273468971252441,
+            "optimal": 6.0
+        },
+        {
+            "experiment": 125,
+            "duration": 0.04370713233947754,
+            "optimal": 8.0
+        },
+        {
+            "experiment": 126,
+            "duration": 0.22093892097473145,
+            "optimal": 7.0
+        },
+        {
+            "experiment": 127,
+            "duration": 0.11104488372802734,
+            "optimal": 7.0
+        },
+        {
+            "experiment": 128,
+            "duration": 0.21544957160949707,
+            "optimal": 7.0
+        },
+        {
+            "experiment": 129,
+            "duration": 0.11345314979553223,
+            "optimal": 5.0
+        },
+        {
+            "experiment": 130,
+            "duration": 0.21659278869628906,
+            "optimal": 6.0
+        },
+        {
+            "experiment": 131,
+            "duration": 0.22219300270080566,
+            "optimal": 7.0
+        },
+        {
+            "experiment": 132,
+            "duration": 0.10866236686706543,
+            "optimal": 7.0
+        },
+        {
+            "experiment": 133,
+            "duration": 0.12228655815124512,
+            "optimal": 6.0
+        },
+        {
+            "experiment": 134,
+            "duration": 0.12193703651428223,
+            "optimal": 5.0
+        },
+        {
+            "experiment": 135,
+            "duration": 0.11210989952087402,
+            "optimal": 8.0
+        },
+        {
+            "experiment": 136,
+            "duration": 0.22176718711853027,
+            "optimal": 7.0
+        },
+        {
+            "experiment": 137,
+            "duration": 0.22439050674438477,
+            "optimal": 4.0
+        },
+        {
+            "experiment": 138,
+            "duration": 0.21567273139953613,
+            "optimal": 7.0
+        },
+        {
+            "experiment": 139,
+            "duration": 0.21160387992858887,
+            "optimal": 6.0
+        },
+        {
+            "experiment": 140,
+            "duration": 0.20737051963806152,
+            "optimal": 8.0
+        },
+        {
+            "experiment": 141,
+            "duration": 0.45798444747924805,
+            "optimal": 7.0
+        },
+        {
+            "experiment": 142,
+            "duration": 0.05010414123535156,
+            "optimal": 8.0
+        },
+        {
+            "experiment": 143,
+            "duration": 0.0049479007720947266,
+            "optimal": 8.0
+        },
+        {
+            "experiment": 144,
+            "duration": 0.13175559043884277,
+            "optimal": 8.0
+        },
+        {
+            "experiment": 145,
+            "duration": 0.25502967834472656,
+            "optimal": 8.0
+        },
+        {
+            "experiment": 146,
+            "duration": 0.4225592613220215,
+            "optimal": 8.0
+        },
+        {
+            "experiment": 147,
+            "duration": 0.2574756145477295,
+            "optimal": 4.0
+        },
+        {
+            "experiment": 148,
+            "duration": 0.4234960079193115,
+            "optimal": 5.0
+        },
+        {
+            "experiment": 149,
+            "duration": 0.2606947422027588,
+            "optimal": 9.0
+        },
+        {
+            "experiment": 150,
+            "duration": 0.6453897953033447,
+            "optimal": 4.0
+        },
+        {
+            "experiment": 151,
+            "duration": 0.1322176456451416,
+            "optimal": 9.0
+        },
+        {
+            "experiment": 152,
+            "duration": 0.04973649978637695,
+            "optimal": 6.0
+        },
+        {
+            "experiment": 153,
+            "duration": 0.2608475685119629,
+            "optimal": 7.0
+        },
+        {
+            "experiment": 154,
+            "duration": 0.44176459312438965,
+            "optimal": 7.0
+        },
+        {
+            "experiment": 155,
+            "duration": 0.43001246452331543,
+            "optimal": 6.0
+        },
+        {
+            "experiment": 156,
+            "duration": 0.1402125358581543,
+            "optimal": 7.0
+        },
+        {
+            "experiment": 157,
+            "duration": 0.2721891403198242,
+            "optimal": 8.0
+        },
+        {
+            "experiment": 158,
+            "duration": 0.6546530723571777,
+            "optimal": 7.0
+        },
+        {
+            "experiment": 159,
+            "duration": 0.04982495307922363,
+            "optimal": 7.0
+        },
+        {
+            "experiment": 160,
+            "duration": 0.14139103889465332,
+            "optimal": 7.0
+        }
+    ],
+    "ilp": [
+        {
+            "experiment": 1,
+            "duration": 0.00703740119934082,
+            "optimal": 1.0
+        },
+        {
+            "experiment": 2,
+            "duration": 0.006389141082763672,
+            "optimal": -0.0
+        },
+        {
+            "experiment": 3,
+            "duration": 0.00661468505859375,
+            "optimal": -0.0
+        },
+        {
+            "experiment": 4,
+            "duration": 0.0065767765045166016,
+            "optimal": 2.0
+        },
+        {
+            "experiment": 5,
+            "duration": 0.006337881088256836,
+            "optimal": 1.0
+        },
+        {
+            "experiment": 6,
+            "duration": 0.01439356803894043,
+            "optimal": 1.0
+        },
+        {
+            "experiment": 7,
+            "duration": 0.006116151809692383,
+            "optimal": 1.0
+        },
+        {
+            "experiment": 8,
+            "duration": 0.014172077178955078,
+            "optimal": -0.0
+        },
+        {
+            "experiment": 9,
+            "duration": 0.00629878044128418,
+            "optimal": -0.0
+        },
+        {
+            "experiment": 10,
+            "duration": 0.006602764129638672,
+            "optimal": 2.0
+        },
+        {
+            "experiment": 11,
+            "duration": 0.006499767303466797,
+            "optimal": 1.0
+        },
+        {
+            "experiment": 12,
+            "duration": 0.006289482116699219,
+            "optimal": -0.0
+        },
+        {
+            "experiment": 13,
+            "duration": 0.0065615177154541016,
+            "optimal": -0.0
+        },
+        {
+            "experiment": 14,
+            "duration": 0.01426386833190918,
+            "optimal": 1.0
+        },
+        {
+            "experiment": 15,
+            "duration": 0.012993812561035156,
+            "optimal": -0.0
+        },
+        {
+            "experiment": 16,
+            "duration": 0.013078689575195312,
+            "optimal": 1.0
+        },
+        {
+            "experiment": 17,
+            "duration": 0.00627446174621582,
+            "optimal": 1.0
+        },
+        {
+            "experiment": 18,
+            "duration": 0.013978958129882812,
+            "optimal": -0.0
+        },
+        {
+            "experiment": 19,
+            "duration": 0.006101369857788086,
+            "optimal": 2.0
+        },
+        {
+            "experiment": 20,
+            "duration": 0.014011859893798828,
+            "optimal": -0.0
+        },
+        {
+            "experiment": 21,
+            "duration": 0.019114971160888672,
+            "optimal": 2.0
+        },
+        {
+            "experiment": 22,
+            "duration": 0.03470969200134277,
+            "optimal": 1.0
+        },
+        {
+            "experiment": 23,
+            "duration": 0.018639087677001953,
+            "optimal": 2.0
+        },
+        {
+            "experiment": 24,
+            "duration": 0.007300615310668945,
+            "optimal": 2.0
+        },
+        {
+            "experiment": 25,
+            "duration": 0.00735163688659668,
+            "optimal": 2.0
+        },
+        {
+            "experiment": 26,
+            "duration": 0.017768383026123047,
+            "optimal": 1.0
+        },
+        {
+            "experiment": 27,
+            "duration": 0.007009267807006836,
+            "optimal": 2.0
+        },
+        {
+            "experiment": 28,
+            "duration": 0.007084369659423828,
+            "optimal": 2.0
+        },
+        {
+            "experiment": 29,
+            "duration": 0.006749868392944336,
+            "optimal": 2.0
+        },
+        {
+            "experiment": 30,
+            "duration": 0.018806934356689453,
+            "optimal": 1.0
+        },
+        {
+            "experiment": 31,
+            "duration": 0.018756628036499023,
+            "optimal": 1.0
+        },
+        {
+            "experiment": 32,
+            "duration": 0.007540464401245117,
+            "optimal": 3.0
+        },
+        {
+            "experiment": 33,
+            "duration": 0.018189430236816406,
+            "optimal": 3.0
+        },
+        {
+            "experiment": 34,
+            "duration": 0.01792144775390625,
+            "optimal": 3.0
+        },
+        {
+            "experiment": 35,
+            "duration": 0.007370710372924805,
+            "optimal": 2.0
+        },
+        {
+            "experiment": 36,
+            "duration": 0.0172579288482666,
+            "optimal": 2.0
+        },
+        {
+            "experiment": 37,
+            "duration": 0.01813220977783203,
+            "optimal": 3.0
+        },
+        {
+            "experiment": 38,
+            "duration": 0.018871545791625977,
+            "optimal": 1.0
+        },
+        {
+            "experiment": 39,
+            "duration": 0.037335872650146484,
+            "optimal": 1.0
+        },
+        {
+            "experiment": 40,
+            "duration": 0.007252216339111328,
+            "optimal": 2.0
+        },
+        {
+            "experiment": 41,
+            "duration": 0.02357792854309082,
+            "optimal": 4.0
+        },
+        {
+            "experiment": 42,
+            "duration": 0.02259349822998047,
+            "optimal": 3.0
+        },
+        {
+            "experiment": 43,
+            "duration": 0.007992267608642578,
+            "optimal": 4.0
+        },
+        {
+            "experiment": 44,
+            "duration": 0.007940292358398438,
+            "optimal": 3.0
+        },
+        {
+            "experiment": 45,
+            "duration": 0.022692203521728516,
+            "optimal": 3.0
+        },
+        {
+            "experiment": 46,
+            "duration": 0.024243831634521484,
+            "optimal": 4.0
+        },
+        {
+            "experiment": 47,
+            "duration": 0.023394107818603516,
+            "optimal": 2.0
+        },
+        {
+            "experiment": 48,
+            "duration": 0.04740309715270996,
+            "optimal": 1.0
+        },
+        {
+            "experiment": 49,
+            "duration": 0.022131919860839844,
+            "optimal": 2.0
+        },
+        {
+            "experiment": 50,
+            "duration": 0.023103713989257812,
+            "optimal": 4.0
+        },
+        {
+            "experiment": 51,
+            "duration": 0.008032560348510742,
+            "optimal": 3.0
+        },
+        {
+            "experiment": 52,
+            "duration": 0.007811546325683594,
+            "optimal": 3.0
+        },
+        {
+            "experiment": 53,
+            "duration": 0.02134561538696289,
+            "optimal": 4.0
+        },
+        {
+            "experiment": 54,
+            "duration": 0.023481369018554688,
+            "optimal": 3.0
+        },
+        {
+            "experiment": 55,
+            "duration": 0.007944583892822266,
+            "optimal": 3.0
+        },
+        {
+            "experiment": 56,
+            "duration": 0.022683382034301758,
+            "optimal": 4.0
+        },
+        {
+            "experiment": 57,
+            "duration": 0.0478215217590332,
+            "optimal": 2.0
+        },
+        {
+            "experiment": 58,
+            "duration": 0.02239370346069336,
+            "optimal": 4.0
+        },
+        {
+            "experiment": 59,
+            "duration": 0.04968976974487305,
+            "optimal": 2.0
+        },
+        {
+            "experiment": 60,
+            "duration": 0.02227497100830078,
+            "optimal": 2.0
+        },
+        {
+            "experiment": 61,
+            "duration": 0.06732010841369629,
+            "optimal": 5.0
+        },
+        {
+            "experiment": 62,
+            "duration": 0.008834362030029297,
+            "optimal": 4.0
+        },
+        {
+            "experiment": 63,
+            "duration": 0.029735088348388672,
+            "optimal": 5.0
+        },
+        {
+            "experiment": 64,
+            "duration": 0.008913040161132812,
+            "optimal": 4.0
+        },
+        {
+            "experiment": 65,
+            "duration": 0.027697324752807617,
+            "optimal": 4.0
+        },
+        {
+            "experiment": 66,
+            "duration": 0.030807971954345703,
+            "optimal": 4.0
+        },
+        {
+            "experiment": 67,
+            "duration": 0.06488370895385742,
+            "optimal": 5.0
+        },
+        {
+            "experiment": 68,
+            "duration": 0.1738121509552002,
+            "optimal": -0.0
+        },
+        {
+            "experiment": 69,
+            "duration": 0.030303239822387695,
+            "optimal": 5.0
+        },
+        {
+            "experiment": 70,
+            "duration": 0.06621956825256348,
+            "optimal": 1.0
+        },
+        {
+            "experiment": 71,
+            "duration": 0.029619216918945312,
+            "optimal": 3.0
+        },
+        {
+            "experiment": 72,
+            "duration": 0.029296159744262695,
+            "optimal": 5.0
+        },
+        {
+            "experiment": 73,
+            "duration": 0.008070707321166992,
+            "optimal": 5.0
+        },
+        {
+            "experiment": 74,
+            "duration": 0.06634283065795898,
+            "optimal": 3.0
+        },
+        {
+            "experiment": 75,
+            "duration": 0.04112744331359863,
+            "optimal": 4.0
+        },
+        {
+            "experiment": 76,
+            "duration": 0.00879526138305664,
+            "optimal": 5.0
+        },
+        {
+            "experiment": 77,
+            "duration": 0.027117490768432617,
+            "optimal": 3.0
+        },
+        {
+            "experiment": 78,
+            "duration": 0.10975408554077148,
+            "optimal": 1.0
+        },
+        {
+            "experiment": 79,
+            "duration": 0.06511211395263672,
+            "optimal": 3.0
+        },
+        {
+            "experiment": 80,
+            "duration": 0.027799367904663086,
+            "optimal": 5.0
+        },
+        {
+            "experiment": 81,
+            "duration": 0.08263754844665527,
+            "optimal": 6.0
+        },
+        {
+            "experiment": 82,
+            "duration": 0.03466033935546875,
+            "optimal": 3.0
+        },
+        {
+            "experiment": 83,
+            "duration": 0.07804179191589355,
+            "optimal": 2.0
+        },
+        {
+            "experiment": 84,
+            "duration": 0.08347296714782715,
+            "optimal": 3.0
+        },
+        {
+            "experiment": 85,
+            "duration": 0.0823812484741211,
+            "optimal": 6.0
+        },
+        {
+            "experiment": 86,
+            "duration": 0.1420135498046875,
+            "optimal": 2.0
+        },
+        {
+            "experiment": 87,
+            "duration": 0.08172488212585449,
+            "optimal": 4.0
+        },
+        {
+            "experiment": 88,
+            "duration": 0.03590989112854004,
+            "optimal": 6.0
+        },
+        {
+            "experiment": 89,
+            "duration": 0.08248734474182129,
+            "optimal": 2.0
+        },
+        {
+            "experiment": 90,
+            "duration": 0.08265924453735352,
+            "optimal": 5.0
+        },
+        {
+            "experiment": 91,
+            "duration": 0.1464228630065918,
+            "optimal": 3.0
+        },
+        {
+            "experiment": 92,
+            "duration": 0.035402536392211914,
+            "optimal": 6.0
+        },
+        {
+            "experiment": 93,
+            "duration": 0.08486032485961914,
+            "optimal": 3.0
+        },
+        {
+            "experiment": 94,
+            "duration": 0.036316633224487305,
+            "optimal": 5.0
+        },
+        {
+            "experiment": 95,
+            "duration": 0.14814996719360352,
+            "optimal": 3.0
+        },
+        {
+            "experiment": 96,
+            "duration": 0.08990621566772461,
+            "optimal": 6.0
+        },
+        {
+            "experiment": 97,
+            "duration": 0.151198148727417,
+            "optimal": 3.0
+        },
+        {
+            "experiment": 98,
+            "duration": 0.03527569770812988,
+            "optimal": 6.0
+        },
+        {
+            "experiment": 99,
+            "duration": 0.0332338809967041,
+            "optimal": 4.0
+        },
+        {
+            "experiment": 100,
+            "duration": 0.03567957878112793,
+            "optimal": 5.0
+        },
+        {
+            "experiment": 101,
+            "duration": 0.19044876098632812,
+            "optimal": 3.0
+        },
+        {
+            "experiment": 102,
+            "duration": 0.10838127136230469,
+            "optimal": 5.0
+        },
+        {
+            "experiment": 103,
+            "duration": 0.1938765048980713,
+            "optimal": 6.0
+        },
+        {
+            "experiment": 104,
+            "duration": 0.19141745567321777,
+            "optimal": 2.0
+        },
+        {
+            "experiment": 105,
+            "duration": 0.0446624755859375,
+            "optimal": 6.0
+        },
+        {
+            "experiment": 106,
+            "duration": 0.1053774356842041,
+            "optimal": 5.0
+        },
+        {
+            "experiment": 107,
+            "duration": 0.04245400428771973,
+            "optimal": 6.0
+        },
+        {
+            "experiment": 108,
+            "duration": 0.19306135177612305,
+            "optimal": 4.0
+        },
+        {
+            "experiment": 109,
+            "duration": 0.11195635795593262,
+            "optimal": 7.0
+        },
+        {
+            "experiment": 110,
+            "duration": 0.2004861831665039,
+            "optimal": 7.0
+        },
+        {
+            "experiment": 111,
+            "duration": 0.11129021644592285,
+            "optimal": 6.0
+        },
+        {
+            "experiment": 112,
+            "duration": 0.19921588897705078,
+            "optimal": 4.0
+        },
+        {
+            "experiment": 113,
+            "duration": 0.111480712890625,
+            "optimal": 5.0
+        },
+        {
+            "experiment": 114,
+            "duration": 0.19028019905090332,
+            "optimal": 4.0
+        },
+        {
+            "experiment": 115,
+            "duration": 0.19526457786560059,
+            "optimal": 4.0
+        },
+        {
+            "experiment": 116,
+            "duration": 0.045752763748168945,
+            "optimal": 6.0
+        },
+        {
+            "experiment": 117,
+            "duration": 0.10829329490661621,
+            "optimal": 4.0
+        },
+        {
+            "experiment": 118,
+            "duration": 0.1093299388885498,
+            "optimal": 6.0
+        },
+        {
+            "experiment": 119,
+            "duration": 0.19764137268066406,
+            "optimal": 3.0
+        },
+        {
+            "experiment": 120,
+            "duration": 0.1094970703125,
+            "optimal": 5.0
+        },
+        {
+            "experiment": 121,
+            "duration": 0.2404332160949707,
+            "optimal": 6.0
+        },
+        {
+            "experiment": 122,
+            "duration": 0.24751996994018555,
+            "optimal": 6.0
+        },
+        {
+            "experiment": 123,
+            "duration": 0.25798988342285156,
+            "optimal": 6.0
+        },
+        {
+            "experiment": 124,
+            "duration": 0.25176262855529785,
+            "optimal": 6.0
+        },
+        {
+            "experiment": 125,
+            "duration": 0.049948692321777344,
+            "optimal": 8.0
+        },
+        {
+            "experiment": 126,
+            "duration": 0.24956083297729492,
+            "optimal": 7.0
+        },
+        {
+            "experiment": 127,
+            "duration": 0.13841986656188965,
+            "optimal": 7.0
+        },
+        {
+            "experiment": 128,
+            "duration": 0.24512052536010742,
+            "optimal": 7.0
+        },
+        {
+            "experiment": 129,
+            "duration": 0.13414502143859863,
+            "optimal": 5.0
+        },
+        {
+            "experiment": 130,
+            "duration": 0.23778343200683594,
+            "optimal": 6.0
+        },
+        {
+            "experiment": 131,
+            "duration": 0.2483668327331543,
+            "optimal": 7.0
+        },
+        {
+            "experiment": 132,
+            "duration": 0.13615775108337402,
+            "optimal": 7.0
+        },
+        {
+            "experiment": 133,
+            "duration": 0.13437962532043457,
+            "optimal": 6.0
+        },
+        {
+            "experiment": 134,
+            "duration": 0.13788294792175293,
+            "optimal": 5.0
+        },
+        {
+            "experiment": 135,
+            "duration": 0.13773059844970703,
+            "optimal": 8.0
+        },
+        {
+            "experiment": 136,
+            "duration": 0.24943232536315918,
+            "optimal": 7.0
+        },
+        {
+            "experiment": 137,
+            "duration": 0.2300887107849121,
+            "optimal": 4.0
+        },
+        {
+            "experiment": 138,
+            "duration": 0.24245452880859375,
+            "optimal": 7.0
+        },
+        {
+            "experiment": 139,
+            "duration": 0.24003362655639648,
+            "optimal": 6.0
+        },
+        {
+            "experiment": 140,
+            "duration": 0.23981189727783203,
+            "optimal": 8.0
+        },
+        {
+            "experiment": 141,
+            "duration": 0.5045046806335449,
+            "optimal": 7.0
+        },
+        {
+            "experiment": 142,
+            "duration": 0.05891823768615723,
+            "optimal": 8.0
+        },
+        {
+            "experiment": 143,
+            "duration": 0.01270437240600586,
+            "optimal": 8.0
+        },
+        {
+            "experiment": 144,
+            "duration": 0.16391301155090332,
+            "optimal": 8.0
+        },
+        {
+            "experiment": 145,
+            "duration": 0.30164194107055664,
+            "optimal": 8.0
+        },
+        {
+            "experiment": 146,
+            "duration": 0.49108457565307617,
+            "optimal": 8.0
+        },
+        {
+            "experiment": 147,
+            "duration": 0.2854893207550049,
+            "optimal": 4.0
+        },
+        {
+            "experiment": 148,
+            "duration": 0.4701070785522461,
+            "optimal": 5.0
+        },
+        {
+            "experiment": 149,
+            "duration": 0.308652400970459,
+            "optimal": 9.0
+        },
+        {
+            "experiment": 150,
+            "duration": 0.6714475154876709,
+            "optimal": 4.0
+        },
+        {
+            "experiment": 151,
+            "duration": 0.1659102439880371,
+            "optimal": 9.0
+        },
+        {
+            "experiment": 152,
+            "duration": 0.05916547775268555,
+            "optimal": 6.0
+        },
+        {
+            "experiment": 153,
+            "duration": 0.30446457862854004,
+            "optimal": 7.0
+        },
+        {
+            "experiment": 154,
+            "duration": 0.4779980182647705,
+            "optimal": 7.0
+        },
+        {
+            "experiment": 155,
+            "duration": 0.4788825511932373,
+            "optimal": 6.0
+        },
+        {
+            "experiment": 156,
+            "duration": 0.16858291625976562,
+            "optimal": 7.0
+        },
+        {
+            "experiment": 157,
+            "duration": 0.3308572769165039,
+            "optimal": 8.0
+        },
+        {
+            "experiment": 158,
+            "duration": 0.7107129096984863,
+            "optimal": 7.0
+        },
+        {
+            "experiment": 159,
+            "duration": 0.06022524833679199,
+            "optimal": 7.0
+        },
+        {
+            "experiment": 160,
+            "duration": 0.1635425090789795,
+            "optimal": 7.0
         }
     ]
 }

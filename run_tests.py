@@ -1,6 +1,7 @@
 from generators import generate_random_tree
 from dp.runners import DynamicProgramming
 from iqcp.runners import IQCP
+from ilp.runners import ILP
 import numpy as np
 from config import MAX_NODES, MIN_NODES, N_SAMPLES, RESULTS_DIR, RESULTS_FILE, EXPERIMENTS_FILE
 import json 
@@ -19,6 +20,7 @@ runners = {
     # Default propagation time to 1
     "dynamic_programming_dynamic_computing": DynamicProgramming(so_file="./dp/mfp_dynamic_computing.so"),
     "iqcp": IQCP(),
+    "ilp": ILP(),
 }
 
 n_nodes = np.arange(MIN_NODES, MAX_NODES + 1).astype(int)
@@ -65,7 +67,7 @@ for n_i, n in enumerate(n_nodes):
             optimals[r_i] = optimal
 
             if not np.all(optimals[:r_i] == optimal):
-                raise ValueError(f"Runner {r} gaves an inconsistent result:", results)
+                raise ValueError(f"Runner {r} gaves an inconsistent result:", optimals)
 
 
 if not os.path.exists(RESULTS_DIR):
