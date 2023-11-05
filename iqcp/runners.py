@@ -12,6 +12,7 @@ class IQCP:
 
     def __setup_problem__(self, i_tree, root, t_propagation, m):
         tree, _ = i_tree.to_directed(root)
+        leaves = np.argwhere(tree.edges.sum(axis=-1) == 0).flatten()
         max_path_len = np.argwhere(tree.edges.sum(axis=-1) == 0).shape[0]
         assert max_path_len >= 1, "There aren't leaves in the tree"
         n_nodes = tree.nodes.shape[0]
@@ -27,7 +28,7 @@ class IQCP:
         for i in range(n_nodes):
             paths_to_root.append(tree.get_path_to_root(i))
 
-        for i in range(n_nodes):
+        for i in leaves:
             m.addConstr(X[paths_to_root[i]].sum() <= 1, f"(8.{i})")
 
         
@@ -68,6 +69,8 @@ class IQCP:
 
 
         with gp.Env() as env, gp.Model(env=env) as m:
+            m.setParam("MIPGap", 0)
+            
             start = time.time()
             self.__setup_problem__(tree, root, t_propagation, m)
             m.optimize()
