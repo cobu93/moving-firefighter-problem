@@ -1,5 +1,9 @@
+#include <pthread.h> 
+
 typedef unsigned int uint;
 typedef long long int lli;
+
+pthread_mutex_t mutex; 
 
 typedef struct
 {
@@ -118,6 +122,8 @@ int add_to_memory(MEMORY* memory, uint value, uint* forest, uint n_nodes, int lo
     lli location_size, forest_size, time_size;
     uint i, j, k;
 
+    pthread_mutex_lock(&mutex);
+
     location_size = memory->location_map->size;
     location_key = location_to_key(location);
     location_idx = get_map_value(memory->location_map, location_key);
@@ -139,10 +145,8 @@ int add_to_memory(MEMORY* memory, uint value, uint* forest, uint n_nodes, int lo
         time_idx = add_map_value(memory->time_map, time_key, memory->time_map->size);
     }
 
-
     int*** backup;
 
-    
     backup = realloc(memory->storage, memory->location_map->size * sizeof(int**));
     if(backup == NULL){ 
         printf("Memory allocation failed!\n"); 
@@ -154,7 +158,6 @@ int add_to_memory(MEMORY* memory, uint value, uint* forest, uint n_nodes, int lo
         memory->storage[memory->location_map->size - 1] = NULL;
     }
 
-    
     for(i = 0; i < memory->location_map->size; i++){
         int** tmp = realloc(memory->storage[i], memory->forest_map->size * sizeof(int*));
         if(tmp == NULL){ 
@@ -174,7 +177,6 @@ int add_to_memory(MEMORY* memory, uint value, uint* forest, uint n_nodes, int lo
         }
     }
     
-
     for(i = 0; i < memory->location_map->size; i++){
         for(j = 0; j < memory->forest_map->size; j++){
 
@@ -201,11 +203,17 @@ int add_to_memory(MEMORY* memory, uint value, uint* forest, uint n_nodes, int lo
     }
 
     memory->storage[location_idx][forest_idx][time_idx] = value;
+    pthread_mutex_unlock(&mutex);
     return 0;
 }
 
 
 void init_memory(MEMORY** memory){
+    
+    if (pthread_mutex_init(&mutex, NULL) != 0) { 
+        printf("Mutex init has failed\n"); 
+    } 
+
     *memory = (MEMORY*) malloc(sizeof(MEMORY));
 
     (*memory)->forest_map = (MAP*) malloc(sizeof(MAP));
@@ -224,6 +232,8 @@ void init_memory(MEMORY** memory){
 }
 
 void delete_memory(MEMORY** memory){
+
+    pthread_mutex_destroy(&mutex);
 
     free_storage(&((*memory)->storage), (*memory)->location_map->size, (*memory)->forest_map->size, (*memory)->time_map->size);
 
