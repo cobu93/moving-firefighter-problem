@@ -15,7 +15,7 @@ runners = {
     # Recovers the solution
     "dynamic_programming": {
             "runner": DynamicProgramming(),
-            "max_nodes": 15
+            "max_nodes": 100
     },
     # Unrestricted sequence length to number of leaves
     # Pre-filled hops and subtrees

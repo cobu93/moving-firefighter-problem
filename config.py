@@ -1,6 +1,6 @@
-N_NODES = list(range(5, 16))
-N_DEGREES = list(range(2, 6))
-N_SAMPLES = 10
+N_NODES = list(range(20, 21))
+N_DEGREES = list(range(3, 4))
+N_SAMPLES = 1
 
 RESULTS_DIR = "results"
 

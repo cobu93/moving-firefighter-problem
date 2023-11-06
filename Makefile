@@ -1,6 +1,6 @@
 compile:
 	cd dp; \
-	gcc -fpic -c mfp.c; \
+	gcc -fpic -c -lpthread mfp.c; \
 	gcc -shared -o mfp.so mfp.o; \
 	gcc -fpic -c mfp_dynamic_computing.c; \
 	gcc -shared -o mfp_dynamic_computing.so mfp_dynamic_computing.o; \
