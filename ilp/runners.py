@@ -57,7 +57,7 @@ class ILP:
             for j in range (n_nodes):
                 distances[i, j] = np.linalg.norm(tree.nodes_positions[i] - tree.nodes_positions[j])
 
-        C = (n_nodes + 1) * np.max(distances) + np.max(i_distances)
+        C = n_nodes * np.max(distances) + np.max(i_distances)
         hops = np.array([paths_to_root[j].shape[0] - 1 for j in range(n_nodes)]) * t_propagation
         
         
