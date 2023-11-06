@@ -3,11 +3,17 @@
 #include <math.h>
 #include <string.h>
 #include <pthread.h> 
+#include <unistd.h>
 
 #include "tree.h"
 #include "memory.h"
 
 typedef unsigned int uint;
+typedef long long int lli;
+
+_Atomic int max_threads_allowed = 10;
+_Atomic lli threads_cnt = 0;
+pthread_mutex_t mutex_n_threads;
 
 typedef struct {
     TREE* tree; 
@@ -203,10 +209,7 @@ void* mfp_dp_opt(void* i_params){
     int n_subtree; 
     int val, max_val = 0;
     uint* subtree;
-    uint thread_cnt;
 
-
-    thread_cnt = 0;
     pthread_t* threads = (pthread_t*) malloc(n_nodes * sizeof(pthread_t));
     int* cardinalities = (int*) malloc(n_nodes * sizeof(int));
     int* opt_values = (int*) malloc(n_nodes * sizeof(int));
@@ -249,6 +252,26 @@ void* mfp_dp_opt(void* i_params){
                 sub_params[i]->opt_path[j] = -1;
             }
 
+            int continue_exec = 0;
+
+            pthread_mutex_lock(&mutex_n_threads);
+            continue_exec = max_threads_allowed <= 0? 0: 1;
+            pthread_mutex_unlock(&mutex_n_threads);
+
+            while(!continue_exec){
+                pthread_mutex_lock(&mutex_n_threads);
+                continue_exec = max_threads_allowed <= 0? 0: 1;
+                pthread_mutex_unlock(&mutex_n_threads);
+                usleep(1000);
+            }
+
+            pthread_mutex_lock(&mutex_n_threads);
+            max_threads_allowed--;
+            threads_cnt++;
+            printf("Reserved\n");
+            pthread_mutex_unlock(&mutex_n_threads);
+
+
             if (pthread_create(
                     &threads[i], 
                     NULL, 
@@ -266,6 +289,11 @@ void* mfp_dp_opt(void* i_params){
             if(pthread_join(threads[i], NULL) != 0){
                 printf("Error: Cannot join thread %d\n", i);
             }
+
+            pthread_mutex_lock(&mutex_n_threads);
+            max_threads_allowed++;            
+            printf("Freed\n");
+            pthread_mutex_unlock(&mutex_n_threads);
 
             free(sub_params[i]->forest);
 
@@ -361,6 +389,9 @@ void mfp_dp_solver(TREE tree, int root, int firefighter_position, float t_propag
     MEMORY* memory;
     init_memory(&memory);
 
+    if (pthread_mutex_init(&mutex_n_threads, NULL) != 0) { 
+        printf("Threads mutex init has failed\n"); 
+    } 
 
     OPT_PARAMS params;
 
@@ -385,7 +416,10 @@ void mfp_dp_solver(TREE tree, int root, int firefighter_position, float t_propag
         opt = -1;
     }
 
-    //pthread_exit(NULL);
+    printf("Max threads allowed %d\n", max_threads_allowed);
+    printf("Run threads %d\n", threads_cnt);
+
+    pthread_mutex_destroy(&mutex_n_threads);
 
     
     delete_memory(&memory);
