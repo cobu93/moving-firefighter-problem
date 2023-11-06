@@ -1,0 +1,8 @@
+numpy==1.26.1
+networkx==3.2.1
+gurobipy==11.0.0b1
+scipy==1.11.3
+notebook==7.0.6
+plotly==5.18.0
+ipympl==0.9.3
+pandas==2.1.2

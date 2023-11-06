@@ -2,10 +2,15 @@ from utils import Tree
 import networkx as nx
 import numpy as np
 
-def generate_random_tree(n_nodes, add_positions=True):
+def generate_prufer_sequence(n_nodes, mean_degree):
+    sequence = np.repeat(np.arange(n_nodes), mean_degree - 1)
+    return np.random.choice(sequence, size=n_nodes - 2)
+
+def tree_from_sequence(sequence, add_positions=True):
     edges = []
-    sequence = np.random.randint(0, n_nodes, size=n_nodes - 2)
+    n_nodes = sequence.shape[0] + 2
     degrees = np.ones(n_nodes)
+
 
     counts = np.bincount(sequence, minlength=n_nodes)
     degrees += counts
@@ -28,4 +33,10 @@ def generate_random_tree(n_nodes, add_positions=True):
         tree.add_edges_from(edges)
         positions = nx.drawing.layout.fruchterman_reingold_layout(tree, dim=3, scale=1.)
         
-    return Tree(np.arange(n_nodes), np.array(edges), positions), sequence.tolist()
+    return Tree(np.arange(n_nodes), np.array(edges), positions)
+
+def generate_random_tree(n_nodes, mean_degree, add_positions=True):    
+    sequence = generate_prufer_sequence(n_nodes, mean_degree)
+    return tree_from_sequence(sequence, add_positions), sequence.tolist()
+
+    

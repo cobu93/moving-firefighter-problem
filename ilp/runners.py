@@ -151,10 +151,15 @@ class ILP:
             first = np.array(first)
             result = np.array(result).reshape(tree.nodes.shape[0], tree.nodes.shape[0], -1)
 
-            optimal_path = [-1] + [int(np.argwhere(first == 1)[0, 0])]
+            optimal_path = [-1] 
+            
+            next_node = np.argwhere(first == 1)
+            if next_node.shape[0] > 0:
+                optimal_path += [int(next_node[0, 0])]            
+
             for i in range(result.shape[-1]):
                 next_node = np.argwhere(result[:, :, i] == 1)
                 if next_node.shape[0] > 0:
-                    optimal_path += [int(np.argwhere(result[:, :, i] == 1)[0, 1])]
+                    optimal_path += [int(next_node[0, 1])]
 
         return optimal, optimal_path

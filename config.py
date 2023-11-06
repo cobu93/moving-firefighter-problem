@@ -1,6 +1,6 @@
-MIN_NODES = 3
-MAX_NODES = 10
-N_SAMPLES = 20
+N_NODES = list(range(5, 16))
+N_DEGREES = list(range(2, 6))
+N_SAMPLES = 10
 
 RESULTS_DIR = "results"
 
