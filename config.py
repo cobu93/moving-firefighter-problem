@@ -1,4 +1,4 @@
-N_NODES = list(range(20, 21))
+N_NODES = [10, 15]#[25, 50, 75, 100]
 N_DEGREES = list(range(3, 4))
 N_SAMPLES = 1
 

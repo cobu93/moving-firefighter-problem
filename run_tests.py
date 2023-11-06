@@ -15,7 +15,7 @@ runners = {
     # Recovers the solution
     "dynamic_programming": {
             "runner": DynamicProgramming(),
-            "max_nodes": 100
+            "max_nodes": 110
     },
     # Unrestricted sequence length to number of leaves
     # Pre-filled hops and subtrees
@@ -32,11 +32,11 @@ runners = {
     #},
     "iqcp": {
             "runner": IQCP(),
-            "max_nodes": 20
+            "max_nodes": 110
     },
     "ilp": {
             "runner": ILP(),
-            "max_nodes": 20
+            "max_nodes": 110
     },
 }
 
