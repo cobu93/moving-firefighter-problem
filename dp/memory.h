@@ -3,7 +3,7 @@
 typedef unsigned int uint;
 typedef long long int lli;
 
-pthread_mutex_t mutex; 
+pthread_mutex_t __mutex_memory__; 
 
 typedef struct
 {
@@ -122,7 +122,7 @@ int add_to_memory(MEMORY* memory, uint value, uint* forest, uint n_nodes, int lo
     lli location_size, forest_size, time_size;
     uint i, j, k;
 
-    pthread_mutex_lock(&mutex);
+    pthread_mutex_lock(&__mutex_memory__);
 
     location_size = memory->location_map->size;
     location_key = location_to_key(location);
@@ -203,14 +203,14 @@ int add_to_memory(MEMORY* memory, uint value, uint* forest, uint n_nodes, int lo
     }
 
     memory->storage[location_idx][forest_idx][time_idx] = value;
-    pthread_mutex_unlock(&mutex);
+    pthread_mutex_unlock(&__mutex_memory__);
     return 0;
 }
 
 
 void init_memory(MEMORY** memory){
     
-    if (pthread_mutex_init(&mutex, NULL) != 0) { 
+    if (pthread_mutex_init(&__mutex_memory__, NULL) != 0) { 
         printf("Mutex init has failed\n"); 
     } 
 
@@ -233,7 +233,7 @@ void init_memory(MEMORY** memory){
 
 void delete_memory(MEMORY** memory){
 
-    pthread_mutex_destroy(&mutex);
+    pthread_mutex_destroy(&__mutex_memory__);
 
     free_storage(&((*memory)->storage), (*memory)->location_map->size, (*memory)->forest_map->size, (*memory)->time_map->size);
 
