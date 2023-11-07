@@ -99,20 +99,26 @@ lli time_to_key(float time){
 int search_in_memory(MEMORY* memory, uint* forest, uint n_nodes, int location, float time){
     lli location_idx, forest_idx, time_idx;
     lli location_key, forest_key, time_key;
+    int result;
 
+    pthread_mutex_lock(&__mutex_memory__);
     location_key = location_to_key(location);
     location_idx = get_map_value(memory->location_map, location_key);
-    if(location_idx < 0){ return -1; }
+    if(location_idx < 0){ pthread_mutex_unlock(&__mutex_memory__); return -1; }
 
     forest_key = forest_to_key(forest, n_nodes);
     forest_idx = get_map_value(memory->forest_map, forest_key);
-    if(forest_idx < 0){ return -1; }
+    if(forest_idx < 0){ pthread_mutex_unlock(&__mutex_memory__); return -1; }
 
     time_key = time_to_key(time);
     time_idx = get_map_value(memory->time_map, time_key);
-    if(time_idx < 0){ return -1; }
+    if(time_idx < 0){ pthread_mutex_unlock(&__mutex_memory__); return -1; }
 
-    return memory->storage[location_idx][forest_idx][time_idx];
+    result = memory->storage[location_idx][forest_idx][time_idx];
+    pthread_mutex_unlock(&__mutex_memory__);
+
+    return result;
+    
 }
 
 int add_to_memory(MEMORY* memory, uint value, uint* forest, uint n_nodes, int location, float time){
@@ -201,9 +207,10 @@ int add_to_memory(MEMORY* memory, uint value, uint* forest, uint n_nodes, int lo
             }
         }
     }
-
+    
     memory->storage[location_idx][forest_idx][time_idx] = value;
     pthread_mutex_unlock(&__mutex_memory__);
+    
     return 0;
 }
 

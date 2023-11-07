@@ -55,3 +55,35 @@ uint compute_n_leaves(TREE* tree){
 
     return leaves;
 }
+
+uint compute_subtree(TREE* tree, uint node, uint* subtree){
+    uint cardinality = 1;
+    uint i;
+    
+    subtree[node] = 1;
+    
+    for(i = 0; i < tree->n_nodes; i++){
+        // If there is an edge node->i
+        if(tree->edges[node][i] != 0){
+            cardinality += compute_subtree(tree, i, subtree);
+        }
+    }
+
+    return cardinality;
+}
+
+uint compute_parents(TREE* tree, uint node, uint* parents){
+    uint cardinality = 1;
+    uint i;
+    
+    parents[node] = 1;
+    
+    for(i = 0; i < tree->n_nodes; i++){
+        // If there is an edge node->i
+        if(tree->edges[i][node] != 0){
+            cardinality += compute_parents(tree, i, parents);
+        }
+    }
+
+    return cardinality;
+}
