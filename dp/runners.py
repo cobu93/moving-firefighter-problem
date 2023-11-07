@@ -15,7 +15,7 @@ class DynamicProgramming:
         tree_structure = tree_to_structure(tree)
 
         optimal = c_int()
-        c_optimal_path = (c_int * n_leaves)()
+        c_optimal_path = (c_int * (n_leaves + 1))()
 
         
         self.mfp_functions.mfp_dp_solver(
@@ -29,7 +29,7 @@ class DynamicProgramming:
 
         optimal_path = [-1]
 
-        for i in range(n_leaves):
+        for i in range(0, n_leaves + 1):
             if c_optimal_path[i] != -1:
                 optimal_path += [c_optimal_path[i]]
 
