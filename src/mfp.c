@@ -470,9 +470,15 @@ void mfp_greedy_solver(TREE tree, int root, int firefighter_position, float t_pr
     uint n_forest, height, n_leaves;
     uint* forest;
     uint* hops_memory;
+    uint* feasible;
+    float* distances;
+    
     uint** subtree_memory;
     uint** parents_memory;
     uint i, j = 0;
+
+    float current_time;
+    uint current_position;
 
     int opt = 0;
 
@@ -482,6 +488,8 @@ void mfp_greedy_solver(TREE tree, int root, int firefighter_position, float t_pr
     hops_memory = (uint*) calloc(tree.n_nodes, sizeof(uint));
     subtree_memory = (uint**) calloc(tree.n_nodes, sizeof(uint*));
     parents_memory = (uint**) calloc(tree.n_nodes, sizeof(uint*));
+    feasible = (uint*) malloc(tree.n_nodes * sizeof(uint));    
+    distances = (float*) malloc(tree.n_nodes * sizeof(float)); 
 
     for(i = 0; i < tree.n_nodes; i++){
         subtree_memory[i] = (int*) calloc(tree.n_nodes, sizeof(uint));
@@ -530,6 +538,25 @@ void mfp_greedy_solver(TREE tree, int root, int firefighter_position, float t_pr
     params.opt_path = opt_path;
     params.opt_value = &opt;*/
 
+    current_time = 0;
+    current_position = (uint) firefighter_position;
+
+    for(i = 0; i < tree.n_nodes; i++){  
+        
+        get_feasible(
+                &tree,
+                forest, 
+                (uint) root, 
+                current_position, 
+                current_time, 
+                t_propagation, 
+                feasible, 
+                distances, 
+                hops_memory
+            );    
+        
+    }
+
 
     if(__threads_available__ != MAX_THREADS_ALLOWED){
         printf("Something went wrong with threads :S\n");
@@ -542,6 +569,8 @@ void mfp_greedy_solver(TREE tree, int root, int firefighter_position, float t_pr
         free(parents_memory[i]);
     }
     
+    free(feasible);
+    free(distances);
     free(forest);
     free(hops_memory);
     free(subtree_memory);
