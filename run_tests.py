@@ -1,5 +1,6 @@
 from generators import generate_random_tree, tree_from_sequence
 from dp.runners import DynamicProgramming
+from greedy.runners import Greedy
 from iqcp.runners import IQCP
 from ilp.runners import ILP
 import numpy as np
@@ -9,28 +10,16 @@ import os
 import time
 
 runners = {
-    # Restricted sequence length to number of leaves
-    # Pre-filled hops and subtrees
-    # Accepts propagation time
-    # Recovers the solution
     "dynamic_programming": {
             "runner": DynamicProgramming(),
             "max_nodes": 110,
             "validate_optimal": True
     },
-    # Unrestricted sequence length to number of leaves
-    # Pre-filled hops and subtrees
-    # Accepts propagation time
-    #"dynamic_programming_unrestricted_length": {
-    #        "runner": DynamicProgramming(so_file="./dp/mfp_unrestricted_length.so"),
-    #        "max_nodes": 15
-    #},
-    # Dynamic computing of hops and subtrees
-    # Default propagation time to 1
-    #"dynamic_programming_dynamic_computing": {
-    #        "runner": DynamicProgramming(so_file="./dp/mfp_dynamic_computing.so"),
-    #        "max_nodes": 15
-    #},
+    "greedy": {
+            "runner": Greedy(),
+            "max_nodes": 110,
+            "validate_optimal": False
+    },
     "iqcp": {
             "runner": IQCP(),
             "max_nodes": 110,

@@ -433,10 +433,6 @@ void mfp_dp_solver(TREE tree, int root, int firefighter_position, float t_propag
 
     mfp_dp_opt(&params);
 
-    if(opt >= tree.n_nodes){
-        opt = -1;
-    }
-
     if(__threads_available__ != MAX_THREADS_ALLOWED){
         printf("Something went wrong with threads :S\n");
     }
@@ -449,6 +445,103 @@ void mfp_dp_solver(TREE tree, int root, int firefighter_position, float t_propag
     }
     
     delete_memory(&memory);
+    free(forest);
+    free(hops_memory);
+    free(subtree_memory);
+    free(parents_memory);
+
+    (*optimal) = opt;
+    
+}
+
+
+
+
+// ---------------------------------------------------------------------
+// ---------------------------------------------------------------------
+// ---------------------------------------------------------------------
+// ---------------------------------------------------------------------
+// ---------------------------------------------------------------------
+
+
+
+void mfp_greedy_solver(TREE tree, int root, int firefighter_position, float t_propagation, int* optimal, int* opt_path){
+
+    uint n_forest, height, n_leaves;
+    uint* forest;
+    uint* hops_memory;
+    uint** subtree_memory;
+    uint** parents_memory;
+    uint i, j = 0;
+
+    int opt = 0;
+
+    height = (uint) tree.height;
+    n_leaves = (uint) tree.n_leaves;
+    forest = (uint*)malloc(tree.n_nodes * sizeof(uint));
+    hops_memory = (uint*) calloc(tree.n_nodes, sizeof(uint));
+    subtree_memory = (uint**) calloc(tree.n_nodes, sizeof(uint*));
+    parents_memory = (uint**) calloc(tree.n_nodes, sizeof(uint*));
+
+    for(i = 0; i < tree.n_nodes; i++){
+        subtree_memory[i] = (int*) calloc(tree.n_nodes, sizeof(uint));
+        compute_subtree(&tree, i, subtree_memory[i]);
+
+        parents_memory[i] = (int*) calloc(tree.n_nodes, sizeof(uint));
+        compute_parents(&tree, i, parents_memory[i]);
+
+        hops_memory[i] = hops(&tree, root, i, hops_memory);        
+    }
+
+    n_forest = tree.n_nodes - 1;
+    
+    for(i = 0; i < tree.n_nodes; i++){
+        if(i == root){
+            forest[i] = 0;
+        }
+        else{
+            forest[i] = 1;
+        }
+    }
+   
+    for(i = 0; i < n_leaves; i++){
+        opt_path[i] = -1;
+    }
+    
+    
+    if (pthread_mutex_init(&__mutex_n_threads__, NULL) != 0) { 
+        printf("Threads mutex init has failed\n"); 
+    } 
+
+    /*OPT_PARAMS params;
+
+    params.tree = &tree; 
+    params.height = height; 
+    params.forest = forest; 
+    params.n_forest = n_forest; 
+    params.root = (uint) root; 
+    params.firefighter_position = (uint) firefighter_position; 
+    params.current_time = 0; 
+    params.t_propagation = t_propagation;
+    params.hops_memory = hops_memory;
+    params.subtree_memory = subtree_memory;
+    params.parents_memory = parents_memory;
+    params.recursion_limit = n_leaves + 1;
+    params.opt_path = opt_path;
+    params.opt_value = &opt;*/
+
+
+    if(__threads_available__ != MAX_THREADS_ALLOWED){
+        printf("Something went wrong with threads :S\n");
+    }
+
+    pthread_mutex_destroy(&__mutex_n_threads__);
+
+    for(i = 0; i < tree.n_nodes; i++){
+        free(subtree_memory[i]);
+        free(parents_memory[i]);
+    }
+    
     free(forest);
     free(hops_memory);
     free(subtree_memory);
