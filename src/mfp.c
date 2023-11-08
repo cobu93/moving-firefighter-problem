@@ -8,7 +8,7 @@
 #include "tree.h"
 #include "memory.h"
 
-#define MAX_THREADS_ALLOWED 100000
+#define MAX_THREADS_ALLOWED 300000
 
 typedef unsigned int uint;
 typedef long long int lli;

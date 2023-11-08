@@ -4,7 +4,7 @@ import numpy as np
 
 class DynamicProgramming:
     
-    def __init__(self, so_file="./dp/mfp.so"):
+    def __init__(self, so_file="./src/mfp.so"):
         self.mfp_functions = CDLL(so_file)
         
     def run(self, i_tree, root, initial_ff_position, t_propagation):
