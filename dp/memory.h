@@ -1,4 +1,5 @@
 #include <pthread.h> 
+#include <math.h>
 
 typedef unsigned int uint;
 typedef long long int lli;
@@ -90,9 +91,15 @@ lli forest_to_key(uint* forest, uint n_nodes){
     return key;
 }
 
+float round_decimals(float val, uint decimals){
+    float factor = pow(10, decimals);
+    return roundf(val * factor) / factor;
+}
+
 lli time_to_key(float time){
     lli key = 0;
-    memcpy(&key, &time, sizeof(float));
+    float rounded_time = round_decimals(time, 4);
+    memcpy(&key, &rounded_time, sizeof(float));
     return key;
 }
 

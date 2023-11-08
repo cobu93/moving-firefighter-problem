@@ -208,7 +208,6 @@ void* mfp_dp_opt(void* i_params){
                     );
     
     if(memory_value >= 0){
-        printf("Found in memory :D\n");
         *(p->opt_value) = memory_value;
         return NULL;
     }
