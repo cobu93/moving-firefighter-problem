@@ -192,7 +192,7 @@ for e_i, e in enumerate(experiments):
     if not all_experiments_consistent:
         print("WARNING: Not all experiments' results are consistent, please verify! D:")
         for m_i, m in enumerate(runners):
-            print(f"Method: {m}   Optimal: {optimal[m_i]}   Execute?: {optimals_execute[m_i]}   Validate?: {optimals_validate[m_i]}")
+            print(f"Method: {m}   Optimal: {optimals[m_i]}   Execute?: {optimals_execute[m_i]}   Validate?: {optimals_validate[m_i]}")
 
         consistent_experiments[e_i] = False
         
@@ -203,5 +203,5 @@ if not np.all(consistent_experiments):
         if not consistent_experiments[e_i]:
             print(f"Experiment {e['id']} inconsistent")
 else:
-    print("Everithing was excellent! Don't worry :D")
+    print("Everything was excellent! Don't worry :D")
 
