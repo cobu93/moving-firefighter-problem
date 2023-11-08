@@ -202,3 +202,6 @@ if not np.all(consistent_experiments):
     for e_i, e in enumerate(experiments):
         if not consistent_experiments[e_i]:
             print(f"Experiment {e['id']} inconsistent")
+else:
+    print("Everithing was excellent! Don't worry :D")
+
