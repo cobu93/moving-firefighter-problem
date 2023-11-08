@@ -1,4 +1,4 @@
-from generators import generate_random_tree
+from generators import generate_random_tree, tree_from_sequence
 from dp.runners import DynamicProgramming
 from iqcp.runners import IQCP
 from ilp.runners import ILP
@@ -15,7 +15,8 @@ runners = {
     # Recovers the solution
     "dynamic_programming": {
             "runner": DynamicProgramming(),
-            "max_nodes": 110
+            "max_nodes": 110,
+            "validate_optimal": True
     },
     # Unrestricted sequence length to number of leaves
     # Pre-filled hops and subtrees
@@ -32,11 +33,13 @@ runners = {
     #},
     "iqcp": {
             "runner": IQCP(),
-            "max_nodes": 110
+            "max_nodes": 110,
+            "validate_optimal": True
     },
     "ilp": {
             "runner": ILP(),
-            "max_nodes": 110
+            "max_nodes": 110,
+            "validate_optimal": True
     },
 }
 
@@ -45,22 +48,58 @@ n_degrees = np.array(N_DEGREES).astype(int)
 n_samples = N_SAMPLES
 
 
-results = {}
 experiments = []
-
-
 propagation_time = 1.
 
-for n_i, n in enumerate(n_nodes):
-    for d_i, d in enumerate(n_degrees):
-        skipped = np.zeros(len(runners), dtype=bool)
+
+experiments_file = os.path.join(RESULTS_DIR, EXPERIMENTS_FILE)
+
+# Generate experiments
+if not os.path.exists(RESULTS_DIR):
+    os.makedirs(RESULTS_DIR)
+
+existing_experiments = None
+considered_experiments = {}
+current_id = 0
+
+if os.path.exists(experiments_file):
+    with open(experiments_file, "r") as f:
+        existing_experiments = json.load(f)
+    
+    for e in existing_experiments:
+        considered_experiments[e["n_nodes"]] = considered_experiments.get(e["n_nodes"], {})
+        considered_experiments[e["n_nodes"]][e["degree"]] = considered_experiments[e["n_nodes"]].get(e["degree"], [])
+        considered_experiments[e["n_nodes"]][e["degree"]].append(e)
+
+        if e["id"] > current_id:
+            current_id = e["id"]
+
+current_id += 1
+
+for n in n_nodes:
+    for d in n_degrees:
         for s in range(n_samples):
+            sample = True
+            exp = None
+
+            if n in considered_experiments and d in considered_experiments[n] and considered_experiments[n][d]:
+                if len(considered_experiments[n][d]) > 0:
+                    exp = considered_experiments[n][d].pop()
+                    experiments.append(exp)
+                    sample = False
+
+            if not sample:
+                print(f"Found experiment for Nodes:{n} Degree:{d} [Id: {exp['id']}]")
+                continue
+
+            print(f"Sampling experiment for Nodes:{n} Degree:{d}")
 
             initial_ff_position = np.random.rand(3)
             tree, sequence = generate_random_tree(n, d)
             root = np.random.choice(tree.nodes)
 
-            experiment_id = len(experiments) + 1
+            experiment_id = current_id
+            current_id += 1
 
             experiments.append({
                 "id": experiment_id,
@@ -74,57 +113,92 @@ for n_i, n in enumerate(n_nodes):
                 "propagation_time": propagation_time
             })
 
-            optimals = np.zeros(len(runners))
-            
-            for r_i, r in enumerate(runners):
-                if n > runners[r]["max_nodes"]:
-                    print("Runner execution skipped due to the number of nodes")
-                    skipped[r_i] = True
-                    continue
 
-                skipped[r_i] = False
+with open(experiments_file, "w") as outfile:
+    outfile.write(json.dumps(experiments, indent=4))
+
+results = {}
+results_file = os.path.join(RESULTS_DIR, RESULTS_FILE)
+
+if os.path.exists(results_file):
+    with open(results_file, "r") as f:
+        results = json.load(f)
+
+
+consistent_experiments = np.array([True] * len(experiments))
+
+for e_i, e in enumerate(experiments):
+    optimals = np.zeros(len(runners)) - 1
+    optimals_validate = np.array([False] * len(runners))
+    optimals_execute = np.array([False] * len(runners))
+
+    print("============= Experiment", e["id"])
+
+    for m_i, m in enumerate(runners):
+        optimals_execute[m_i] = (n <= runners[m]["max_nodes"])
+        if optimals_execute[m_i]:
+            optimals_validate[m_i] = runners[m]["validate_optimal"]
+        else:
+            optimals_validate[m_i] = False
+
+        results[m] = results.get(m, [])
+
+        for r in results[m]:
+            if r["experiment"] == e["id"]:
+                optimals[m_i] = r["optimal"]
+                break
+
+    all_experiments_executed = np.all(optimals[optimals_execute] >= 0)
+    all_experiments_consistent = np.all(optimals[optimals_validate] == optimals[optimals_validate][0])
+
+    if all_experiments_executed and all_experiments_consistent:
+        print(f"Every method was executed and all of them are consistent :D")
+
+    if not all_experiments_executed:
+
+        tree = tree_from_sequence(np.array(e["sequence"]), add_positions=False)
+        tree.nodes_positions = np.array(e["nodes_positions"])
+        root = e["root"]
+        initial_ff_position = np.array(e["initial_firefighter_position"])
+        propagation_time = e["propagation_time"]
+
+
+        for m_i, m in enumerate(runners):
+            if optimals_execute[m_i] and optimals[m_i] < 0:
+
+                print(f"Executing experiment for runner '{m}'")
+
                 start = time.time()
-                optimal, solution = runners[r]["runner"].run(tree, root, initial_ff_position, propagation_time)
+                optimal, solution = runners[m]["runner"].run(tree, root, initial_ff_position, propagation_time)
                 end = time.time()
 
-                if r not in results:
-                    results[r] = []
-
-                results[r].append({
-                    "experiment": experiment_id,
+                results[m].append({
+                    "experiment": e["id"],
                     "duration": end - start,
                     "solution": solution,
                     "optimal": optimal
                 })
 
-                optimals[r_i] = optimal
+                
+                print(f"Saving results....")
+                with open(results_file, "w") as outfile:
+                    outfile.write(json.dumps(results, indent=4))
+                print(f"Done")
+                
+                optimals[m_i] = optimal
 
-                non_skipped = np.argwhere(skipped[:r_i] == False).flatten()
+        all_experiments_consistent = np.all(optimals[optimals_validate] == optimals[optimals_validate][0])
 
-                if not np.all(optimals[non_skipped] == optimal):
+    if not all_experiments_consistent:
+        print("WARNING: Not all experiments' results are consistent, please verify! D:")
+        for m_i, m in enumerate(runners):
+            print(f"Method: {m}   Optimal: {optimal[m_i]}   Execute?: {optimals_execute[m_i]}   Validate?: {optimals_validate[m_i]}")
 
-                    if not os.path.exists(RESULTS_DIR):
-                        os.makedirs(RESULTS_DIR)
-
-                    with open(os.path.join(RESULTS_DIR, RESULTS_FILE), "w") as outfile:
-                        outfile.write(json.dumps(results, indent=4))
-
-                    with open(os.path.join(RESULTS_DIR, EXPERIMENTS_FILE), "w") as outfile:
-                        outfile.write(json.dumps(experiments, indent=4))
-                                
-                    raise ValueError(f"Runner {r} gaves an inconsistent result:", optimals)
-
-
-if not os.path.exists(RESULTS_DIR):
-    os.makedirs(RESULTS_DIR)
-
-with open(os.path.join(RESULTS_DIR, RESULTS_FILE), "w") as outfile:
-    outfile.write(json.dumps(results, indent=4))
-
-with open(os.path.join(RESULTS_DIR, EXPERIMENTS_FILE), "w") as outfile:
-    outfile.write(json.dumps(experiments, indent=4))
-            
+        consistent_experiments[e_i] = False
         
-
-
-
+print("============= Executions Finished")
+if not np.all(consistent_experiments):
+    print("WARNING: Not all experiments' results are consistent, please verify! D:")
+    for e_i, e in enumerate(experiments):
+        if not consistent_experiments[e_i]:
+            print(f"Experiment {e['id']} inconsistent")
