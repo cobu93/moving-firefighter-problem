@@ -4,10 +4,11 @@ from greedy.runners import Greedy
 from iqcp.runners import IQCP
 from ilp.runners import ILP
 import numpy as np
-from config import N_NODES, N_DEGREES, N_SAMPLES, RESULTS_DIR, RESULTS_FILE, EXPERIMENTS_FILE
+from config import N_NODES, N_DEGREES, N_SAMPLES, RESULTS_DIR, RESULTS_FILE, EXPERIMENTS_FILE, RUNNER_TIMEOUT_SEC
 import json 
 import os
 import time
+import multiprocessing
 
 runners = {
     "dynamic_programming": {
@@ -31,6 +32,14 @@ runners = {
             "validate_optimal": True
     },
 }
+
+queue = multiprocessing.Queue()
+
+def runner_wrapper(func, tree, root, initial_ff_position, propagation_time):
+    optimal, solution  = func(tree, root, initial_ff_position, propagation_time)
+    queue.put((optimal, solution))
+
+
 
 n_nodes = np.array(N_NODES).astype(int)
 n_degrees = np.array(N_DEGREES).astype(int)
@@ -156,16 +165,47 @@ for e_i, e in enumerate(experiments):
             if optimals_execute[m_i] and optimals[m_i] < 0:
 
                 print(f"Executing experiment for runner '{m}'")
+    
+                p = multiprocessing.Process(
+                    target=runner_wrapper, 
+                    args=(
+                        runners[m]["runner"].run, 
+                        tree, 
+                        root, 
+                        initial_ff_position, 
+                        propagation_time
+                    ),
+                    name=m
+                )
 
-                start = time.time()
-                optimal, solution = runners[m]["runner"].run(tree, root, initial_ff_position, propagation_time)
-                end = time.time()
+                try:
+                    start = time.time()
+                    #optimal, solution = runners[m]["runner"].run(tree, root, initial_ff_position, propagation_time)
+                    p.start()
+                    p.join(RUNNER_TIMEOUT_SEC)
+                    end = time.time()
+
+                    if p.is_alive():
+                        p.terminate()
+                        p.join()
+                        raise TimeoutError("Runner exceded the timeout limit")
+                    
+                    optimal, solution = queue.get()
+
+                    message = "Done!"
+                except Exception as ex:
+                    end = time.time()
+                    optimal = None
+                    solution = None
+                    message = "ERROR: " + str(ex)
+                    print(message)
 
                 results[m].append({
                     "experiment": e["id"],
                     "duration": end - start,
                     "solution": solution,
-                    "optimal": optimal
+                    "optimal": optimal,
+                    "message": message
                 })
 
                 
