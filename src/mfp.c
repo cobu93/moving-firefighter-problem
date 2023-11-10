@@ -8,7 +8,7 @@
 #include "tree.h"
 #include "memory.h"
 
-#define MAX_THREADS_ALLOWED 300000
+#define MAX_THREADS_ALLOWED 2000000000
 
 typedef unsigned int uint;
 typedef long long int lli;
@@ -18,7 +18,6 @@ _Atomic int __threads_available__ = MAX_THREADS_ALLOWED;
 pthread_mutex_t __mutex_n_threads__;
 
 int reserve_thread(){
-
     int reserved = 0;
 
     pthread_mutex_lock(&__mutex_n_threads__);
