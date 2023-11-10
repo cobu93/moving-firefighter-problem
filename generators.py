@@ -47,9 +47,9 @@ def generate_random_tree(n_nodes, root_degree, type_root_degree, add_positions=T
         candidate_roots = None
 
         if type_root_degree == "exact":
-            candidate_roots = np.argwhere(counts == root_degree).flatten()
+            candidate_roots = np.argwhere(counts == root_degree - 1).flatten()
         elif type_root_degree == "min":
-            candidate_roots = np.argwhere(counts >= root_degree).flatten()
+            candidate_roots = np.argwhere(counts >= root_degree - 1).flatten()
         else:
             raise ValueError(f"Root degree type {type_root_degree} not recongized!")
 
