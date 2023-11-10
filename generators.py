@@ -2,9 +2,8 @@ from utils import Tree
 import networkx as nx
 import numpy as np
 
-def generate_prufer_sequence(n_nodes, mean_degree):
-    sequence = np.repeat(np.arange(n_nodes), mean_degree - 1)
-    return np.random.choice(sequence, size=n_nodes - 2)
+def generate_prufer_sequence(n_nodes):
+    return np.random.randint(0, n_nodes, size=n_nodes - 2)
 
 def tree_from_sequence(sequence, add_positions=True):
     edges = []
@@ -35,8 +34,34 @@ def tree_from_sequence(sequence, add_positions=True):
         
     return Tree(np.arange(n_nodes), np.array(edges), positions)
 
-def generate_random_tree(n_nodes, mean_degree, add_positions=True):    
-    sequence = generate_prufer_sequence(n_nodes, mean_degree)
-    return tree_from_sequence(sequence, add_positions), sequence.tolist()
+def generate_random_tree(n_nodes, root_degree, type_root_degree, add_positions=True, max_trials=1000):    
+    
+    sequence = None
+    found_tree = False
+
+    for i in range(max_trials):
+        
+        sequence = generate_prufer_sequence(n_nodes)
+        counts = np.bincount(sequence, minlength=n_nodes)
+
+        candidate_roots = None
+
+        if type_root_degree == "exact":
+            candidate_roots = np.argwhere(counts == root_degree).flatten()
+        elif type_root_degree == "min":
+            candidate_roots = np.argwhere(counts >= root_degree).flatten()
+        else:
+            raise ValueError(f"Root degree type {type_root_degree} not recongized!")
+
+        if len(candidate_roots) > 0:
+            found_tree = True
+            break
+
+    if not found_tree:
+        raise ValueError(f"Can't find a tree of {n_nodes} nodes and a root of degree {root_degree} in {max_trials} trials.")
+
+
+    root = np.random.choice(candidate_roots)
+    return tree_from_sequence(sequence, add_positions), sequence.tolist(), int(root)
 
     

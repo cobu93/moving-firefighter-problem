@@ -4,7 +4,7 @@ from greedy.runners import Greedy
 from iqcp.runners import IQCP
 from ilp.runners import ILP
 import numpy as np
-from config import N_NODES, N_DEGREES, N_SAMPLES, RESULTS_DIR, RESULTS_FILE, EXPERIMENTS_FILE, RUNNER_TIMEOUT_SEC
+from config import N_NODES, ROOT_DEGREE, N_SAMPLES, RESULTS_DIR, RESULTS_FILE, EXPERIMENTS_FILE, RUNNER_TIMEOUT_SEC
 import json 
 import os
 import time
@@ -42,7 +42,17 @@ def runner_wrapper(func, tree, root, initial_ff_position, propagation_time):
 
 
 n_nodes = np.array(N_NODES).astype(int)
-n_degrees = np.array(N_DEGREES).astype(int)
+root_degree = ROOT_DEGREE
+type_root_degree = None
+
+if isinstance(root_degree, list):
+    root_degree = np.array(root_degree)
+    type_root_degree = "exact"
+elif isinstance(root_degree, int):
+    root_degree = np.array([root_degree])
+    type_root_degree = "min"
+
+
 n_samples = N_SAMPLES
 
 
@@ -75,7 +85,7 @@ if os.path.exists(experiments_file):
 current_id += 1
 
 for n in n_nodes:
-    for d in n_degrees:
+    for d in root_degree:
         for s in range(n_samples):
             sample = True
             exp = None
@@ -87,23 +97,23 @@ for n in n_nodes:
                     sample = False
 
             if not sample:
-                print(f"Found experiment for Nodes:{n} Degree:{d} [Id: {exp['id']}]")
+                print(f"Found experiment for Nodes:{n} Root degree:{d} [Id: {exp['id']}]")
                 continue
 
-            print(f"Sampling experiment for Nodes:{n} Degree:{d}")
+            print(f"Sampling experiment for Nodes:{n} Root degree:{d}")
 
             initial_ff_position = np.random.rand(3)
-            tree, sequence = generate_random_tree(n, d)
-            root = np.random.choice(tree.nodes)
-
+            tree, sequence, root = generate_random_tree(n, d, type_root_degree)
+            
             experiment_id = current_id
             current_id += 1
 
             experiments.append({
                 "id": experiment_id,
                 "n_nodes": tree.nodes.shape[0],
-                "degree": int(d),
-                "n_degrees": tree.edges.sum(axis=-1).tolist(),
+                "type_root_degree": type_root_degree,
+                "expected_root_degree": int(d),
+                "root_degree": int(tree.edges[root].sum()),
                 "sequence": sequence,
                 "nodes_positions": tree.nodes_positions.tolist(),
                 "root": int(root),

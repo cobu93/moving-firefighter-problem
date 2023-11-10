@@ -1,5 +1,12 @@
+# First set of experiments
 N_NODES = [25, 50, 75, 100]
-N_DEGREES = [5]
+ROOT_DEGREE = 3
+
+# Second set of experiments
+# N_NODES = [50]
+# ROOT_DEGREE = [3, 4, 5]
+
+
 N_SAMPLES = 10
 
 RESULTS_DIR = "results"
