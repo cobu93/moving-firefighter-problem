@@ -76,34 +76,39 @@ if os.path.exists(experiments_file):
     
     for e in existing_experiments:
         considered_experiments[e["n_nodes"]] = considered_experiments.get(e["n_nodes"], {})
-        considered_experiments[e["n_nodes"]][e["degree"]] = considered_experiments[e["n_nodes"]].get(e["degree"], [])
-        considered_experiments[e["n_nodes"]][e["degree"]].append(e)
+        considered_experiments[e["n_nodes"]][e["expected_root_degree"]] = considered_experiments[e["n_nodes"]].get(e["expected_root_degree"], {})
+        considered_experiments[e["n_nodes"]][e["expected_root_degree"]][e["type_root_degree"]] = considered_experiments[e["n_nodes"]][e["expected_root_degree"]].get(e["type_root_degree"], [])
+        considered_experiments[e["n_nodes"]][e["expected_root_degree"]][e["type_root_degree"]].append(e)
 
         if e["id"] > current_id:
             current_id = e["id"]
 
 current_id += 1
 
+t = type_root_degree
 for n in n_nodes:
     for d in root_degree:
         for s in range(n_samples):
             sample = True
             exp = None
 
-            if n in considered_experiments and d in considered_experiments[n] and considered_experiments[n][d]:
-                if len(considered_experiments[n][d]) > 0:
-                    exp = considered_experiments[n][d].pop()
+            if n in considered_experiments and \
+                d in considered_experiments[n] and \
+                    t in considered_experiments[n][d] \
+                        and considered_experiments[n][d][t]:
+                if len(considered_experiments[n][d][t]) > 0:
+                    exp = considered_experiments[n][d][t].pop()
                     experiments.append(exp)
                     sample = False
 
             if not sample:
-                print(f"Found experiment for Nodes:{n} Root degree:{d} [Id: {exp['id']}]")
+                print(f"Found experiment for Nodes:{n} Root degree:{d} Type: {t} [Id: {exp['id']}]")
                 continue
 
-            print(f"Sampling experiment for Nodes:{n} Root degree:{d}")
+            print(f"Sampling experiment for Nodes:{n} Root degree:{d} Type: {t}")
 
             initial_ff_position = np.random.rand(3)
-            tree, sequence, root = generate_random_tree(n, d, type_root_degree)
+            tree, sequence, root = generate_random_tree(n, d, t)
             
             experiment_id = current_id
             current_id += 1
@@ -111,7 +116,7 @@ for n in n_nodes:
             experiments.append({
                 "id": experiment_id,
                 "n_nodes": tree.nodes.shape[0],
-                "type_root_degree": type_root_degree,
+                "type_root_degree": t,
                 "expected_root_degree": int(d),
                 "root_degree": int(tree.edges[root].sum()),
                 "sequence": sequence,
@@ -120,7 +125,6 @@ for n in n_nodes:
                 "initial_firefighter_position": initial_ff_position.tolist(),
                 "propagation_time": propagation_time
             })
-
 
 with open(experiments_file, "w") as outfile:
     outfile.write(json.dumps(experiments, indent=4))
