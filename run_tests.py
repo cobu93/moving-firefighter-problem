@@ -204,7 +204,7 @@ for e_i, e in enumerate(experiments):
                         p.join()
                         raise TimeoutError("Runner exceded the timeout limit")
                     
-                    optimal, solution = queue.get()
+                    optimal, solution = queue.get(False)
 
                     message = "Done!"
                 except Exception as ex:
