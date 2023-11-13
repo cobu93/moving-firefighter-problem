@@ -42,7 +42,7 @@ class Tree:
                 if(height > max_height):
                     max_height = height
 
-        return 1 + height
+        return 1 + max_height
                 
     def to_directed(self, root):
         
