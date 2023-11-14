@@ -2,3 +2,4 @@ __pycache__
 gurobi
 *.pyc
 .ipynb_checkpoints
+tmp_memo
