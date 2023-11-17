@@ -20,6 +20,7 @@
 */
 _Atomic long long int __threads_available__ = MAX_THREADS_ALLOWED;
 pthread_mutex_t __mutex_n_threads__;
+void* mfp_dp_opt(void* i_params);
 
 /*
 Structure to feed the recursive dynamic programming function
@@ -42,6 +43,15 @@ typedef struct {
     msize_t* opt_path; // Optimal path for recursion step
     nsize_t* opt_value; // Saved nodes for optimal path
 } OPT_PARAMS;
+
+typedef struct {
+    OPT_PARAMS* old_params;
+    nsize_t node;
+    float distance;
+    msize_t* opt_path; 
+    nsize_t* opt_value;
+    nsize_t* cardinality;
+} SF_OPT_PARAMS;
 
 
 
@@ -223,6 +233,62 @@ void compute_subforest(
     }
 }
 
+void* sf_mfp_dp_opt(void* params){
+
+    /*
+    Description: Recursive function for MFP (Dynamic programming)
+    Outputs: Fills optimal value and optimal path.
+    */
+
+    SF_OPT_PARAMS* sfp  = (SF_OPT_PARAMS*) params;
+    OPT_PARAMS* p = sfp->old_params;
+
+    nsize_t j;
+    nsize_t n_nodes = p->tree->n_nodes;
+
+    // Create params
+    OPT_PARAMS* sub_params = (OPT_PARAMS*) malloc(sizeof(OPT_PARAMS));
+    sub_params->tree = p->tree; 
+    sub_params->height = p->height; 
+    sub_params->forest = (bool*) malloc(n_nodes * sizeof(bool));
+    sub_params->n_forest = 0;
+    sub_params->root = p->root; 
+    sub_params->firefighter_position = sfp->node; 
+    sub_params->current_time = p->current_time + sfp->distance; 
+    sub_params->t_propagation = p->t_propagation;
+    sub_params->memory = p->memory; 
+    sub_params->hops_memory = p->hops_memory;
+    sub_params->subtree_memory = p->subtree_memory;
+    sub_params->parents_memory = p->parents_memory;
+    sub_params->recursion_limit = p->recursion_limit - 1;
+    sub_params->opt_path = sfp->opt_path;
+    sub_params->opt_value = sfp->opt_value;
+
+    // Initialize optimal path with -1           
+    for(j = 0; j < p->recursion_limit - 1; j++){
+        sub_params->opt_path[j] = -1;
+    }
+
+    *(sfp->cardinality) = 0;
+    
+    // Compute subforest
+    compute_subforest(
+                p->forest, 
+                p->subtree_memory[sfp->node],
+                p->parents_memory[sfp->node], 
+                n_nodes, 
+                sub_params->forest, 
+                &(sub_params->n_forest), 
+                sfp->cardinality
+            );  
+
+    mfp_dp_opt(sub_params);
+
+    free(sub_params->forest);
+    free(sub_params);
+
+}
+
 void* mfp_dp_opt(void* i_params){
 
     /*
@@ -295,7 +361,7 @@ void* mfp_dp_opt(void* i_params){
     nsize_t* cardinalities = (nsize_t*) malloc(n_nodes * sizeof(nsize_t));
     nsize_t* opt_values = (nsize_t*) malloc(n_nodes * sizeof(nsize_t));
 
-    OPT_PARAMS** sub_params = (OPT_PARAMS**) malloc(n_nodes * sizeof(OPT_PARAMS*));
+    SF_OPT_PARAMS** sub_params = (SF_OPT_PARAMS**) malloc(n_nodes * sizeof(SF_OPT_PARAMS*));
 
     for(i = 0; i < n_nodes; i++){
         threaded[i] = 0;
@@ -303,58 +369,31 @@ void* mfp_dp_opt(void* i_params){
         if(feasible[i] == 1){
 
             // Create params
-            sub_params[i] = (OPT_PARAMS*) malloc(sizeof(OPT_PARAMS));
-            sub_params[i]->tree = p->tree; 
-            sub_params[i]->height = p->height; 
-            sub_params[i]->forest = (bool*) malloc(n_nodes * sizeof(bool));
-            sub_params[i]->n_forest = 0;
-            sub_params[i]->root = p->root; 
-            sub_params[i]->firefighter_position = i; 
-            sub_params[i]->current_time = p->current_time + distances[i]; 
-            sub_params[i]->t_propagation = p->t_propagation;
-            sub_params[i]->memory = p->memory; 
-            sub_params[i]->hops_memory = p->hops_memory;
-            sub_params[i]->subtree_memory = p->subtree_memory;
-            sub_params[i]->parents_memory = p->parents_memory;
-            sub_params[i]->recursion_limit = p->recursion_limit - 1;
+            sub_params[i] = (SF_OPT_PARAMS*) malloc(sizeof(OPT_PARAMS));
+            sub_params[i]->old_params = p;
+            sub_params[i]->node = i;
+            sub_params[i]->distance = distances[i];
             sub_params[i]->opt_path = (msize_t*) malloc((p->recursion_limit - 1) * sizeof(msize_t));
             sub_params[i]->opt_value = &(opt_values[i]);
-            
-            // Initialize optimal path with -1           
-            for(j = 0; j < p->recursion_limit - 1; j++){
-                sub_params[i]->opt_path[j] = -1;
-            }
-
-            cardinalities[i] = 0;
+            sub_params[i]->cardinality = &(cardinalities[i]);
     
-            // Compute subforest
-            compute_subforest(
-                        p->forest, 
-                        p->subtree_memory[i],
-                        p->parents_memory[i], 
-                        n_nodes, 
-                        sub_params[i]->forest, 
-                        &(sub_params[i]->n_forest), 
-                        &(cardinalities[i])
-                    );   
-
             // Try to execute in a thread            
             // If threaded execution fails, executes sequentially
             if(reserve_thread() == 1){
                 if (pthread_create(
                         &threads[i], 
                         NULL, 
-                        mfp_dp_opt, 
+                        sf_mfp_dp_opt, 
                         sub_params[i]) != 0){                    
                     free_thread();                    
-                    mfp_dp_opt(sub_params[i]);
+                    sf_mfp_dp_opt(sub_params[i]);
                 }
                 else{
                     threaded[i] = 1;
                 }
             }
             else{
-                mfp_dp_opt(sub_params[i]);
+                sf_mfp_dp_opt(sub_params[i]);
             }
         }
     }
@@ -368,8 +407,6 @@ void* mfp_dp_opt(void* i_params){
 
                 free_thread();
             }
-
-            free(sub_params[i]->forest);
 
             val = cardinalities[i] + *(sub_params[i]->opt_value);
 
