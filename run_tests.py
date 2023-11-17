@@ -12,7 +12,7 @@ import multiprocessing
 
 runners = {
     "dynamic_programming": {
-            "runner": DynamicProgramming(),
+            "runner": DynamicProgramming(use_memoization=False),
             "max_nodes": 110,
             "validate_optimal": True
     },
@@ -161,7 +161,10 @@ for e_i, e in enumerate(experiments):
                 break
 
     all_experiments_executed = np.all(optimals[optimals_execute] >= 0)
-    all_experiments_consistent = np.all(optimals[optimals_validate] == optimals[optimals_validate][0])
+    if optimals[optimals_validate].shape[0] > 0:
+        all_experiments_consistent = np.all(optimals[optimals_validate] == optimals[optimals_validate][0])
+    else:
+        all_experiments_consistent= True
 
     if all_experiments_executed and all_experiments_consistent:
         print(f"Every method was executed and all of them are consistent :D")
@@ -233,7 +236,10 @@ for e_i, e in enumerate(experiments):
                 
                 optimals[m_i] = optimal
 
-        all_experiments_consistent = np.all(optimals[optimals_validate] == optimals[optimals_validate][0])
+        if optimals[optimals_validate].shape[0] > 0:
+            all_experiments_consistent = np.all(optimals[optimals_validate] == optimals[optimals_validate][0])
+        else:
+            all_experiments_consistent= True
 
     if not all_experiments_consistent:
         print("WARNING: Not all experiments' results are consistent, please verify! D:")
