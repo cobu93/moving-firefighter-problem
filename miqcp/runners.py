@@ -6,10 +6,11 @@ import numpy as np
 class MIQCP:
     
     def __init__(self):
-        pass
+        self.B = 0
+        self.D = 0
 
     def __setup_problem__(self, i_tree, root, t_propagation, m):
-        tree, _ = i_tree.to_directed(root)
+        tree, height = i_tree.to_directed(root)
         leaves = np.argwhere(tree.edges.sum(axis=-1) == 0).flatten()
         max_path_len = np.argwhere(tree.edges.sum(axis=-1) == 0).shape[0]
         assert max_path_len >= 1, "There aren't leaves in the tree"
@@ -17,15 +18,20 @@ class MIQCP:
 
         #def mfp_constraints(D, B, n, graph, time, firefighters = 1, return_matrices=False):
         ############# Create the graph ###############
-        ff = graph
         # Adjacency matrix
         adj = tree.edges
         # Distances matrix
-        dists = np.zeros((tree.nodes.shape[0], tree.nodes.shape[0]))
+        dists = np.zeros((n_nodes + 1, n_nodes + 1))
         for i, node_i in enumerate(tree.nodes_positions):
             for j, node_j in enumerate(tree.nodes_positions):
                 dists[i, j] = np.linalg.norm(node_i - node_j)
+        # Rounds definition
+        B = int(height)
+        D = int(leaves.shape[0])
+        n = int(n_nodes + 1)
 
+        self.B = B
+        self.D = D
         
         ################ Create the model ##############
         # ------------------------------INPUT --------------------------------
@@ -254,18 +260,27 @@ class MIQCP:
 
         with gp.Env() as env, gp.Model(env=env) as m:
             m.setParam("MIPGap", 0)
-            # m.setParam("Presolve", 2)  # -1 - Automatic // 0 - Off // 1 - Conservative // 2 - Aggresive
+            m.setParam("Presolve", 2)  # -1 - Automatic // 0 - Off // 1 - Conservative // 2 - Aggresive
 
             self.__setup_problem__(tree, root, t_propagation, m)
             m.optimize()
             
-            optimal = m.ObjVal
+            optimal = len(tree.nodes) - m.ObjVal
             
-            optimal_path = []
-            for v in m.getVars():
-                optimal_path.append(v.X)
+            optimal_path = [-1]
+            last_defended = []
 
-            optimal_path = np.array(optimal_path).reshape(tree.nodes.shape[0], -1)
-            optimal_path = [-1] + np.argwhere(optimal_path.T == 1)[:, 1].tolist()
-            
+            for v in m.getVars():
+                v_parts = v.varName.split(",")
+                if v_parts[0] == "p":
+                    last_defended.append(v.x)
+
+            last_defended = np.array(last_defended).reshape(self.B, tree.edges.shape[0] + 1, self.D).transpose(0, 2, 1)
+
+            for br in last_defended:
+                for dr in br:
+                    last_defended = int(np.argwhere(np.round(dr) == 1)[0, 0])
+                    if last_defended != optimal_path[-1]:
+                        optimal_path.append(last_defended)
+
         return optimal, optimal_path

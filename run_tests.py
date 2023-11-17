@@ -2,6 +2,7 @@ from generators import generate_random_tree, tree_from_sequence
 from dp.runners import DynamicProgramming
 from greedy.runners import Greedy
 from iqcp.runners import IQCP
+from miqcp.runners import MIQCP
 from ilp.runners import ILP
 import numpy as np
 from config import N_NODES, ROOT_DEGREE, N_SAMPLES, RESULTS_DIR, RESULTS_FILE, EXPERIMENTS_FILE, RUNNER_TIMEOUT_SEC
@@ -28,6 +29,11 @@ runners = {
     },
     "ilp": {
             "runner": ILP(),
+            "max_nodes": 110,
+            "validate_optimal": True
+    },
+    "miqcp": {
+            "runner": MIQCP(),
             "max_nodes": 110,
             "validate_optimal": True
     },
