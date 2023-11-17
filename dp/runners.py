@@ -4,8 +4,9 @@ import numpy as np
 
 class DynamicProgramming:
     
-    def __init__(self, so_file="./src/mfp.so"):
+    def __init__(self, so_file="./src/mfp.so", use_memoization=True):
         self.mfp_functions = CDLL(so_file)
+        self.use_memoization = use_memoization
         
     def run(self, i_tree, root, initial_ff_position, t_propagation):
         
@@ -16,6 +17,7 @@ class DynamicProgramming:
 
         optimal = c_int()
         c_optimal_path = (c_int * (n_leaves + 1))()
+        use_memoization = c_int(int(self.use_memoization))
 
         
         self.mfp_functions.mfp_dp_solver(
@@ -24,7 +26,8 @@ class DynamicProgramming:
             (c_int)(len(tree.nodes)),
             (c_float)(t_propagation),
             byref(optimal),
-            c_optimal_path
+            c_optimal_path,
+            use_memoization
         )
 
         optimal_path = [-1]
