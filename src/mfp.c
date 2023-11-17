@@ -5,20 +5,58 @@
 #include <pthread.h> 
 #include <unistd.h>
 
+#include "tdefinitions.h"
 #include "tree.h"
 #include "memory.h"
 
+
+// Maximum hreads allowed.
 #define MAX_THREADS_ALLOWED 2000000000
 
-typedef unsigned int uint;
-typedef long long int lli;
-
-_Atomic int __threads_available__ = MAX_THREADS_ALLOWED;
-
+/*
+*
+* Definitions
+*
+*/
+_Atomic long long int __threads_available__ = MAX_THREADS_ALLOWED;
 pthread_mutex_t __mutex_n_threads__;
 
-int reserve_thread(){
-    int reserved = 0;
+/*
+Structure to feed the recursive dynamic programming function
+*/
+
+typedef struct {
+    TREE* tree; // Tree
+    nsize_t height; // Tree's height
+    bool* forest; // Forest for current step
+    nsize_t n_forest; // Forest's size
+    nsize_t root; // Tree's root
+    nsize_t firefighter_position; // Current FF position
+    float current_time; // Current time
+    float t_propagation; // Propagation time
+    MEMORY* memory; // Memory for memoization (If null no memoization considered)
+    nsize_t* hops_memory; // Precomputed hops for each node in tree
+    bool** subtree_memory; // Precomputed subtree memory for each node
+    bool** parents_memory; // Precomputed parents memory for each node
+    nsize_t recursion_limit; // Recursion limit (Number of leaves)
+    msize_t* opt_path; // Optimal path for recursion step
+    nsize_t* opt_value; // Saved nodes for optimal path
+} OPT_PARAMS;
+
+
+
+/*
+*
+* Utils functions
+*
+*/
+bool reserve_thread(){
+    /*
+    Description: Attempt to reserve a thread
+    Outputs: 1 if success else 0
+    */
+
+    bool reserved = 0;
 
     pthread_mutex_lock(&__mutex_n_threads__);
     if(__threads_available__ > 0){
@@ -32,35 +70,28 @@ int reserve_thread(){
 }
 
 void free_thread(){
+    /*
+    Description: Free space for new thread reservation
+    Outputs: None
+    */
+
     pthread_mutex_lock(&__mutex_n_threads__);
     __threads_available__++;            
     pthread_mutex_unlock(&__mutex_n_threads__);
 }
 
-typedef struct {
-    TREE* tree; 
-    uint height; 
-    uint* forest; 
-    uint n_forest; 
-    uint root; 
-    uint firefighter_position; 
-    float current_time; 
-    float t_propagation;
-    MEMORY* memory; 
-    uint* hops_memory;
-    uint** subtree_memory;
-    uint** parents_memory;
-    uint recursion_limit;
-    int* opt_path;
-    uint* opt_value;
-} OPT_PARAMS;
 
 
 float tau(
     TREE* tree,
-    uint origin,
-    uint destiny
+    uint8_t origin,
+    uint8_t destiny
 ){
+    /*
+    Description: Compute distance between two points
+    Outputs: Distance between origin and destiny
+    */
+
     float distance;
     distance = pow(tree->nodes_x[origin] - tree->nodes_x[destiny], 2);
     distance += pow(tree->nodes_y[origin] - tree->nodes_y[destiny], 2);
@@ -69,12 +100,17 @@ float tau(
     return sqrt(distance);
 }
 
-uint hops(
+nsize_t hops(
     TREE* tree, 
-    uint root, 
-    uint node,
-    uint* hops_memory
+    nsize_t root, 
+    nsize_t node,
+    nsize_t* hops_memory
     ){
+    
+    /*
+    Description: Compute the number of hops between root and node
+    Outputs: Number of hops, and fill hops memory with that value
+    */
 
     if(node == root){
         return 0;
@@ -84,9 +120,9 @@ uint hops(
         return hops_memory[node];
     }
 
-    uint i, j;
-    uint c_node = node;
-    uint hops = 0;
+    nsize_t i, j;
+    nsize_t c_node = node;
+    nsize_t hops = 0;
 
 
     for(i = 0; i < tree->n_nodes; i++){
@@ -112,17 +148,22 @@ uint hops(
 
 void get_feasible(
     TREE* tree,
-    uint* forest, 
-    uint root,
-    uint firefighter_position, 
+    bool* forest, 
+    nsize_t root,
+    nsize_t firefighter_position, 
     float current_time,
     float t_propagation,
-    uint* feasible,
+    bool* feasible,
     float* distances,
-    uint* hops_memory
+    nsize_t* hops_memory
     ){
+
+    /*
+    Description: Compute the feasible nodes given the FF position
+    Outputs: Fills feasible array with feasible nodes
+    */
     
-    uint i, n_hops;
+    nsize_t i, n_hops;
     float distance;
 
     for(i = 0; i < tree->n_nodes; i++){
@@ -150,15 +191,20 @@ void get_feasible(
 }
 
 void compute_subforest(
-    uint* forest, 
-    uint* subtree, 
-    uint* parents, 
-    uint n_nodes, 
-    uint* subforest, 
-    uint* n_subforest, 
-    uint* cardinality){
+    bool* forest, 
+    bool* subtree, 
+    bool* parents, 
+    nsize_t n_nodes, 
+    bool* subforest, 
+    nsize_t* n_subforest, 
+    nsize_t* cardinality){
 
-    uint i;
+    /*
+    Description: Compute the subforest given the subtree and parents
+    Outputs: Fills subforest, subforest size (n_subforest) and cardinality of subtree.
+    */
+
+    nsize_t i;
 
     (*n_subforest) = 0;
     (*cardinality) = 0;
@@ -179,41 +225,55 @@ void compute_subforest(
 
 void* mfp_dp_opt(void* i_params){
 
-    OPT_PARAMS* p = (OPT_PARAMS*) i_params;
-    uint n_nodes = (uint) p->tree->n_nodes;
+    /*
+    Description: Recursive function for MFP (Dynamic programming)
+    Outputs: Fills optimal value and optimal path.
+    */
 
+    OPT_PARAMS* p = (OPT_PARAMS*) i_params;
+    nsize_t n_nodes = p->tree->n_nodes;
+
+    // Base case when the path is longer than he recursion limit (n leaves)
+    // A path can't be longer than the number of leaves
     if(p->recursion_limit <= 0){
         *(p->opt_value) = 0;
         return NULL;
     }
-    
+
+    // Base case when any other node can be saved
     if(p->n_forest == 0){
         *(p->opt_value) = 0;
         return NULL;
     }
 
+    // Base case when time doesn't allow more saved nodes
     if(p->current_time > p->height * p->t_propagation){
         *(p->opt_value) = 0;
         return NULL;
     }    
 
-    int memory_value;
-    memory_value = search_in_memory(
-                        p->memory, 
-                        p->forest, 
-                        n_nodes, 
-                        p->firefighter_position, 
-                        p->current_time
-                    );
-    
-    if(memory_value >= 0){
-        *(p->opt_value) = memory_value;
-        return NULL;
+
+    if(p->memory != NULL){
+        msize_t memory_value;
+        memory_value = search_in_memory(
+                            p->memory, 
+                            p->forest, 
+                            n_nodes, 
+                            p->firefighter_position, 
+                            p->current_time
+                        );
+        
+        // Base case if value exists in memory
+        if(memory_value >= 0){
+            *(p->opt_value) = (nsize_t) memory_value;
+            return NULL;
+        }
     }
 
-    uint* feasible = (uint*) malloc(n_nodes * sizeof(uint));    
+    bool* feasible = (bool*) malloc(n_nodes * sizeof(bool));    
     float* distances = (float*) malloc(n_nodes * sizeof(float));    
     
+    // Compute feasible nodes
     get_feasible(
             p->tree, 
             p->forest, 
@@ -226,26 +286,27 @@ void* mfp_dp_opt(void* i_params){
             p->hops_memory
         );    
     
-    uint i, j;
-    int n_subtree; 
-    int val, max_val = 0;
-    uint* subtree;
+    nsize_t i, j;
+    nsize_t val, max_val = 0;
+    bool* subtree;
 
     pthread_t* threads = (pthread_t*) malloc(n_nodes * sizeof(pthread_t));
-    int* threaded = (int*) calloc(n_nodes, sizeof(pthread_t));
-    int* cardinalities = (int*) malloc(n_nodes * sizeof(int));
-    int* opt_values = (int*) malloc(n_nodes * sizeof(int));
-
+    bool* threaded = (bool*) malloc(n_nodes * sizeof(bool));
+    nsize_t* cardinalities = (nsize_t*) malloc(n_nodes * sizeof(nsize_t));
+    nsize_t* opt_values = (nsize_t*) malloc(n_nodes * sizeof(nsize_t));
 
     OPT_PARAMS** sub_params = (OPT_PARAMS**) malloc(n_nodes * sizeof(OPT_PARAMS*));
 
     for(i = 0; i < n_nodes; i++){
+        threaded[i] = 0;
+        // Only execute for feasible nodes
         if(feasible[i] == 1){
 
-            sub_params[i] = (OPT_PARAMS*) malloc(sizeof(OPT_PARAMS));         
+            // Create params
+            sub_params[i] = (OPT_PARAMS*) malloc(sizeof(OPT_PARAMS));
             sub_params[i]->tree = p->tree; 
             sub_params[i]->height = p->height; 
-            sub_params[i]->forest = (uint*) calloc(n_nodes, sizeof(uint));
+            sub_params[i]->forest = (bool*) malloc(n_nodes * sizeof(bool));
             sub_params[i]->n_forest = 0;
             sub_params[i]->root = p->root; 
             sub_params[i]->firefighter_position = i; 
@@ -256,12 +317,17 @@ void* mfp_dp_opt(void* i_params){
             sub_params[i]->subtree_memory = p->subtree_memory;
             sub_params[i]->parents_memory = p->parents_memory;
             sub_params[i]->recursion_limit = p->recursion_limit - 1;
-            sub_params[i]->opt_path = (int*) malloc((p->recursion_limit - 1) * sizeof(int));
+            sub_params[i]->opt_path = (msize_t*) malloc((p->recursion_limit - 1) * sizeof(msize_t));
             sub_params[i]->opt_value = &(opt_values[i]);
             
+            // Initialize optimal path with -1           
+            for(j = 0; j < p->recursion_limit - 1; j++){
+                sub_params[i]->opt_path[j] = -1;
+            }
 
             cardinalities[i] = 0;
     
+            // Compute subforest
             compute_subforest(
                         p->forest, 
                         p->subtree_memory[i],
@@ -271,18 +337,15 @@ void* mfp_dp_opt(void* i_params){
                         &(sub_params[i]->n_forest), 
                         &(cardinalities[i])
                     );   
-           
-            for(j = 0; j < p->recursion_limit - 1; j++){
-                sub_params[i]->opt_path[j] = -1;
-            }
 
+            // Try to execute in a thread            
+            // If threaded execution fails, executes sequentially
             if(reserve_thread() == 1){
                 if (pthread_create(
                         &threads[i], 
                         NULL, 
                         mfp_dp_opt, 
-                        sub_params[i]) != 0){
-                    //printf("Error: Cannot create thread. Trying sequential...\n");
+                        sub_params[i]) != 0){                    
                     free_thread();                    
                     mfp_dp_opt(sub_params[i]);
                 }
@@ -298,10 +361,9 @@ void* mfp_dp_opt(void* i_params){
 
     for(i = 0; i < n_nodes; i++){
         if(feasible[i] == 1){
-
             if(threaded[i] == 1){
                 if(pthread_join(threads[i], NULL) != 0){
-                    printf("Error: Cannot join thread %d\n", i);
+                    printf("ERROR: Cannot join thread %d\n", i);
                 }
 
                 free_thread();
@@ -313,8 +375,8 @@ void* mfp_dp_opt(void* i_params){
 
             if(val > max_val){
                 max_val = val;
-                p->opt_path[0] = i;
-
+                p->opt_path[0] = (msize_t) i;
+                
                 for(j = 0; j < p->recursion_limit - 1; j++){
                     p->opt_path[j + 1] = sub_params[i]->opt_path[j];
                 }
@@ -326,70 +388,73 @@ void* mfp_dp_opt(void* i_params){
         }
     }
 
+    free(sub_params);
     free(threaded);    
     free(opt_values);
-    free(sub_params);
     free(cardinalities);
     free(threads);
     free(feasible);
     free(distances);
 
-    int result = add_to_memory(
-                    p->memory, 
-                    max_val, 
-                    p->forest, 
-                    p->n_forest, 
-                    p->firefighter_position, 
-                    p->current_time
-                );
 
-    if(result < 0){
-        delete_memory(&(p->memory));
-        free(p->forest);
-        free(p->hops_memory);
+    if(p->memory != NULL){
+        add_to_memory(
+                p->memory, 
+                max_val, 
+                p->forest, 
+                p->n_forest, 
+                p->firefighter_position, 
+                p->current_time
+            );        
     }
 
     *(p->opt_value) = max_val;
 }
 
 
-// ---------------------------------------------------------------------
-// ---------------------------------------------------------------------
-// ---------------------------------------------------------------------
-// ---------------------------------------------------------------------
-// ---------------------------------------------------------------------
+void mfp_dp_solver(
+    TREE tree, 
+    int root, 
+    int firefighter_position, 
+    float t_propagation, 
+    int* optimal, 
+    int* opt_path,
+    int use_memoization
+    ){
+        
+    /*
+    Description: Wrapper function for MFP solver
+    Outputs: Fills optimal value and optimal path.
+    */
 
-void mfp_dp_solver(TREE tree, int root, int firefighter_position, float t_propagation, int* optimal, int* opt_path){
+    nsize_t n_forest, height, n_leaves;
+    bool* forest;
+    nsize_t* hops_memory;
+    bool** subtree_memory;
+    bool** parents_memory;
+    nsize_t i, j = 0;
+    nsize_t opt = 0;
 
-    uint n_forest, height, n_leaves;
-    uint* forest;
-    uint* hops_memory;
-    uint** subtree_memory;
-    uint** parents_memory;
-    uint i, j = 0;
+    height = (nsize_t) tree.height;
+    n_leaves = (nsize_t) tree.n_leaves;
+    forest = (bool*) malloc(tree.n_nodes * sizeof(bool));
+    hops_memory = (nsize_t*) calloc(tree.n_nodes, sizeof(nsize_t));
+    subtree_memory = (bool**) calloc(tree.n_nodes, sizeof(bool*));
+    parents_memory = (bool**) calloc(tree.n_nodes, sizeof(bool*));
 
-    uint opt = 0;
 
-    //height = tree_to_directed(&tree, root);
-    //n_leaves = compute_n_leaves(&tree);
-
-    height = (uint) tree.height;
-    n_leaves = (uint) tree.n_leaves;
-    forest = (uint*)malloc(tree.n_nodes * sizeof(uint));
-    hops_memory = (uint*) calloc(tree.n_nodes, sizeof(uint));
-    subtree_memory = (uint**) calloc(tree.n_nodes, sizeof(uint*));
-    parents_memory = (uint**) calloc(tree.n_nodes, sizeof(uint*));
-
+    // Initialize subtrees and parents memory
     for(i = 0; i < tree.n_nodes; i++){
-        subtree_memory[i] = (int*) calloc(tree.n_nodes, sizeof(uint));
+        subtree_memory[i] = (bool*) calloc(tree.n_nodes, sizeof(bool));
         compute_subtree(&tree, i, subtree_memory[i]);
 
-        parents_memory[i] = (int*) calloc(tree.n_nodes, sizeof(uint));
+        parents_memory[i] = (bool*) calloc(tree.n_nodes, sizeof(bool));
         compute_parents(&tree, i, parents_memory[i]);
 
         hops_memory[i] = hops(&tree, root, i, hops_memory);        
     }
 
+    // Initialize subforest
     n_forest = tree.n_nodes - 1;
     
     for(i = 0; i < tree.n_nodes; i++){
@@ -400,26 +465,32 @@ void mfp_dp_solver(TREE tree, int root, int firefighter_position, float t_propag
             forest[i] = 1;
         }
     }
-   
+
+    // Initialize optimal path   
     for(i = 0; i < n_leaves + 1; i++){
         opt_path[i] = -1;
     }
     
-    MEMORY* memory;
-    init_memory(&memory);
+    // Initialize memory
+    MEMORY* memory = NULL;
+    if(use_memoization == 1){
+        init_memory(&memory);
+    }
 
+    // Initialize threading mutex
     if (pthread_mutex_init(&__mutex_n_threads__, NULL) != 0) { 
-        printf("Threads mutex init has failed\n"); 
+        printf("ERROR: Threads mutex init has failed\n"); 
     } 
 
-    OPT_PARAMS params;
 
+    // Build starting parameters
+    OPT_PARAMS params;
     params.tree = &tree; 
     params.height = height; 
     params.forest = forest; 
     params.n_forest = n_forest; 
-    params.root = (uint) root; 
-    params.firefighter_position = (uint) firefighter_position; 
+    params.root = (nsize_t) root; 
+    params.firefighter_position = (nsize_t) firefighter_position; 
     params.current_time = 0; 
     params.t_propagation = t_propagation;
     params.memory = memory; 
@@ -427,52 +498,62 @@ void mfp_dp_solver(TREE tree, int root, int firefighter_position, float t_propag
     params.subtree_memory = subtree_memory;
     params.parents_memory = parents_memory;
     params.recursion_limit = n_leaves + 1;
-    params.opt_path = opt_path;
+    params.opt_path = (msize_t*) opt_path;
     params.opt_value = &opt;
 
+    // Optimize
     mfp_dp_opt(&params);
 
+    // Validate number of threads consistency
     if(__threads_available__ != MAX_THREADS_ALLOWED){
-        printf("Something went wrong with threads :S\n");
+        printf("ERROR: Something went wrong with threads :S\n");
     }
 
     pthread_mutex_destroy(&__mutex_n_threads__);
+
 
     for(i = 0; i < tree.n_nodes; i++){
         free(subtree_memory[i]);
         free(parents_memory[i]);
     }
     
-    delete_memory(&memory);
+    if(memory != NULL){
+        delete_memory(&memory);
+    }
+
     free(forest);
     free(hops_memory);
     free(subtree_memory);
     free(parents_memory);
 
-    (*optimal) = opt;
-    
+    (*optimal) = opt;    
 }
 
 
 
 
-// ---------------------------------------------------------------------
-// ---------------------------------------------------------------------
-// ---------------------------------------------------------------------
-// ---------------------------------------------------------------------
-// ---------------------------------------------------------------------
+/*
+*
+* Greedy solver
+*
+*/
 
 typedef struct {
-    uint* forest;
-    uint* subtree; 
-    uint* parents; 
-    uint n_nodes; 
-    uint* subforest; 
-    uint* n_subforest; 
-    uint* cardinality;
+    nsize_t* forest;
+    bool* subtree; 
+    bool* parents; 
+    nsize_t n_nodes; 
+    bool* subforest; 
+    nsize_t* n_subforest; 
+    nsize_t* cardinality;
 } SUBFOREST_PARAMS;
 
 void* compute_subforest_thread(void* i_params){
+
+    /*
+    Description: Wrapper function for subforest threaded
+    Outputs: Fills optimal value and optimal path.
+    */
 
     SUBFOREST_PARAMS* p = (SUBFOREST_PARAMS*) i_params;
 
@@ -489,44 +570,52 @@ void* compute_subforest_thread(void* i_params){
 
 void mfp_greedy_solver(TREE tree, int root, int firefighter_position, float t_propagation, int* optimal, int* opt_path){
 
-    uint n_forest, height, n_leaves;
-    uint* forest;
-    uint* hops_memory;
-    uint* feasible;
+    /*
+    Description: MFP greedy solver
+    Outputs: Fills optimal value and optimal path.
+    */
+
+    nsize_t n_forest, height, n_leaves;
+    nsize_t* hops_memory;
+    bool* forest;
+    bool* feasible;
     float* distances;
     
-    uint** subtree_memory;
-    uint** parents_memory;
-    uint i, j = 0;
+    bool** subtree_memory;
+    bool** parents_memory;
+    nsize_t i, j = 0;
 
     float current_time;
     float next_time;
-    uint current_position;
+    nsize_t current_position;
 
     int opt = 0;
 
-    height = (uint) tree.height;
-    n_leaves = (uint) tree.n_leaves;
-    forest = (uint*)malloc(tree.n_nodes * sizeof(uint));
-    hops_memory = (uint*) calloc(tree.n_nodes, sizeof(uint));
-    subtree_memory = (uint**) calloc(tree.n_nodes, sizeof(uint*));
-    parents_memory = (uint**) calloc(tree.n_nodes, sizeof(uint*));
-    feasible = (uint*) malloc(tree.n_nodes * sizeof(uint));    
-    distances = (float*) malloc(tree.n_nodes * sizeof(float)); 
+    height = (nsize_t) tree.height;
+    n_leaves = (nsize_t) tree.n_leaves;
+    nsize_t n_nodes = (nsize_t) tree.n_nodes;
 
-    for(i = 0; i < tree.n_nodes; i++){
-        subtree_memory[i] = (int*) calloc(tree.n_nodes, sizeof(uint));
+    forest = (bool*) malloc(n_nodes * sizeof(bool));
+    hops_memory = (nsize_t*) calloc(n_nodes, sizeof(nsize_t));
+    subtree_memory = (bool**) calloc(n_nodes, sizeof(bool*));
+    parents_memory = (bool**) calloc(n_nodes, sizeof(bool*));
+    feasible = (bool*) malloc(n_nodes * sizeof(bool));    
+    distances = (float*) malloc(n_nodes * sizeof(float)); 
+
+    // Prefilling memory
+    for(i = 0; i < n_nodes; i++){
+        subtree_memory[i] = (bool*) calloc(n_nodes, sizeof(bool));
         compute_subtree(&tree, i, subtree_memory[i]);
 
-        parents_memory[i] = (int*) calloc(tree.n_nodes, sizeof(uint));
+        parents_memory[i] = (bool*) calloc(n_nodes, sizeof(bool));
         compute_parents(&tree, i, parents_memory[i]);
 
         hops_memory[i] = hops(&tree, root, i, hops_memory);        
     }
-
-    n_forest = tree.n_nodes - 1;
     
-    for(i = 0; i < tree.n_nodes; i++){
+    n_forest = n_nodes - 1;
+    
+    for(i = 0; i < n_nodes; i++){
         if(i == root){
             forest[i] = 0;
         }
@@ -541,21 +630,21 @@ void mfp_greedy_solver(TREE tree, int root, int firefighter_position, float t_pr
     
     
     if (pthread_mutex_init(&__mutex_n_threads__, NULL) != 0) { 
-        printf("Threads mutex init has failed\n"); 
+        printf("ERROR: Threads mutex init has failed\n"); 
     } 
 
     current_time = 0;
     next_time = 0;
-    current_position = (uint) firefighter_position;
-    uint n_nodes = (uint) tree.n_nodes;
+    current_position = (nsize_t) firefighter_position;
+    
 
-    uint* cardinalities = (uint*)malloc(n_nodes * sizeof(uint));
-    uint* n_subforests = (uint*)malloc(n_nodes * sizeof(uint));
+    nsize_t* cardinalities = (nsize_t*) malloc(n_nodes * sizeof(nsize_t));
+    nsize_t* n_subforests = (nsize_t*) malloc(n_nodes * sizeof(nsize_t));
 
-    uint max_cardinality;
+    nsize_t max_cardinality;
 
     pthread_t* threads = (pthread_t*) malloc(n_nodes * sizeof(pthread_t));
-    int* threaded = (int*) calloc(n_nodes, sizeof(pthread_t));
+    bool* threaded = (bool*) malloc(n_nodes * sizeof(bool));
 
     SUBFOREST_PARAMS** sub_params = (SUBFOREST_PARAMS**) malloc(n_nodes * sizeof(SUBFOREST_PARAMS*));
 
@@ -566,7 +655,7 @@ void mfp_greedy_solver(TREE tree, int root, int firefighter_position, float t_pr
         get_feasible(
                 &tree,
                 forest, 
-                (uint) root, 
+                (nsize_t) root, 
                 current_position, 
                 current_time, 
                 t_propagation, 
@@ -577,26 +666,27 @@ void mfp_greedy_solver(TREE tree, int root, int firefighter_position, float t_pr
 
         for(j = 0; j < n_nodes; j++){  
             cardinalities[j] = 0;
+            threaded[j] = 0;
+
             if(feasible[j] == 1){
 
                 sub_params[j] = (SUBFOREST_PARAMS*) malloc(sizeof(SUBFOREST_PARAMS));  
-                
+
                 sub_params[j]->forest = forest;
                 sub_params[j]->subtree = subtree_memory[j];
                 sub_params[j]->parents = parents_memory[j]; 
                 sub_params[j]->n_nodes = n_nodes; 
-                sub_params[j]->subforest = (uint*) malloc(n_nodes * sizeof(uint)); 
+                sub_params[j]->subforest = (bool*) malloc(n_nodes * sizeof(bool)); 
                 sub_params[j]->n_subforest = &(n_subforests[j]); 
                 sub_params[j]->cardinality = &(cardinalities[j]);
 
-                threaded[j] = 0;
+                
                 if(reserve_thread() == 1){
                     if (pthread_create(
                             &threads[j], 
                             NULL, 
                             compute_subforest_thread, 
                             sub_params[j]) != 0){
-                        //printf("Error: Cannot create thread. Trying sequential...\n");
                         free_thread();                    
                         compute_subforest_thread(sub_params[j]);
                     }
@@ -616,7 +706,7 @@ void mfp_greedy_solver(TREE tree, int root, int firefighter_position, float t_pr
 
                 if(threaded[j] == 1){
                     if(pthread_join(threads[j], NULL) != 0){
-                        printf("Error: Cannot join thread %d\n", i);
+                        printf("ERROR: Cannot join thread %d\n", i);
                     }
 
                     free_thread();
@@ -626,7 +716,7 @@ void mfp_greedy_solver(TREE tree, int root, int firefighter_position, float t_pr
                     max_cardinality = cardinalities[j];
                     current_position = j;
                     next_time = current_time + distances[j];
-                    memcpy(forest, sub_params[j]->subforest, n_nodes * sizeof(uint));
+                    memcpy(forest, sub_params[j]->subforest, n_nodes * sizeof(bool));
                     opt_path[i] = j;
                 }
 
@@ -640,7 +730,7 @@ void mfp_greedy_solver(TREE tree, int root, int firefighter_position, float t_pr
 
 
     if(__threads_available__ != MAX_THREADS_ALLOWED){
-        printf("Something went wrong with threads :S\n");
+        printf("ERROR: Something went wrong with threads :S\n");
     }
 
     pthread_mutex_destroy(&__mutex_n_threads__);

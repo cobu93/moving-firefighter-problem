@@ -1,223 +1,106 @@
 #include <pthread.h> 
 #include <math.h>
-
-typedef unsigned int uint;
-typedef long long int lli;
+#include "tdefinitions.h"
 
 pthread_mutex_t __mutex_memory__; 
 
 typedef struct
 {
-    lli key;
-    lli value;
+    char* key;
+    uint key_size;
+    nsize_t value;
 } HASH_ITEM;
 
-typedef struct
-{
-    HASH_ITEM* items;
-    lli size;
-} MAP;
+typedef struct NODE_{
+    HASH_ITEM* item;
+    struct NODE_* next_node;
+    struct NODE_* previous_node;
+} NODE;
 
 typedef struct {  
-    MAP* forest_map;
-    MAP* location_map;
-    MAP* time_map;
-
-    int*** storage;
+    NODE* first;  
+    NODE* last;
 } MEMORY;
-
-
-lli get_map_value(MAP* map, lli key){
-    int i;
-    
-    for(i = 0; i < map->size; i++){
-        if(map->items[i].key == key){
-            return map->items[i].value;
-        }
-    }
-
-    return -1;
-}
-
-lli add_map_value(MAP* map, lli key, lli value){
-    int i;
-
-    HASH_ITEM* items_backup;
-    items_backup = (HASH_ITEM*) malloc(map->size * sizeof(HASH_ITEM));
-    memcpy(items_backup, map->items, map->size * sizeof(HASH_ITEM));
-    free(map->items);
-
-    map->size++;
-    map->items = (HASH_ITEM*) malloc(map->size * sizeof(HASH_ITEM));
-    memcpy(map->items, items_backup, (map->size - 1) * sizeof(HASH_ITEM));
-    free(items_backup);
-
-    map->items[map->size - 1].key = key;
-    map->items[map->size - 1].value = value;
-
-    return value;
-}
-
-void free_storage(int**** storage, long long int  dim1, long long int  dim2, long long int dim3){
-    long long int i, j, k;
-    
-    for(i = 0; i < dim1; i++){        
-        for(j = 0; j < dim2; j++){
-            free((*storage)[i][j]);
-        }
-        free((*storage)[i]);
-    }
-
-    if(dim1 > 0){
-        free(*storage);
-    }
-    
-}
-
-lli location_to_key(int location){
-    return (lli) location;
-}
-
-lli forest_to_key(uint* forest, uint n_nodes){
-    lli key = 0;
-    uint i;
-
-    for(i = 0; i < n_nodes; i++){
-        if(forest[i] > 0){
-            key = key | (0x01 << i);
-        }
-    }
-
-    return key;
-}
 
 float round_decimals(float val, uint decimals){
     float factor = pow(10, decimals);
     return roundf(val * factor) / factor;
 }
 
-lli time_to_key(float time){
-    lli key = 0;
-    float rounded_time = round_decimals(time, 4);
-    memcpy(&key, &rounded_time, sizeof(float));
-    return key;
+
+uint get_key(nsize_t location, bool* forest, float time, nsize_t n_nodes, char** key){
+
+    uint time_int = (int) ((time + 1) * pow(10, 4)); 
+    uint time_size = (int)log10(time_int) + 1;
+    uint location_size = (int)log10(location + 1) + 1;
+    nsize_t i;
+
+    uint key_size = location_size + n_nodes + time_size + 1;
+    (*key) = (char*) malloc(key_size * sizeof(char));
+    sprintf(*key, "%d%s%d", location, (char*) forest, time_int);
+
+    return key_size;
 }
 
-int search_in_memory(MEMORY* memory, uint* forest, uint n_nodes, int location, float time){
-    lli location_idx, forest_idx, time_idx;
-    lli location_key, forest_key, time_key;
-    int result;
-
+msize_t search_in_memory(MEMORY* memory, bool* forest, nsize_t n_nodes, nsize_t location, float time){
+    char* key;
+    uint key_size = get_key(location, forest, time, n_nodes, &key);
+    
     pthread_mutex_lock(&__mutex_memory__);
-    location_key = location_to_key(location);
-    location_idx = get_map_value(memory->location_map, location_key);
-    if(location_idx < 0){ pthread_mutex_unlock(&__mutex_memory__); return -1; }
+    NODE* left = memory->first;
+    NODE* right = memory->last;
+    NODE* last_left = NULL;
+    NODE* last_right = NULL;
+    msize_t result = -1;
+    
+    while(result < 0 && left != right && left != last_right && right != last_left){
 
-    forest_key = forest_to_key(forest, n_nodes);
-    forest_idx = get_map_value(memory->forest_map, forest_key);
-    if(forest_idx < 0){ pthread_mutex_unlock(&__mutex_memory__); return -1; }
+        if(key_size == left->item->key_size){
+            if(memcmp(left->item->key, key, key_size * sizeof(char)) == 0){
+                result = left->item->value;
+                break;
+            }
+        }
 
-    time_key = time_to_key(time);
-    time_idx = get_map_value(memory->time_map, time_key);
-    if(time_idx < 0){ pthread_mutex_unlock(&__mutex_memory__); return -1; }
+        if(key_size == right->item->key_size){
+            if(memcmp(right->item->key, key, key_size * sizeof(char)) == 0){
+                result = right->item->value;
+                break;
+            }
+        }
 
-    result = memory->storage[location_idx][forest_idx][time_idx];
+        last_left = left;
+        last_right = right;
+
+        left = left->next_node;
+        right = left->previous_node;
+    }
+        
+    free(key);
     pthread_mutex_unlock(&__mutex_memory__);
 
-    return result;
-    
+    if(result >= 0){
+        printf("Smooth baby... Found in memory\n");
+    }
+
+    return result;    
 }
 
-int add_to_memory(MEMORY* memory, uint value, uint* forest, uint n_nodes, int location, float time){
-    
-    lli location_idx, forest_idx, time_idx;
-    lli location_key, forest_key, time_key;
-    lli location_size, forest_size, time_size;
-    uint i, j, k;
+int add_to_memory(MEMORY* memory, nsize_t value, bool* forest, uint n_nodes, int location, float time){
 
     pthread_mutex_lock(&__mutex_memory__);
+    NODE* node = (NODE*) malloc(sizeof(NODE));
+    node->item = (HASH_ITEM*) malloc(sizeof(HASH_ITEM));
 
-    location_size = memory->location_map->size;
-    location_key = location_to_key(location);
-    location_idx = get_map_value(memory->location_map, location_key);
-    if(location_idx < 0){
-        location_idx = add_map_value(memory->location_map, location_key, memory->location_map->size);
-    }
-
-    forest_size = memory->forest_map->size;
-    forest_key = forest_to_key(forest, n_nodes);
-    forest_idx = get_map_value(memory->forest_map, forest_key);
-    if(forest_idx < 0){
-        forest_idx = add_map_value(memory->forest_map, forest_key, memory->forest_map->size);
-    }
-
-    time_size = memory->time_map->size;
-    time_key = time_to_key(time);
-    time_idx = get_map_value(memory->time_map, time_key);
-    if(time_idx < 0){
-        time_idx = add_map_value(memory->time_map, time_key, memory->time_map->size);
-    }
-
-    int*** backup;
-
-    backup = realloc(memory->storage, memory->location_map->size * sizeof(int**));
-    if(backup == NULL){ 
-        printf("Memory allocation failed!\n"); 
-        return -1; 
-    }        
-    memory->storage = backup;
-
-    if(location_size != memory->location_map->size){
-        memory->storage[memory->location_map->size - 1] = NULL;
-    }
-
-    for(i = 0; i < memory->location_map->size; i++){
-        int** tmp = realloc(memory->storage[i], memory->forest_map->size * sizeof(int*));
-        if(tmp == NULL){ 
-            printf("Memory allocation failed!\n"); 
-            return -1; 
-        }               
-        memory->storage[i] = tmp;
-
-        if(forest_size != memory->forest_map->size){
-            memory->storage[i][memory->forest_map->size - 1] = NULL;
-        }        
-    }
-
-    if(location_size != memory->location_map->size){
-        for(j = 0; j < memory->forest_map->size; j++){
-            memory->storage[memory->location_map->size - 1][j] = NULL;
-        }
-    }
-    
-    for(i = 0; i < memory->location_map->size; i++){
-        for(j = 0; j < memory->forest_map->size; j++){
-
-            int initialize = (memory->storage[i][j] == NULL);
-
-            int* tmp = realloc(memory->storage[i][j], memory->time_map->size * sizeof(int));
-            if(tmp == NULL){ 
-                printf("Memory allocation failed!\n"); 
-                return -1; 
-            }
-            memory->storage[i][j] = tmp;
-
-            if(initialize){
-                for(k = 0; k < memory->time_map->size; k++){
-                    memory->storage[i][j][k] = -1;
-                }
-            }
-            else{
-                if(time_size != memory->time_map->size){
-                    memory->storage[i][j][memory->time_map->size - 1] = -1;
-                }
-            }
-        }
-    }
-    
-    memory->storage[location_idx][forest_idx][time_idx] = value;
+    uint key_size = get_key(location, forest, time, n_nodes, &(node->item->key));
+    node->item->key_size = key_size;
+    node->item->value = value;
+    node->previous_node = NULL;
+    node->next_node = memory->first;
+    memory->first->previous_node = node;
+    memory->first = node;
     pthread_mutex_unlock(&__mutex_memory__);
-    
+
     return 0;
 }
 
@@ -225,39 +108,60 @@ int add_to_memory(MEMORY* memory, uint value, uint* forest, uint n_nodes, int lo
 void init_memory(MEMORY** memory){
     
     if (pthread_mutex_init(&__mutex_memory__, NULL) != 0) { 
-        printf("Mutex init has failed\n"); 
+        printf("ERROR: Mutex init has failed\n"); 
     } 
 
     *memory = (MEMORY*) malloc(sizeof(MEMORY));
 
-    (*memory)->forest_map = (MAP*) malloc(sizeof(MAP));
-    (*memory)->location_map = (MAP*) malloc(sizeof(MAP));
-    (*memory)->time_map = (MAP*) malloc(sizeof(MAP));
+    (*memory)->first = (NODE*) malloc(sizeof(NODE));
+    (*memory)->first->item = (HASH_ITEM*) malloc(sizeof(HASH_ITEM));
+    (*memory)->first->item->key = NULL;
+    (*memory)->first->item->key_size = 0;
+    
+    (*memory)->last = (NODE*) malloc(sizeof(NODE));
+    (*memory)->last->item = (HASH_ITEM*) malloc(sizeof(HASH_ITEM));
+    (*memory)->last->item->key = NULL;
+    (*memory)->last->item->key_size = 0;
 
-    (*memory)->forest_map->items = (HASH_ITEM*) malloc(sizeof(HASH_ITEM));
-    (*memory)->location_map->items = (HASH_ITEM*) malloc(sizeof(HASH_ITEM));
-    (*memory)->time_map->items = (HASH_ITEM*) malloc(sizeof(HASH_ITEM));
+    (*memory)->first->next_node = (*memory)->last;
+    (*memory)->first->previous_node = NULL;
 
-    (*memory)->forest_map->size = 0;
-    (*memory)->location_map->size = 0;
-    (*memory)->time_map->size = 0;
-
-    (*memory)->storage = NULL;
+    (*memory)->last->next_node = NULL;
+    (*memory)->last->previous_node = (*memory)->first;
 }
 
 void delete_memory(MEMORY** memory){
 
     pthread_mutex_destroy(&__mutex_memory__);
 
-    free_storage(&((*memory)->storage), (*memory)->location_map->size, (*memory)->forest_map->size, (*memory)->time_map->size);
+    NODE* left = (*memory)->first;
+    NODE* right = (*memory)->last;
+    NODE* next_left = NULL;
+    NODE* next_right = NULL;
+    
+    while(1){
 
-    free((*memory)->forest_map->items);
-    free((*memory)->location_map->items);
-    free((*memory)->time_map->items);
+        next_left = left->next_node;
+        next_right = right->previous_node;
 
-    free((*memory)->forest_map);
-    free((*memory)->location_map);
-    free((*memory)->time_map);
+        free(left->item->key);
+        free(left->item);
+        free(left);
 
-    free(*memory);
+        if(left == right){
+            break;
+        }
+
+        free(right->item->key);
+        free(right->item);
+        free(right);
+
+        if(next_left == right && next_right == left){
+            break;
+        }
+        
+        left = next_left;
+        right = next_right;       
+
+    }
 }

@@ -99,19 +99,15 @@ class Tree:
 
         return np.array(nodes)
         
-
-
-
 class TREE(Structure):
     _fields_ = [
-        ("n_nodes", c_int),
-        ("height", c_int),
-        ("n_leaves", c_int),
-        ("nodes", POINTER(c_int)),
+        ("n_nodes", c_uint8),
+        ("height", c_uint8),
+        ("n_leaves", c_uint8),
+        ("nodes", POINTER(c_uint8)),
         ("nodes_x", POINTER(c_float)),
         ("nodes_y", POINTER(c_float)),
         ("nodes_z", POINTER(c_float)),
-
         ("egdes", POINTER(POINTER(c_float)))
     ]
 
@@ -127,7 +123,7 @@ def tree_to_structure(tree):
         n_nodes,
         tree.height,
         n_leaves,
-        (c_int * n_nodes)(*tree.nodes.tolist()),
+        (c_uint8 * n_nodes)(*tree.nodes.tolist()),
         (c_float * n_positions)(*tree.nodes_positions[:, 0].tolist()),
         (c_float * n_positions)(*tree.nodes_positions[:, 1].tolist()),
         (c_float * n_positions)(*tree.nodes_positions[:, 2].tolist()),
