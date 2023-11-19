@@ -18,16 +18,17 @@ class IQCP:
         
         # Shapé: (nodes, max_path_len)
         X = m.addMVar(shape=(n_nodes, max_path_len), vtype=GRB.BINARY, name="X")
-        m.addConstr(X.sum(axis=-1) <= 1, "(5)")
-        m.addConstr(X.sum(axis=0) <= 1, "(6)")
-        m.addConstr(X.sum(axis=0)[1:] <= X.sum(axis=0)[:-1], "(7)")
+        m.addConstr(X[root].sum() == 0, f"(5)")
+        m.addConstr(X.sum(axis=-1) <= 1, "(6)")
+        m.addConstr(X.sum(axis=0) <= 1, "(7)")
+        m.addConstr(X.sum(axis=0)[1:] <= X.sum(axis=0)[:-1], "(8)")
         
         paths_to_root = []
         for i in range(n_nodes):
             paths_to_root.append(tree.get_path_to_root(i))
 
         for i in leaves:
-            m.addConstr(X[paths_to_root[i]].sum() <= 1, f"(8.{i})")
+            m.addConstr(X[paths_to_root[i]].sum() <= 1, f"(9.{i})")
 
         
         # Compute distances from initial to each node
@@ -51,11 +52,9 @@ class IQCP:
                     for l in range(i):
                         feasible_cstr += distances[j, k] * X[j, l] * X[k, l + 1]
 
-            m.addConstr(feasible_cstr <= (hops * X[:, i]).sum() + C * (1 - X[:, i].sum()), f"(9.{i})")
+            m.addConstr(feasible_cstr <= (hops * X[:, i]).sum() + C * (1 - X[:, i].sum()), f"(10.{i})")
         
-        m.addConstr(X[root].sum() == 0, f"(No root available)")
-            
-
+        
         subtrees_cardinalities = np.array([tree.get_subtree_nodes(i).shape[0] for i in range(n_nodes)])
         m.setObjective((X.sum(axis=-1) * subtrees_cardinalities).sum(), GRB.MAXIMIZE)
         
