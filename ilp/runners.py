@@ -19,16 +19,20 @@ class ILP:
         # The extra value in the first dimension corresponds to a
         X = m.addMVar(shape=(n_nodes, n_nodes, max_path_len - 1), vtype=GRB.BINARY, name="X")
         A = m.addMVar(shape=n_nodes, vtype=GRB.BINARY, name="A")
+
+        m.addConstr(A[root] == 0, f"(14.1)")
+        if max_path_len > 1:
+            m.addConstr(X[:, root].sum() == 0, f"(14.2)")
         
         if max_path_len > 1:
-            m.addConstr(A + X.sum(axis=(0, -1)) <= 1, f"(13)")
+            m.addConstr(A + X.sum(axis=(0, -1)) <= 1, f"(15)")
         else:
-            m.addConstr(A <= 1, f"(13)")
+            m.addConstr(A <= 1, f"(15)")
 
         if max_path_len > 1:
-            m.addConstr(X[:, :, 0].sum(axis=(0, 1)) <= A.sum(), "(14.0)")
+            m.addConstr(X[:, :, 0].sum(axis=(0, 1)) <= A.sum(), "(16)")
             if max_path_len > 2:
-                m.addConstr(X[:, :, 1:].sum(axis=(0, 1)) <= X[:, :, :-1].sum(axis=(0, 1)), "(14)")
+                m.addConstr(X[:, :, 1:].sum(axis=(0, 1)) <= X[:, :, :-1].sum(axis=(0, 1)), "(17)")
             
 
         
@@ -40,12 +44,12 @@ class ILP:
             if max_path_len > 1:
                 m.addConstr(
                     (A[paths_to_root[i]] + X[:, paths_to_root[i], :].sum(axis=(0, -1))).sum() <= 1, 
-                    f"(15.{i})"
+                    f"(18.{i})"
                 )
             else:
                 m.addConstr(
                     A[paths_to_root[i]].sum() <= 1, 
-                    f"(15.{i})"
+                    f"(18.{i})"
                 )
 
 
@@ -62,7 +66,7 @@ class ILP:
         
         
         ###################################################################
-        m.addConstr((i_distances * A).sum() <= (hops * A).sum() + C * (1 - A.sum()), f"(16.base)")
+        m.addConstr((i_distances * A).sum() <= (hops * A).sum() + C * (1 - A.sum()), f"(19.base)")
         
         for i in range(max_path_len - 1):
 
@@ -81,7 +85,7 @@ class ILP:
             
             comp_feasible_cstr += C * (1 - X[:, :, i].sum())#
 
-            m.addConstr(feasible_cstr <= comp_feasible_cstr, f"(16.{i})")
+            m.addConstr(feasible_cstr <= comp_feasible_cstr, f"(19.{i})")
         ###################################################################3
 
         
@@ -94,7 +98,7 @@ class ILP:
                     if (i != j):
                         path_cstr += X[j, :, 0].sum()
                 
-            m.addConstr(path_cstr <= 1, f"(17.{i})")
+            m.addConstr(path_cstr <= 1, f"(20.{i})")
         
         
         for i in range(max_path_len - 2):
@@ -106,12 +110,9 @@ class ILP:
                     if (k != j):
                         path_cstr += X[k, :, i + 1].sum()
                 
-                m.addConstr(path_cstr <= 1, f"(18.{i})")
+                m.addConstr(path_cstr <= 1, f"(21.{i})")
         
-        m.addConstr(A[root] == 0, f"(No root available ini)")
-        m.addConstr(A.sum() <= 1, f"(One initial node)")
-        if max_path_len > 1:
-            m.addConstr(X[:, root].sum() == 0, f"(No root available)")
+        #m.addConstr(A.sum() <= 1, f"(One initial node)")
             
         subtrees_cardinalities = np.array([tree.get_subtree_nodes(i).shape[0] for i in range(n_nodes)])
         
