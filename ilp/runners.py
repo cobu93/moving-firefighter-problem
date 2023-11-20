@@ -136,6 +136,8 @@ class ILP:
 
         with gp.Env() as env, gp.Model(env=env) as m:
             m.setParam("MIPGap", 0)
+            m.setParam("Presolve", 2)
+            m.setParam("PreSparsify", 1)
 
             self.__setup_problem__(tree, root, t_propagation, m)
             m.optimize()
