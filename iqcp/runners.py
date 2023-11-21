@@ -69,6 +69,7 @@ class IQCP:
             m.setParam("MIPGap", 0)
             m.setParam("Presolve", 2)
             m.setParam("PreSparsify", 1)
+            m.setParam("NodefileStart", 25)
             
             self.__setup_problem__(tree, root, t_propagation, m)
             m.optimize()

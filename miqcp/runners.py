@@ -262,6 +262,7 @@ class MIQCP:
             m.setParam("MIPGap", 0)
             m.setParam("Presolve", 2)  # -1 - Automatic // 0 - Off // 1 - Conservative // 2 - Aggresive
             m.setParam("PreSparsify", 1)
+            m.setParam("NodefileStart", 25)
             
             self.__setup_problem__(tree, root, t_propagation, m)
             m.optimize()
