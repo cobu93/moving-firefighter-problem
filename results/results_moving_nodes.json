@@ -81,6 +81,63 @@
             ],
             "optimal": 18,
             "message": "Done!"
+        },
+        {
+            "experiment": 8,
+            "duration": 1.880131721496582,
+            "solution": [
+                -1,
+                4,
+                9,
+                6,
+                11,
+                22
+            ],
+            "optimal": 19,
+            "message": "Done!"
+        },
+        {
+            "experiment": 9,
+            "duration": 0.31319165229797363,
+            "solution": [
+                -1,
+                6,
+                0,
+                1,
+                22,
+                10,
+                18,
+                8,
+                9
+            ],
+            "optimal": 18,
+            "message": "Done!"
+        },
+        {
+            "experiment": 10,
+            "duration": 0.1195521354675293,
+            "solution": [
+                -1,
+                15,
+                12,
+                11,
+                22
+            ],
+            "optimal": 20,
+            "message": "Done!"
+        },
+        {
+            "experiment": 51,
+            "duration": 0.06686615943908691,
+            "solution": [
+                -1,
+                15,
+                0,
+                7,
+                13
+            ],
+            "optimal": 11,
+            "message": "Done!"
         }
     ],
     "greedy": [
@@ -158,6 +215,53 @@
                 24
             ],
             "optimal": 18,
+            "message": "Done!"
+        },
+        {
+            "experiment": 8,
+            "duration": 0.004208087921142578,
+            "solution": [
+                -1,
+                4,
+                17,
+                13
+            ],
+            "optimal": 19,
+            "message": "Done!"
+        },
+        {
+            "experiment": 9,
+            "duration": 0.004189491271972656,
+            "solution": [
+                -1,
+                6,
+                24,
+                9
+            ],
+            "optimal": 16,
+            "message": "Done!"
+        },
+        {
+            "experiment": 10,
+            "duration": 0.003950834274291992,
+            "solution": [
+                -1,
+                13,
+                14
+            ],
+            "optimal": 11,
+            "message": "Done!"
+        },
+        {
+            "experiment": 51,
+            "duration": 0.004110574722290039,
+            "solution": [
+                -1,
+                5,
+                7,
+                13
+            ],
+            "optimal": 9,
             "message": "Done!"
         }
     ],
@@ -241,6 +345,57 @@
                 9
             ],
             "optimal": 18.0,
+            "message": "Done!"
+        },
+        {
+            "experiment": 8,
+            "duration": 15.032512426376343,
+            "solution": [
+                -1,
+                4,
+                17,
+                13
+            ],
+            "optimal": 19.0,
+            "message": "Done!"
+        },
+        {
+            "experiment": 9,
+            "duration": 27.342374086380005,
+            "solution": [
+                -1,
+                6,
+                24,
+                15,
+                23
+            ],
+            "optimal": 18.0,
+            "message": "Done!"
+        },
+        {
+            "experiment": 10,
+            "duration": 8.48018741607666,
+            "solution": [
+                -1,
+                15,
+                13,
+                5,
+                17
+            ],
+            "optimal": 20.0,
+            "message": "Done!"
+        },
+        {
+            "experiment": 51,
+            "duration": 9.006367683410645,
+            "solution": [
+                -1,
+                15,
+                0,
+                7,
+                13
+            ],
+            "optimal": 11.0,
             "message": "Done!"
         }
     ],
@@ -327,6 +482,58 @@
             ],
             "optimal": 18.0,
             "message": "Done!"
+        },
+        {
+            "experiment": 8,
+            "duration": 35.265093088150024,
+            "solution": [
+                -1,
+                4,
+                17,
+                13
+            ],
+            "optimal": 19.0,
+            "message": "Done!"
+        },
+        {
+            "experiment": 9,
+            "duration": 46.14546537399292,
+            "solution": [
+                -1,
+                6,
+                24,
+                23,
+                15
+            ],
+            "optimal": 18.0,
+            "message": "Done!"
+        },
+        {
+            "experiment": 10,
+            "duration": 30.695069551467896,
+            "solution": [
+                -1,
+                15,
+                13,
+                5,
+                17
+            ],
+            "optimal": 20.0,
+            "message": "Done!"
+        },
+        {
+            "experiment": 51,
+            "duration": 15.144894361495972,
+            "solution": [
+                -1,
+                15,
+                0,
+                11,
+                12,
+                13
+            ],
+            "optimal": 11.0,
+            "message": "Done!"
         }
     ],
     "miqcp": [
@@ -404,6 +611,27 @@
         {
             "experiment": 6,
             "duration": 86400.03592276573,
+            "solution": null,
+            "optimal": null,
+            "message": "ERROR: Runner exceded the timeout limit"
+        },
+        {
+            "experiment": 7,
+            "duration": 86400.14128446579,
+            "solution": null,
+            "optimal": null,
+            "message": "ERROR: Runner exceded the timeout limit"
+        },
+        {
+            "experiment": 8,
+            "duration": 86400.19589662552,
+            "solution": null,
+            "optimal": null,
+            "message": "ERROR: Runner exceded the timeout limit"
+        },
+        {
+            "experiment": 9,
+            "duration": 86400.13202047348,
             "solution": null,
             "optimal": null,
             "message": "ERROR: Runner exceded the timeout limit"
