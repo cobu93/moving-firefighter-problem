@@ -13,29 +13,29 @@ import multiprocessing
 
 runners = {
     "dynamic_programming": {
-            "runner": DynamicProgramming(use_memoization=False),
-            "max_nodes": 110,
-            "validate_optimal": True
+           "runner": DynamicProgramming(use_memoization=False),
+           "max_nodes": 50,
+           "validate_optimal": True
     },
     "greedy": {
             "runner": Greedy(),
-            "max_nodes": 110,
+            "max_nodes": 100,
             "validate_optimal": False
     },
     "iqcp": {
-            "runner": IQCP(),
-            "max_nodes": 110,
-            "validate_optimal": True
+           "runner": IQCP(),
+           "max_nodes": 100,
+           "validate_optimal": True
     },
     "ilp": {
-            "runner": ILP(),
-            "max_nodes": 110,
-            "validate_optimal": True
+           "runner": ILP(),
+           "max_nodes": 100,
+           "validate_optimal": True
     },
     "miqcp": {
-            "runner": MIQCP(),
-            "max_nodes": 110,
-            "validate_optimal": True
+           "runner": MIQCP(),
+           "max_nodes": 25,
+           "validate_optimal": True
     },
 }
 
@@ -150,10 +150,10 @@ for e_i, e in enumerate(experiments):
     optimals_validate = np.array([False] * len(runners))
     optimals_execute = np.array([False] * len(runners))
 
-    print("============= Experiment", e["id"])
+    print("=" * 80, "Experiment", e["id"])
 
     for m_i, m in enumerate(runners):
-        optimals_execute[m_i] = (n <= runners[m]["max_nodes"])
+        optimals_execute[m_i] = (e["n_nodes"] <= runners[m]["max_nodes"])
         if optimals_execute[m_i]:
             optimals_validate[m_i] = runners[m]["validate_optimal"]
         else:

@@ -1,5 +1,5 @@
 # First set of experiments
-N_NODES = [25, 50, 75, 100]
+N_NODES = [20, 25, 40, 50, 75, 100]
 ROOT_DEGREE = 3
 RESULTS_FILE = "results_moving_nodes.json"
 EXPERIMENTS_FILE = "experiments_moving_nodes.json"
