@@ -1,0 +1,55 @@
+{
+    "dynamic_programming": [
+        {
+            "experiment": 1,
+            "duration": 41355.22835421562,
+            "solution": [
+                -1,
+                20,
+                21
+            ],
+            "optimal": 36,
+            "message": "Done!"
+        }
+    ],
+    "greedy": [
+        {
+            "experiment": 1,
+            "duration": 0.0050776004791259766,
+            "solution": [
+                -1,
+                20,
+                21
+            ],
+            "optimal": 36,
+            "message": "Done!"
+        }
+    ],
+    "iqcp": [
+        {
+            "experiment": 1,
+            "duration": 60.77163243293762,
+            "solution": [
+                -1,
+                20,
+                21
+            ],
+            "optimal": 36.0,
+            "message": "Done!"
+        }
+    ],
+    "ilp": [
+        {
+            "experiment": 1,
+            "duration": 270.91339325904846,
+            "solution": [
+                -1,
+                20,
+                21
+            ],
+            "optimal": 36.0,
+            "message": "Done!"
+        }
+    ],
+    "miqcp": []
+}
