@@ -36,6 +36,200 @@
             ],
             "optimal": 33,
             "message": "Done!"
+        },
+        {
+            "experiment": 4,
+            "duration": 396.46075916290283,
+            "solution": [
+                -1,
+                10,
+                3,
+                16,
+                29,
+                1
+            ],
+            "optimal": 36,
+            "message": "Done!"
+        },
+        {
+            "experiment": 5,
+            "duration": 4296.80345082283,
+            "solution": [
+                -1,
+                27,
+                22
+            ],
+            "optimal": 34,
+            "message": "Done!"
+        },
+        {
+            "experiment": 6,
+            "duration": 2946.5776097774506,
+            "solution": [
+                -1,
+                12,
+                37
+            ],
+            "optimal": 36,
+            "message": "Done!"
+        },
+        {
+            "experiment": 7,
+            "duration": 1297.5956439971924,
+            "solution": [
+                -1,
+                26,
+                3,
+                15,
+                31,
+                33,
+                0,
+                5,
+                20,
+                18
+            ],
+            "optimal": 34,
+            "message": "Done!"
+        },
+        {
+            "experiment": 8,
+            "duration": 362.63930082321167,
+            "solution": [
+                -1,
+                10,
+                15,
+                29,
+                8
+            ],
+            "optimal": 33,
+            "message": "Done!"
+        },
+        {
+            "experiment": 9,
+            "duration": 471.4655795097351,
+            "solution": [
+                -1,
+                25,
+                14,
+                30,
+                39,
+                4,
+                1,
+                21,
+                3,
+                38
+            ],
+            "optimal": 33,
+            "message": "Done!"
+        },
+        {
+            "experiment": 10,
+            "duration": 434.9110312461853,
+            "solution": [
+                -1,
+                10,
+                16,
+                9,
+                35
+            ],
+            "optimal": 36,
+            "message": "Done!"
+        },
+        {
+            "experiment": 11,
+            "duration": 236.19271969795227,
+            "solution": [
+                -1,
+                3,
+                15,
+                25
+            ],
+            "optimal": 33,
+            "message": "Done!"
+        },
+        {
+            "experiment": 12,
+            "duration": 86400.87497353554,
+            "solution": null,
+            "optimal": null,
+            "message": "ERROR: Runner exceded the timeout limit"
+        },
+        {
+            "experiment": 13,
+            "duration": 58.45167589187622,
+            "solution": [
+                -1,
+                11,
+                1,
+                4,
+                9,
+                21
+            ],
+            "optimal": 32,
+            "message": "Done!"
+        },
+        {
+            "experiment": 14,
+            "duration": 850.7402832508087,
+            "solution": [
+                -1,
+                17,
+                10,
+                21,
+                24,
+                19
+            ],
+            "optimal": 35,
+            "message": "Done!"
+        },
+        {
+            "experiment": 15,
+            "duration": 847.0070028305054,
+            "solution": [
+                -1,
+                6,
+                12,
+                21,
+                19,
+                2
+            ],
+            "optimal": 38,
+            "message": "Done!"
+        },
+        {
+            "experiment": 16,
+            "duration": 1160.6931722164154,
+            "solution": [
+                -1,
+                9,
+                7,
+                11,
+                18,
+                19,
+                28
+            ],
+            "optimal": 36,
+            "message": "Done!"
+        },
+        {
+            "experiment": 17,
+            "duration": 86400.32417345047,
+            "solution": null,
+            "optimal": null,
+            "message": "ERROR: Runner exceded the timeout limit"
+        },
+        {
+            "experiment": 18,
+            "duration": 78285.79343485832,
+            "solution": [
+                -1,
+                25,
+                12,
+                24,
+                27
+            ],
+            "optimal": 37,
+            "message": "Done!"
         }
     ],
     "greedy": [
@@ -70,6 +264,192 @@
                 20
             ],
             "optimal": 31,
+            "message": "Done!"
+        },
+        {
+            "experiment": 4,
+            "duration": 0.005661964416503906,
+            "solution": [
+                -1,
+                34,
+                2,
+                25,
+                18,
+                36
+            ],
+            "optimal": 33,
+            "message": "Done!"
+        },
+        {
+            "experiment": 5,
+            "duration": 0.004964351654052734,
+            "solution": [
+                -1,
+                27,
+                22
+            ],
+            "optimal": 34,
+            "message": "Done!"
+        },
+        {
+            "experiment": 6,
+            "duration": 0.0061817169189453125,
+            "solution": [
+                -1,
+                37,
+                12
+            ],
+            "optimal": 36,
+            "message": "Done!"
+        },
+        {
+            "experiment": 7,
+            "duration": 0.0055463314056396484,
+            "solution": [
+                -1,
+                4,
+                10,
+                13,
+                14
+            ],
+            "optimal": 29,
+            "message": "Done!"
+        },
+        {
+            "experiment": 8,
+            "duration": 0.0052144527435302734,
+            "solution": [
+                -1,
+                33,
+                11,
+                31
+            ],
+            "optimal": 31,
+            "message": "Done!"
+        },
+        {
+            "experiment": 9,
+            "duration": 0.0054128170013427734,
+            "solution": [
+                -1,
+                26,
+                20,
+                3,
+                38
+            ],
+            "optimal": 29,
+            "message": "Done!"
+        },
+        {
+            "experiment": 10,
+            "duration": 0.005525350570678711,
+            "solution": [
+                -1,
+                10,
+                9,
+                35
+            ],
+            "optimal": 35,
+            "message": "Done!"
+        },
+        {
+            "experiment": 11,
+            "duration": 0.0050733089447021484,
+            "solution": [
+                -1,
+                3,
+                15,
+                25
+            ],
+            "optimal": 33,
+            "message": "Done!"
+        },
+        {
+            "experiment": 12,
+            "duration": 0.08587503433227539,
+            "solution": [
+                -1,
+                34,
+                31,
+                12
+            ],
+            "optimal": 36,
+            "message": "Done!"
+        },
+        {
+            "experiment": 13,
+            "duration": 0.005297183990478516,
+            "solution": [
+                -1,
+                35,
+                26,
+                20,
+                23
+            ],
+            "optimal": 30,
+            "message": "Done!"
+        },
+        {
+            "experiment": 14,
+            "duration": 0.006262540817260742,
+            "solution": [
+                -1,
+                17,
+                24,
+                12,
+                7
+            ],
+            "optimal": 33,
+            "message": "Done!"
+        },
+        {
+            "experiment": 15,
+            "duration": 0.005388498306274414,
+            "solution": [
+                -1,
+                7,
+                6,
+                28
+            ],
+            "optimal": 37,
+            "message": "Done!"
+        },
+        {
+            "experiment": 16,
+            "duration": 0.0054759979248046875,
+            "solution": [
+                -1,
+                25,
+                11,
+                27
+            ],
+            "optimal": 34,
+            "message": "Done!"
+        },
+        {
+            "experiment": 17,
+            "duration": 0.011738300323486328,
+            "solution": [
+                -1,
+                1,
+                20,
+                29,
+                35
+            ],
+            "optimal": 39,
+            "message": "Done!"
+        },
+        {
+            "experiment": 18,
+            "duration": 0.0052356719970703125,
+            "solution": [
+                -1,
+                4,
+                22,
+                15,
+                20
+            ],
+            "optimal": 36,
             "message": "Done!"
         }
     ],
@@ -108,6 +488,202 @@
             ],
             "optimal": 33.0,
             "message": "Done!"
+        },
+        {
+            "experiment": 4,
+            "duration": 51.495126485824585,
+            "solution": [
+                -1,
+                10,
+                34,
+                25,
+                4
+            ],
+            "optimal": 36.0,
+            "message": "Done!"
+        },
+        {
+            "experiment": 5,
+            "duration": 44.48751997947693,
+            "solution": [
+                -1,
+                27,
+                22
+            ],
+            "optimal": 34.0,
+            "message": "Done!"
+        },
+        {
+            "experiment": 6,
+            "duration": 45.88765859603882,
+            "solution": [
+                -1,
+                37,
+                12
+            ],
+            "optimal": 36.0,
+            "message": "Done!"
+        },
+        {
+            "experiment": 7,
+            "duration": 77.70788335800171,
+            "solution": [
+                -1,
+                26,
+                4,
+                10,
+                13,
+                14
+            ],
+            "optimal": 34.0,
+            "message": "Done!"
+        },
+        {
+            "experiment": 8,
+            "duration": 78.81393909454346,
+            "solution": [
+                -1,
+                10,
+                15,
+                29,
+                8
+            ],
+            "optimal": 33.0,
+            "message": "Done!"
+        },
+        {
+            "experiment": 9,
+            "duration": 77.79763984680176,
+            "solution": [
+                -1,
+                25,
+                14,
+                30,
+                39,
+                21,
+                1,
+                4,
+                38,
+                3
+            ],
+            "optimal": 33.0,
+            "message": "Done!"
+        },
+        {
+            "experiment": 10,
+            "duration": 51.784494161605835,
+            "solution": [
+                -1,
+                24,
+                12,
+                35
+            ],
+            "optimal": 36.0,
+            "message": "Done!"
+        },
+        {
+            "experiment": 11,
+            "duration": 51.336097240448,
+            "solution": [
+                -1,
+                15,
+                3,
+                25
+            ],
+            "optimal": 33.0,
+            "message": "Done!"
+        },
+        {
+            "experiment": 12,
+            "duration": 70.08906745910645,
+            "solution": [
+                -1,
+                25,
+                3,
+                19,
+                39
+            ],
+            "optimal": 38.0,
+            "message": "Done!"
+        },
+        {
+            "experiment": 13,
+            "duration": 22.211640119552612,
+            "solution": [
+                -1,
+                35,
+                26,
+                4,
+                20
+            ],
+            "optimal": 31.999999999999996,
+            "message": "Done!"
+        },
+        {
+            "experiment": 14,
+            "duration": 88.22521901130676,
+            "solution": [
+                -1,
+                24,
+                17,
+                21,
+                10,
+                19
+            ],
+            "optimal": 35.0,
+            "message": "Done!"
+        },
+        {
+            "experiment": 15,
+            "duration": 58.091557264328,
+            "solution": [
+                -1,
+                6,
+                12,
+                21,
+                19,
+                2
+            ],
+            "optimal": 38.0,
+            "message": "Done!"
+        },
+        {
+            "experiment": 16,
+            "duration": 60.15849757194519,
+            "solution": [
+                -1,
+                25,
+                11,
+                27
+            ],
+            "optimal": 36.0,
+            "message": "Done!"
+        },
+        {
+            "experiment": 17,
+            "duration": 76.00001788139343,
+            "solution": [
+                -1,
+                20,
+                29,
+                1,
+                35
+            ],
+            "optimal": 39.0,
+            "message": "Done!"
+        },
+        {
+            "experiment": 18,
+            "duration": 77.32853865623474,
+            "solution": [
+                -1,
+                25,
+                16,
+                24,
+                27
+            ],
+            "optimal": 37.0,
+            "message": "Done!"
         }
     ],
     "ilp": [
@@ -144,6 +720,204 @@
             ],
             "optimal": 33.0,
             "message": "Done!"
+        },
+        {
+            "experiment": 4,
+            "duration": 215.09952902793884,
+            "solution": [
+                -1,
+                10,
+                34,
+                25,
+                4
+            ],
+            "optimal": 36.0,
+            "message": "Done!"
+        },
+        {
+            "experiment": 5,
+            "duration": 188.74511742591858,
+            "solution": [
+                -1,
+                27,
+                22
+            ],
+            "optimal": 34.0,
+            "message": "Done!"
+        },
+        {
+            "experiment": 6,
+            "duration": 111.08167362213135,
+            "solution": [
+                -1,
+                37,
+                12
+            ],
+            "optimal": 36.0,
+            "message": "Done!"
+        },
+        {
+            "experiment": 7,
+            "duration": 256.97025418281555,
+            "solution": [
+                -1,
+                26,
+                4,
+                10,
+                13,
+                14
+            ],
+            "optimal": 34.0,
+            "message": "Done!"
+        },
+        {
+            "experiment": 8,
+            "duration": 297.10240054130554,
+            "solution": [
+                -1,
+                10,
+                15,
+                29,
+                8
+            ],
+            "optimal": 33.0,
+            "message": "Done!"
+        },
+        {
+            "experiment": 9,
+            "duration": 244.49754166603088,
+            "solution": [
+                -1,
+                25,
+                14,
+                30,
+                39,
+                4,
+                1,
+                21,
+                3,
+                38
+            ],
+            "optimal": 33.0,
+            "message": "Done!"
+        },
+        {
+            "experiment": 10,
+            "duration": 268.26836252212524,
+            "solution": [
+                -1,
+                10,
+                16,
+                9,
+                35
+            ],
+            "optimal": 36.0,
+            "message": "Done!"
+        },
+        {
+            "experiment": 11,
+            "duration": 230.96421074867249,
+            "solution": [
+                -1,
+                3,
+                15,
+                25
+            ],
+            "optimal": 33.0,
+            "message": "Done!"
+        },
+        {
+            "experiment": 12,
+            "duration": 230.95656871795654,
+            "solution": [
+                -1,
+                25,
+                19,
+                3,
+                39
+            ],
+            "optimal": 38.0,
+            "message": "Done!"
+        },
+        {
+            "experiment": 13,
+            "duration": 173.9221863746643,
+            "solution": [
+                -1,
+                35,
+                4,
+                26,
+                38,
+                23
+            ],
+            "optimal": 32.0,
+            "message": "Done!"
+        },
+        {
+            "experiment": 14,
+            "duration": 341.8056879043579,
+            "solution": [
+                -1,
+                17,
+                21,
+                10,
+                24,
+                19
+            ],
+            "optimal": 35.0,
+            "message": "Done!"
+        },
+        {
+            "experiment": 15,
+            "duration": 197.25004124641418,
+            "solution": [
+                -1,
+                6,
+                12,
+                21,
+                19,
+                2
+            ],
+            "optimal": 38.0,
+            "message": "Done!"
+        },
+        {
+            "experiment": 16,
+            "duration": 220.47335624694824,
+            "solution": [
+                -1,
+                25,
+                11,
+                27
+            ],
+            "optimal": 36.0,
+            "message": "Done!"
+        },
+        {
+            "experiment": 17,
+            "duration": 132.47759294509888,
+            "solution": [
+                -1,
+                1,
+                35,
+                20,
+                29
+            ],
+            "optimal": 39.0,
+            "message": "Done!"
+        },
+        {
+            "experiment": 18,
+            "duration": 224.45089483261108,
+            "solution": [
+                -1,
+                25,
+                16,
+                24,
+                27
+            ],
+            "optimal": 37.0,
+            "message": "Done!"
         }
     ],
     "miqcp": [
@@ -160,6 +934,118 @@
             "solution": null,
             "optimal": null,
             "message": "ERROR: Runner exceded the timeout limit"
+        },
+        {
+            "experiment": 3,
+            "duration": 86400.1391851902,
+            "solution": null,
+            "optimal": null,
+            "message": "ERROR: Runner exceded the timeout limit"
+        },
+        {
+            "experiment": 4,
+            "duration": 86400.12906336784,
+            "solution": null,
+            "optimal": null,
+            "message": "ERROR: Runner exceded the timeout limit"
+        },
+        {
+            "experiment": 5,
+            "duration": 86400.48963284492,
+            "solution": null,
+            "optimal": null,
+            "message": "ERROR: Runner exceded the timeout limit"
+        },
+        {
+            "experiment": 6,
+            "duration": 86400.13332486153,
+            "solution": null,
+            "optimal": null,
+            "message": "ERROR: Runner exceded the timeout limit"
+        },
+        {
+            "experiment": 7,
+            "duration": 86400.12858986855,
+            "solution": null,
+            "optimal": null,
+            "message": "ERROR: Runner exceded the timeout limit"
+        },
+        {
+            "experiment": 8,
+            "duration": 86400.13273692131,
+            "solution": null,
+            "optimal": null,
+            "message": "ERROR: Runner exceded the timeout limit"
+        },
+        {
+            "experiment": 9,
+            "duration": 86400.12651443481,
+            "solution": null,
+            "optimal": null,
+            "message": "ERROR: Runner exceded the timeout limit"
+        },
+        {
+            "experiment": 10,
+            "duration": 86400.13765716553,
+            "solution": null,
+            "optimal": null,
+            "message": "ERROR: Runner exceded the timeout limit"
+        },
+        {
+            "experiment": 11,
+            "duration": 86400.59688162804,
+            "solution": null,
+            "optimal": null,
+            "message": "ERROR: Runner exceded the timeout limit"
+        },
+        {
+            "experiment": 12,
+            "duration": 86400.14029550552,
+            "solution": null,
+            "optimal": null,
+            "message": "ERROR: Runner exceded the timeout limit"
+        },
+        {
+            "experiment": 13,
+            "duration": 86400.12659907341,
+            "solution": null,
+            "optimal": null,
+            "message": "ERROR: Runner exceded the timeout limit"
+        },
+        {
+            "experiment": 14,
+            "duration": 86400.12545609474,
+            "solution": null,
+            "optimal": null,
+            "message": "ERROR: Runner exceded the timeout limit"
+        },
+        {
+            "experiment": 15,
+            "duration": 86400.1261754036,
+            "solution": null,
+            "optimal": null,
+            "message": "ERROR: Runner exceded the timeout limit"
+        },
+        {
+            "experiment": 16,
+            "duration": 86400.16460990906,
+            "solution": null,
+            "optimal": null,
+            "message": "ERROR: Runner exceded the timeout limit"
+        },
+        {
+            "experiment": 17,
+            "duration": 47.098084926605225,
+            "solution": [
+                -1,
+                29,
+                1,
+                20,
+                35,
+                0
+            ],
+            "optimal": 39.0,
+            "message": "Done!"
         }
     ]
 }
