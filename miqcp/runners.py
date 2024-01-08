@@ -270,7 +270,7 @@ class MIQCP:
             
             optimal = len(tree.nodes) - m.ObjVal
             
-            optimal_path = [-1]
+            optimal_path = []
             last_defended = []
 
             for v in m.getVars():
@@ -286,4 +286,5 @@ class MIQCP:
                     if last_defended != optimal_path[-1]:
                         optimal_path.append(last_defended)
 
+        optimal_path[0] = -1
         return optimal, optimal_path
