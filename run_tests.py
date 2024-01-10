@@ -14,7 +14,7 @@ import multiprocessing
 runners = {
     "dynamic_programming": {
            "runner": DynamicProgramming(use_memoization=False),
-           "max_nodes": 50,
+           "max_nodes": 40,
            "validate_optimal": True
     },
     "greedy": {
