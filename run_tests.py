@@ -10,32 +10,33 @@ import json
 import os
 import time
 import multiprocessing
+import numpy as np
 
 runners = {
     "dynamic_programming": {
            "runner": DynamicProgramming(use_memoization=False),
            "max_nodes": 40,
-           "validate_optimal": True
+           "validation_fn": np.equal
     },
     "greedy": {
             "runner": Greedy(),
             "max_nodes": 100,
-            "validate_optimal": False
+            "validation_fn": np.less_equal
     },
     "iqcp": {
            "runner": IQCP(),
            "max_nodes": 100,
-           "validate_optimal": True
+           "validation_fn": np.equal
     },
     "ilp": {
            "runner": ILP(),
            "max_nodes": 100,
-           "validate_optimal": True
+           "validation_fn": np.equal
     },
     "miqcp": {
            "runner": MIQCP(),
            "max_nodes": 25,
-           "validate_optimal": True
+           "validation_fn": np.equal
     },
 }
 
@@ -132,6 +133,8 @@ for n in n_nodes:
                 "propagation_time": propagation_time
             })
 
+experiments = sorted(experiments, key=lambda d: d["id"])
+
 with open(experiments_file, "w") as outfile:
     outfile.write(json.dumps(experiments, indent=4))
 
@@ -142,23 +145,16 @@ if os.path.exists(results_file):
     with open(results_file, "r") as f:
         results = json.load(f)
 
-
 consistent_experiments = np.array([True] * len(experiments))
 
 for e_i, e in enumerate(experiments):
     optimals = np.zeros(len(runners)) - 1
-    optimals_validate = np.array([False] * len(runners))
     optimals_execute = np.array([False] * len(runners))
 
     print("=" * 80, "Experiment", e["id"])
 
     for m_i, m in enumerate(runners):
         optimals_execute[m_i] = (e["n_nodes"] <= runners[m]["max_nodes"])
-        if optimals_execute[m_i]:
-            optimals_validate[m_i] = runners[m]["validate_optimal"]
-        else:
-            optimals_validate[m_i] = False
-
         results[m] = results.get(m, [])
 
         for r in results[m]:
@@ -167,13 +163,9 @@ for e_i, e in enumerate(experiments):
                 break
 
     all_experiments_executed = np.all(optimals[optimals_execute] >= 0)
-    if optimals[optimals_validate].shape[0] > 0:
-        all_experiments_consistent = np.all(optimals[optimals_validate] == optimals[optimals_validate][0])
-    else:
-        all_experiments_consistent= True
-
-    if all_experiments_executed and all_experiments_consistent:
-        print(f"Every method was executed and all of them are consistent :D")
+    
+    if all_experiments_executed:
+        print(f"Every method was executed")
 
     if not all_experiments_executed:
 
@@ -182,7 +174,6 @@ for e_i, e in enumerate(experiments):
         root = e["root"]
         initial_ff_position = np.array(e["initial_firefighter_position"])
         propagation_time = e["propagation_time"]
-
 
         for m_i, m in enumerate(runners):
             if optimals_execute[m_i] and optimals[m_i] < 0:
@@ -242,17 +233,19 @@ for e_i, e in enumerate(experiments):
                 
                 optimals[m_i] = optimal
 
-        if optimals[optimals_validate].shape[0] > 0:
-            all_experiments_consistent = np.all(optimals[optimals_validate] == optimals[optimals_validate][0])
-        else:
-            all_experiments_consistent= True
+    executed_correctly = ~np.isnan(optimals)
+    optimals[np.bitwise_and(optimals_execute, executed_correctly)] = np.round(optimals[np.bitwise_and(optimals_execute, executed_correctly)])
+    max_result = np.max(optimals[np.bitwise_and(optimals_execute, executed_correctly)])
+    print("Inconsistent experiments:")
+    
+    for m_i, m in enumerate(runners):
+        if optimals_execute[m_i] and executed_correctly[m_i]:
+            consistent = runners[m]["validation_fn"](optimals[m_i], max_result)
 
-    if not all_experiments_consistent:
-        print("WARNING: Not all experiments' results are consistent, please verify! D:")
-        for m_i, m in enumerate(runners):
-            print(f"Method: {m}   Optimal: {optimals[m_i]}   Execute?: {optimals_execute[m_i]}   Validate?: {optimals_validate[m_i]}")
+            if not consistent:
+                print(f"\tMethod: {m}   Found: {optimals[m_i]}   Optimal: {max_result}   Execute?: {optimals_execute[m_i]}")
+                consistent_experiments[e_i] = False
 
-        consistent_experiments[e_i] = False
         
 print("============= Executions Finished")
 if not np.all(consistent_experiments):
@@ -263,3 +256,9 @@ if not np.all(consistent_experiments):
 else:
     print("Everything was excellent! Don't worry :D")
 
+
+for m_i, m in enumerate(runners):
+    results[m] = sorted(results[m], key=lambda d: d["experiment"])
+
+with open(results_file, "w") as outfile:
+    outfile.write(json.dumps(results, indent=4))
