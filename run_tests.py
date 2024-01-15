@@ -245,7 +245,7 @@ for e_i, e in enumerate(experiments):
         
         if optimals_execute[m_i] and executed_correctly[m_i]:
             consistent = runners[m]["validation_fn"](optimals[m_i], max_result)
-            consistent = len(optimal_paths[m_i]) <= max_result + 1
+            consistent = consistent and (len(optimal_paths[m_i]) <= max_result + 1)
 
             for p_n in optimal_paths[m_i]:
                 if p_n < -1 or p_n >= e["n_nodes"]:
