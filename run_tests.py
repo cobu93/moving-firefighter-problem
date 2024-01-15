@@ -149,6 +149,7 @@ consistent_experiments = np.array([True] * len(experiments))
 
 for e_i, e in enumerate(experiments):
     optimals = np.zeros(len(runners)) - 1
+    optimal_paths = [None] * len(runners)
     optimals_execute = np.array([False] * len(runners))
 
     print("=" * 80, "Experiment", e["id"])
@@ -160,6 +161,7 @@ for e_i, e in enumerate(experiments):
         for r in results[m]:
             if r["experiment"] == e["id"]:
                 optimals[m_i] = r["optimal"]
+                optimal_paths[m_i] = r["solution"]
                 break
 
     all_experiments_executed = np.all(optimals[optimals_execute] >= 0)
@@ -232,6 +234,7 @@ for e_i, e in enumerate(experiments):
                 print(f"Done")
                 
                 optimals[m_i] = optimal
+                optimal_paths[m_i] = solution
 
     executed_correctly = ~np.isnan(optimals)
     optimals[np.bitwise_and(optimals_execute, executed_correctly)] = np.round(optimals[np.bitwise_and(optimals_execute, executed_correctly)])
@@ -239,13 +242,20 @@ for e_i, e in enumerate(experiments):
     print("Inconsistent experiments:")
     
     for m_i, m in enumerate(runners):
+        
         if optimals_execute[m_i] and executed_correctly[m_i]:
             consistent = runners[m]["validation_fn"](optimals[m_i], max_result)
+            consistent = len(optimal_paths[m_i]) <= max_result + 1
+
+            for p_n in optimal_paths[m_i]:
+                if p_n < -1 or p_n >= e["n_nodes"]:
+                    consistent = False
+                    break
 
             if not consistent:
                 print(f"\tMethod: {m}   Found: {optimals[m_i]}   Optimal: {max_result}   Execute?: {optimals_execute[m_i]}")
                 consistent_experiments[e_i] = False
-
+            
         
 print("============= Executions Finished")
 if not np.all(consistent_experiments):
