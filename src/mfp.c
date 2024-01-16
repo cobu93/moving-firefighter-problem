@@ -615,6 +615,7 @@ void mfp_greedy_solver(TREE tree, int root, int firefighter_position, float t_pr
     nsize_t n_forest, height, n_leaves;
     nsize_t* hops_memory;
     bool* forest;
+    bool* current_forest;
     bool* feasible;
     float* distances;
     
@@ -633,6 +634,7 @@ void mfp_greedy_solver(TREE tree, int root, int firefighter_position, float t_pr
     nsize_t n_nodes = (nsize_t) tree.n_nodes;
 
     forest = (bool*) malloc(n_nodes * sizeof(bool));
+    current_forest = (bool*) malloc(n_nodes * sizeof(bool));
     hops_memory = (nsize_t*) calloc(n_nodes, sizeof(nsize_t));
     subtree_memory = (bool**) calloc(n_nodes, sizeof(bool*));
     parents_memory = (bool**) calloc(n_nodes, sizeof(bool*));
@@ -752,8 +754,8 @@ void mfp_greedy_solver(TREE tree, int root, int firefighter_position, float t_pr
                 if(cardinalities[j] > max_cardinality){
                     max_cardinality = cardinalities[j];
                     current_position = j;
+                    memcpy(current_forest, sub_params[j]->subforest, n_nodes * sizeof(bool));
                     next_time = current_time + distances[j];
-                    memcpy(forest, sub_params[j]->subforest, n_nodes * sizeof(bool));
                     opt_path[i] = j;
                 }
 
@@ -762,6 +764,11 @@ void mfp_greedy_solver(TREE tree, int root, int firefighter_position, float t_pr
             }
         }
 
+        if(max_cardinality == 0){
+            break;
+        }
+
+        memcpy(forest, current_forest, n_nodes * sizeof(bool));
         opt += max_cardinality;
     }
 
@@ -785,6 +792,7 @@ void mfp_greedy_solver(TREE tree, int root, int firefighter_position, float t_pr
     free(feasible);
     free(distances);
     free(forest);
+    free(current_forest);
     free(hops_memory);
     free(subtree_memory);
     free(parents_memory);
