@@ -1989,5 +1989,705 @@
             "optimal": null,
             "message": "ERROR: Runner exceded the timeout limit"
         }
+    ],
+    "greedy": [
+        {
+            "experiment": 1,
+            "duration": 0.014831304550170898,
+            "solution": [
+                -1,
+                2,
+                3
+            ],
+            "optimal": 16,
+            "message": "Done!"
+        },
+        {
+            "experiment": 2,
+            "duration": 0.004509449005126953,
+            "solution": [
+                -1,
+                1,
+                6
+            ],
+            "optimal": 19,
+            "message": "Done!"
+        },
+        {
+            "experiment": 3,
+            "duration": 0.0040242671966552734,
+            "solution": [
+                -1,
+                10
+            ],
+            "optimal": 21,
+            "message": "Done!"
+        },
+        {
+            "experiment": 4,
+            "duration": 0.004105329513549805,
+            "solution": [
+                -1,
+                1,
+                21
+            ],
+            "optimal": 17,
+            "message": "Done!"
+        },
+        {
+            "experiment": 5,
+            "duration": 0.004145383834838867,
+            "solution": [
+                -1,
+                8
+            ],
+            "optimal": 22,
+            "message": "Done!"
+        },
+        {
+            "experiment": 6,
+            "duration": 0.004630565643310547,
+            "solution": [
+                -1,
+                0,
+                2,
+                17
+            ],
+            "optimal": 19,
+            "message": "Done!"
+        },
+        {
+            "experiment": 7,
+            "duration": 0.004298686981201172,
+            "solution": [
+                -1,
+                7,
+                24
+            ],
+            "optimal": 18,
+            "message": "Done!"
+        },
+        {
+            "experiment": 8,
+            "duration": 0.004321098327636719,
+            "solution": [
+                -1,
+                4,
+                17,
+                13
+            ],
+            "optimal": 19,
+            "message": "Done!"
+        },
+        {
+            "experiment": 9,
+            "duration": 0.004424333572387695,
+            "solution": [
+                -1,
+                6,
+                24,
+                23,
+                15
+            ],
+            "optimal": 18,
+            "message": "Done!"
+        },
+        {
+            "experiment": 10,
+            "duration": 0.004157543182373047,
+            "solution": [
+                -1,
+                13,
+                14,
+                3
+            ],
+            "optimal": 12,
+            "message": "Done!"
+        },
+        {
+            "experiment": 11,
+            "duration": 0.005055904388427734,
+            "solution": [
+                -1,
+                26,
+                35,
+                4
+            ],
+            "optimal": 31,
+            "message": "Done!"
+        },
+        {
+            "experiment": 12,
+            "duration": 0.0047380924224853516,
+            "solution": [
+                -1,
+                34
+            ],
+            "optimal": 36,
+            "message": "Done!"
+        },
+        {
+            "experiment": 13,
+            "duration": 0.00480341911315918,
+            "solution": [
+                -1,
+                24,
+                7
+            ],
+            "optimal": 38,
+            "message": "Done!"
+        },
+        {
+            "experiment": 14,
+            "duration": 0.005032777786254883,
+            "solution": [
+                -1,
+                13,
+                6,
+                12
+            ],
+            "optimal": 39,
+            "message": "Done!"
+        },
+        {
+            "experiment": 15,
+            "duration": 0.004904508590698242,
+            "solution": [
+                -1,
+                28,
+                7,
+                13
+            ],
+            "optimal": 36,
+            "message": "Done!"
+        },
+        {
+            "experiment": 16,
+            "duration": 0.004883527755737305,
+            "solution": [
+                -1,
+                28,
+                13
+            ],
+            "optimal": 33,
+            "message": "Done!"
+        },
+        {
+            "experiment": 17,
+            "duration": 0.004731655120849609,
+            "solution": [
+                -1,
+                33,
+                29
+            ],
+            "optimal": 35,
+            "message": "Done!"
+        },
+        {
+            "experiment": 18,
+            "duration": 0.005341529846191406,
+            "solution": [
+                -1,
+                12,
+                9,
+                4,
+                23,
+                33
+            ],
+            "optimal": 38,
+            "message": "Done!"
+        },
+        {
+            "experiment": 19,
+            "duration": 0.004767417907714844,
+            "solution": [
+                -1,
+                27,
+                3
+            ],
+            "optimal": 34,
+            "message": "Done!"
+        },
+        {
+            "experiment": 20,
+            "duration": 0.004824638366699219,
+            "solution": [
+                -1,
+                2,
+                9
+            ],
+            "optimal": 36,
+            "message": "Done!"
+        },
+        {
+            "experiment": 21,
+            "duration": 0.005364179611206055,
+            "solution": [
+                -1,
+                2,
+                6,
+                36
+            ],
+            "optimal": 46,
+            "message": "Done!"
+        },
+        {
+            "experiment": 22,
+            "duration": 0.0055255889892578125,
+            "solution": [
+                -1,
+                8,
+                20
+            ],
+            "optimal": 48,
+            "message": "Done!"
+        },
+        {
+            "experiment": 23,
+            "duration": 0.0056612491607666016,
+            "solution": [
+                -1,
+                22,
+                34,
+                6
+            ],
+            "optimal": 47,
+            "message": "Done!"
+        },
+        {
+            "experiment": 24,
+            "duration": 0.006070613861083984,
+            "solution": [
+                -1,
+                5,
+                21,
+                25,
+                37,
+                40
+            ],
+            "optimal": 46,
+            "message": "Done!"
+        },
+        {
+            "experiment": 25,
+            "duration": 0.005779743194580078,
+            "solution": [
+                -1,
+                8,
+                35
+            ],
+            "optimal": 42,
+            "message": "Done!"
+        },
+        {
+            "experiment": 26,
+            "duration": 0.005635738372802734,
+            "solution": [
+                -1,
+                12,
+                26
+            ],
+            "optimal": 44,
+            "message": "Done!"
+        },
+        {
+            "experiment": 27,
+            "duration": 0.005720376968383789,
+            "solution": [
+                -1,
+                19,
+                1
+            ],
+            "optimal": 46,
+            "message": "Done!"
+        },
+        {
+            "experiment": 28,
+            "duration": 0.00579380989074707,
+            "solution": [
+                -1,
+                1,
+                2,
+                14
+            ],
+            "optimal": 46,
+            "message": "Done!"
+        },
+        {
+            "experiment": 29,
+            "duration": 0.005574226379394531,
+            "solution": [
+                -1,
+                32,
+                35,
+                6
+            ],
+            "optimal": 47,
+            "message": "Done!"
+        },
+        {
+            "experiment": 30,
+            "duration": 0.00602412223815918,
+            "solution": [
+                -1,
+                8,
+                48,
+                38
+            ],
+            "optimal": 44,
+            "message": "Done!"
+        },
+        {
+            "experiment": 31,
+            "duration": 0.00725102424621582,
+            "solution": [
+                -1,
+                73,
+                6
+            ],
+            "optimal": 71,
+            "message": "Done!"
+        },
+        {
+            "experiment": 32,
+            "duration": 0.007124900817871094,
+            "solution": [
+                -1,
+                5,
+                12
+            ],
+            "optimal": 71,
+            "message": "Done!"
+        },
+        {
+            "experiment": 33,
+            "duration": 0.007498025894165039,
+            "solution": [
+                -1,
+                68,
+                53
+            ],
+            "optimal": 71,
+            "message": "Done!"
+        },
+        {
+            "experiment": 34,
+            "duration": 0.007439851760864258,
+            "solution": [
+                -1,
+                73,
+                56,
+                45
+            ],
+            "optimal": 74,
+            "message": "Done!"
+        },
+        {
+            "experiment": 35,
+            "duration": 0.007419109344482422,
+            "solution": [
+                -1,
+                52,
+                12
+            ],
+            "optimal": 71,
+            "message": "Done!"
+        },
+        {
+            "experiment": 36,
+            "duration": 0.007631540298461914,
+            "solution": [
+                -1,
+                29,
+                67,
+                70,
+                45
+            ],
+            "optimal": 59,
+            "message": "Done!"
+        },
+        {
+            "experiment": 37,
+            "duration": 0.006953716278076172,
+            "solution": [
+                -1,
+                5,
+                29
+            ],
+            "optimal": 65,
+            "message": "Done!"
+        },
+        {
+            "experiment": 38,
+            "duration": 0.006745815277099609,
+            "solution": [
+                -1,
+                2,
+                7
+            ],
+            "optimal": 72,
+            "message": "Done!"
+        },
+        {
+            "experiment": 39,
+            "duration": 0.007153034210205078,
+            "solution": [
+                -1,
+                42,
+                63,
+                33,
+                31,
+                46
+            ],
+            "optimal": 68,
+            "message": "Done!"
+        },
+        {
+            "experiment": 40,
+            "duration": 0.007636547088623047,
+            "solution": [
+                -1,
+                73,
+                3,
+                6,
+                58,
+                72,
+                1
+            ],
+            "optimal": 62,
+            "message": "Done!"
+        },
+        {
+            "experiment": 41,
+            "duration": 0.00911855697631836,
+            "solution": [
+                -1,
+                38
+            ],
+            "optimal": 97,
+            "message": "Done!"
+        },
+        {
+            "experiment": 42,
+            "duration": 0.00872802734375,
+            "solution": [
+                -1,
+                46,
+                10
+            ],
+            "optimal": 97,
+            "message": "Done!"
+        },
+        {
+            "experiment": 43,
+            "duration": 0.00899052619934082,
+            "solution": [
+                -1,
+                68,
+                12,
+                98,
+                93
+            ],
+            "optimal": 95,
+            "message": "Done!"
+        },
+        {
+            "experiment": 44,
+            "duration": 0.008602380752563477,
+            "solution": [
+                -1,
+                22,
+                16,
+                62
+            ],
+            "optimal": 97,
+            "message": "Done!"
+        },
+        {
+            "experiment": 45,
+            "duration": 0.008910179138183594,
+            "solution": [
+                -1,
+                15,
+                35
+            ],
+            "optimal": 94,
+            "message": "Done!"
+        },
+        {
+            "experiment": 46,
+            "duration": 0.008977174758911133,
+            "solution": [
+                -1,
+                53,
+                49,
+                98,
+                86
+            ],
+            "optimal": 92,
+            "message": "Done!"
+        },
+        {
+            "experiment": 47,
+            "duration": 0.009497404098510742,
+            "solution": [
+                -1,
+                0,
+                16,
+                63,
+                7
+            ],
+            "optimal": 95,
+            "message": "Done!"
+        },
+        {
+            "experiment": 48,
+            "duration": 0.00906991958618164,
+            "solution": [
+                -1,
+                6,
+                41,
+                81
+            ],
+            "optimal": 86,
+            "message": "Done!"
+        },
+        {
+            "experiment": 49,
+            "duration": 0.008861541748046875,
+            "solution": [
+                -1,
+                86,
+                47,
+                72
+            ],
+            "optimal": 97,
+            "message": "Done!"
+        },
+        {
+            "experiment": 50,
+            "duration": 0.008899688720703125,
+            "solution": [
+                -1,
+                94,
+                7,
+                84,
+                98
+            ],
+            "optimal": 96,
+            "message": "Done!"
+        },
+        {
+            "experiment": 51,
+            "duration": 0.00428318977355957,
+            "solution": [
+                -1,
+                15,
+                7,
+                13
+            ],
+            "optimal": 10,
+            "message": "Done!"
+        },
+        {
+            "experiment": 52,
+            "duration": 0.0037240982055664062,
+            "solution": [
+                -1,
+                6,
+                19,
+                12,
+                17
+            ],
+            "optimal": 13,
+            "message": "Done!"
+        },
+        {
+            "experiment": 53,
+            "duration": 0.0036454200744628906,
+            "solution": [
+                -1,
+                10,
+                1
+            ],
+            "optimal": 14,
+            "message": "Done!"
+        },
+        {
+            "experiment": 54,
+            "duration": 0.0035321712493896484,
+            "solution": [
+                -1,
+                15,
+                4
+            ],
+            "optimal": 15,
+            "message": "Done!"
+        },
+        {
+            "experiment": 55,
+            "duration": 0.0035791397094726562,
+            "solution": [
+                -1,
+                17
+            ],
+            "optimal": 15,
+            "message": "Done!"
+        },
+        {
+            "experiment": 56,
+            "duration": 0.0034809112548828125,
+            "solution": [
+                -1,
+                17,
+                3
+            ],
+            "optimal": 8,
+            "message": "Done!"
+        },
+        {
+            "experiment": 57,
+            "duration": 0.0035440921783447266,
+            "solution": [
+                -1,
+                3,
+                14
+            ],
+            "optimal": 16,
+            "message": "Done!"
+        },
+        {
+            "experiment": 58,
+            "duration": 0.0035631656646728516,
+            "solution": [
+                -1,
+                3,
+                9,
+                12
+            ],
+            "optimal": 14,
+            "message": "Done!"
+        },
+        {
+            "experiment": 59,
+            "duration": 0.0034942626953125,
+            "solution": [
+                -1,
+                12
+            ],
+            "optimal": 17,
+            "message": "Done!"
+        },
+        {
+            "experiment": 60,
+            "duration": 0.003818988800048828,
+            "solution": [
+                -1,
+                4,
+                1
+            ],
+            "optimal": 16,
+            "message": "Done!"
+        }
     ]
 }
