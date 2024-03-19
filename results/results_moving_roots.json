@@ -2196,6 +2196,41 @@
             ],
             "optimal": 39.0,
             "message": "Done!"
+        },
+        {
+            "experiment": 18,
+            "duration": 86400.1407251358,
+            "solution": null,
+            "optimal": null,
+            "message": "ERROR: Runner exceded the timeout limit"
+        },
+        {
+            "experiment": 19,
+            "duration": 86400.14132547379,
+            "solution": null,
+            "optimal": null,
+            "message": "ERROR: Runner exceded the timeout limit"
+        },
+        {
+            "experiment": 20,
+            "duration": 86400.13261938095,
+            "solution": null,
+            "optimal": null,
+            "message": "ERROR: Runner exceded the timeout limit"
+        },
+        {
+            "experiment": 21,
+            "duration": 86400.13386774063,
+            "solution": null,
+            "optimal": null,
+            "message": "ERROR: Runner exceded the timeout limit"
+        },
+        {
+            "experiment": 22,
+            "duration": 86400.13503742218,
+            "solution": null,
+            "optimal": null,
+            "message": "ERROR: Runner exceded the timeout limit"
         }
     ],
     "greedy": [
