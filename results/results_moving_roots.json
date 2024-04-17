@@ -2382,6 +2382,55 @@
             "solution": null,
             "optimal": null,
             "message": "ERROR: Runner exceded the timeout limit"
+        },
+        {
+            "experiment": 44,
+            "duration": 86400.13454890251,
+            "solution": null,
+            "optimal": null,
+            "message": "ERROR: Runner exceded the timeout limit"
+        },
+        {
+            "experiment": 45,
+            "duration": 86400.12933921814,
+            "solution": null,
+            "optimal": null,
+            "message": "ERROR: Runner exceded the timeout limit"
+        },
+        {
+            "experiment": 46,
+            "duration": 86400.12611937523,
+            "solution": null,
+            "optimal": null,
+            "message": "ERROR: Runner exceded the timeout limit"
+        },
+        {
+            "experiment": 47,
+            "duration": 86400.31284189224,
+            "solution": null,
+            "optimal": null,
+            "message": "ERROR: Runner exceded the timeout limit"
+        },
+        {
+            "experiment": 48,
+            "duration": 86400.21960949898,
+            "solution": null,
+            "optimal": null,
+            "message": "ERROR: Runner exceded the timeout limit"
+        },
+        {
+            "experiment": 49,
+            "duration": 86400.08603000641,
+            "solution": null,
+            "optimal": null,
+            "message": "ERROR: Runner exceded the timeout limit"
+        },
+        {
+            "experiment": 50,
+            "duration": 86400.12446498871,
+            "solution": null,
+            "optimal": null,
+            "message": "ERROR: Runner exceded the timeout limit"
         }
     ],
     "greedy": [
