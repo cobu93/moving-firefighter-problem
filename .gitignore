@@ -3,3 +3,4 @@ gurobi
 *.pyc
 .ipynb_checkpoints
 tmp_memo
+.venv

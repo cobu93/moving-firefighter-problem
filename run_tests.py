@@ -4,6 +4,7 @@ from greedy.runners import Greedy
 from iqcp.runners import IQCP
 from miqcp.runners import MIQCP
 from ilp.runners import ILP
+from eilp.runners import EILP
 import numpy as np
 from config import N_NODES, ROOT_DEGREE, N_SAMPLES, RESULTS_DIR, RESULTS_FILE, EXPERIMENTS_FILE, RUNNER_TIMEOUT_SEC
 import json 
@@ -11,6 +12,8 @@ import os
 import time
 import multiprocessing
 import numpy as np
+
+os.environ["GRB_LICENSE_FILE"] = os.path.join(os.path.dirname(os.path.abspath(__file__)), "gurobi", "gurobi.lic")
 
 runners = {
     "dynamic_programming": {
@@ -36,6 +39,11 @@ runners = {
     "miqcp": {
            "runner": MIQCP(),
            "max_nodes": 40,
+           "validation_fn": np.equal
+    },
+    "eilp": {
+           "runner": EILP(),
+           "max_nodes": 100,
            "validation_fn": np.equal
     },
 }
