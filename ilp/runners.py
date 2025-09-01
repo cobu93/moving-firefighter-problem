@@ -2,6 +2,9 @@ import gurobipy as gp
 from gurobipy import GRB
 
 import numpy as np
+import signal
+import os
+import joblib
 
 class ILP:
     
@@ -126,9 +129,15 @@ class ILP:
                 (A * subtrees_cardinalities).sum(), 
                 GRB.MAXIMIZE
                 )
+            
+    def get_extra_info(self, checkpoint_prefix):
         
+        if os.path.exists(f"{checkpoint_prefix}.jl"):
+            return joblib.load(f"{checkpoint_prefix}.jl")
         
-    def run(self, tree, root, initial_ff_position, t_propagation):
+        return {}        
+        
+    def run(self, tree, root, initial_ff_position, t_propagation, checkpoint_prefix):
         tree.add_firefighter_position(initial_ff_position)
         
         optimal = 0
@@ -142,7 +151,20 @@ class ILP:
             
 
             self.__setup_problem__(tree, root, t_propagation, m)
+            def handle_sigterm(signum, frame):
+                m.terminate()
+
+            signal.signal(signal.SIGTERM, handle_sigterm)
+
             m.optimize()
+            m.write(f"{checkpoint_prefix}.lp")
+            m.write(f"{checkpoint_prefix}.sol")
+
+            joblib.dump({
+                "primal_bound": m.ObjVal,
+                "dual_bound": m.ObjBound,
+                "gap": m.MIPGap
+            }, f"{checkpoint_prefix}.jl")
             
             optimal = m.ObjVal
             result = []

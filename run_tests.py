@@ -50,8 +50,8 @@ runners = {
 
 queue = multiprocessing.Queue()
 
-def runner_wrapper(func, tree, root, initial_ff_position, propagation_time):
-    optimal, solution  = func(tree, root, initial_ff_position, propagation_time)
+def runner_wrapper(func, tree, root, initial_ff_position, propagation_time, exp_checkpoint_prefix):
+    optimal, solution  = func(tree, root, initial_ff_position, propagation_time, exp_checkpoint_prefix)
     queue.put((optimal, solution))
 
 
@@ -64,6 +64,7 @@ for exp_config in EXPERIMENTS:
     RESULTS_FILE = exp_config["results_file"]
     EXPERIMENTS_FILE = exp_config["experiments_file"]
     RUNNER_TIMEOUT_SEC = exp_config["runner_timeout_sec"]
+    CHECKPOINTS_DIR = exp_config["checkpoints_dir"]
 
     n_nodes = np.array(N_NODES).astype(int)
     root_degree = ROOT_DEGREE
@@ -89,6 +90,9 @@ for exp_config in EXPERIMENTS:
     # Generate experiments
     if not os.path.exists(RESULTS_DIR):
         os.makedirs(RESULTS_DIR)
+
+    if not os.path.exists(os.path.join(RESULTS_DIR, CHECKPOINTS_DIR)):
+        os.makedirs(os.path.join(RESULTS_DIR, CHECKPOINTS_DIR))
 
     existing_experiments = None
     considered_experiments = {}
@@ -198,7 +202,12 @@ for exp_config in EXPERIMENTS:
                 if optimals_execute[m_i] and optimals[m_i] < 0:
 
                     print(f"Executing experiment for runner '{m}'")
-        
+
+                    if not os.path.exists(os.path.join(RESULTS_DIR, CHECKPOINTS_DIR, m)):
+                        os.makedirs(os.path.join(RESULTS_DIR, CHECKPOINTS_DIR, m))
+
+                    exp_checkpoint_prefix = os.path.join(RESULTS_DIR, CHECKPOINTS_DIR, m, f"{e['id']}")
+                    extra_data = {}
                     p = multiprocessing.Process(
                         target=runner_wrapper, 
                         args=(
@@ -206,7 +215,8 @@ for exp_config in EXPERIMENTS:
                             tree, 
                             root, 
                             initial_ff_position, 
-                            propagation_time
+                            propagation_time,
+                            exp_checkpoint_prefix                            
                         ),
                         name=m
                     )
@@ -235,12 +245,15 @@ for exp_config in EXPERIMENTS:
                         solution = None
                         message = "ERROR: " + str(ex)
                         print(message)
+                    finally:
+                        extra_data = runners[m]["runner"].get_extra_info(exp_checkpoint_prefix)
 
                     results[m].append({
                         "experiment": e["id"],
                         "duration": end - start,
                         "solution": solution,
                         "optimal": optimal,
+                        **extra_data,
                         "message": message
                     })
 

@@ -6,8 +6,11 @@ class Greedy:
     
     def __init__(self, so_file="./src/mfp.so"):
         self.mfp_functions = CDLL(so_file)
+
+    def get_extra_info(self, checkpoint_prefix):
+        return {}
         
-    def run(self, i_tree, root, initial_ff_position, t_propagation):
+    def run(self, i_tree, root, initial_ff_position, t_propagation, checkpoint_prefix):
         
         i_tree.add_firefighter_position(initial_ff_position)
         tree, _ = i_tree.to_directed(root)
