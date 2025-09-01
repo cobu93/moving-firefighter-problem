@@ -231,6 +231,7 @@ for exp_config in EXPERIMENTS:
                         if p.is_alive():
                             p.terminate()
                             p.join()
+                            queue.get(False)                            
                             raise TimeoutError("Runner exceded the timeout limit")
                         
                         if (p.exitcode == 1):
