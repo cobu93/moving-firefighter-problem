@@ -22,6 +22,7 @@ EXPERIMENTS = [
         "root_degree": 3,
         "results_file": "results_moving_nodes.json",
         "experiments_file": "experiments_moving_nodes.json",
+        "checkpoints_dir": "results_moving_nodes",
         "n_samples": 10, 
         "results_dir": "results",
         "runner_timeout_sec": 86400
@@ -33,6 +34,7 @@ EXPERIMENTS = [
         "root_degree": [3, 4, 5, 6, 7],
         "results_file": "results_moving_roots.json",
         "experiments_file": "experiments_moving_roots.json",
+        "checkpoints_dir": "results_moving_roots",
         "n_samples": 10, 
         "results_dir": "results",
         "runner_timeout_sec": 86400
