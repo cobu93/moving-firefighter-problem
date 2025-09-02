@@ -25,7 +25,7 @@ EXPERIMENTS = [
         "checkpoints_dir": "results_moving_nodes",
         "n_samples": 10, 
         "results_dir": "results",
-        "runner_timeout_sec": 36000
+        "runner_timeout_sec": 3600
     },
     # Second set of experiments
     {
@@ -37,6 +37,6 @@ EXPERIMENTS = [
         "checkpoints_dir": "results_moving_roots",
         "n_samples": 10, 
         "results_dir": "results",
-        "runner_timeout_sec": 36000
+        "runner_timeout_sec": 3600
     }
 ]
