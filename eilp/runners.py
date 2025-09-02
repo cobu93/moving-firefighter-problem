@@ -100,12 +100,6 @@ class EILP:
             m.optimize()
             m.write(f"{checkpoint_prefix}.lp")
             m.write(f"{checkpoint_prefix}.sol")
-
-            joblib.dump({
-                "primal_bound": m.ObjVal,
-                "dual_bound": m.ObjBound,
-                "gap": m.MIPGap
-            }, f"{checkpoint_prefix}.jl")
             
             optimal = m.ObjVal
 
@@ -130,6 +124,15 @@ class EILP:
                 next_node = np.argwhere(result[:, :, i] == 1)
                 if next_node.shape[0] > 0:
                     optimal_path += [int(next_node[0, 1])]
+
+            
+            joblib.dump({
+                "found_solution": optimal_path,
+                "suboptimal": optimal,
+                "primal_bound": m.ObjVal,
+                "dual_bound": m.ObjBound,
+                "gap": m.MIPGap
+            }, f"{checkpoint_prefix}.jl")
 
 
         return optimal, optimal_path

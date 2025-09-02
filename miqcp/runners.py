@@ -280,12 +280,6 @@ class MIQCP:
             m.optimize()
             m.write(f"{checkpoint_prefix}.lp")
             m.write(f"{checkpoint_prefix}.sol")
-
-            joblib.dump({
-                "primal_bound": m.ObjVal,
-                "dual_bound": m.ObjBound,
-                "gap": m.MIPGap
-            }, f"{checkpoint_prefix}.jl")
             
             optimal = len(tree.nodes) - m.ObjVal
             
@@ -305,5 +299,15 @@ class MIQCP:
                     if last_defended != optimal_path[-1]:
                         optimal_path.append(last_defended)
 
-        optimal_path[0] = -1
+            optimal_path[0] = -1
+
+            joblib.dump({
+                "found_solution": optimal_path,
+                "suboptimal": optimal,
+                "primal_bound": m.ObjVal,
+                "dual_bound": m.ObjBound,
+                "gap": m.MIPGap
+            }, f"{checkpoint_prefix}.jl")
+
+
         return optimal, optimal_path

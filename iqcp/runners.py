@@ -86,12 +86,6 @@ class IQCP:
             m.optimize()
             m.write(f"{checkpoint_prefix}.lp")
             m.write(f"{checkpoint_prefix}.sol")
-
-            joblib.dump({
-                "primal_bound": m.ObjVal,
-                "dual_bound": m.ObjBound,
-                "gap": m.MIPGap
-            }, f"{checkpoint_prefix}.jl")
             
             optimal = m.ObjVal
             
@@ -101,5 +95,13 @@ class IQCP:
 
             optimal_path = np.array(optimal_path).reshape(tree.nodes.shape[0], -1)
             optimal_path = [-1] + np.argwhere(optimal_path.T == 1)[:, 1].tolist()
+
+            joblib.dump({
+                "found_solution": optimal_path,
+                "suboptimal": optimal,
+                "primal_bound": m.ObjVal,
+                "dual_bound": m.ObjBound,
+                "gap": m.MIPGap
+            }, f"{checkpoint_prefix}.jl")
             
         return optimal, optimal_path
