@@ -38,7 +38,7 @@ runners = {
     },
     "miqcp": {
            "runner": MIQCP(),
-           "max_nodes": 40,
+           "max_nodes": 100,
            "validation_fn": np.equal
     },
     "eilp": {
