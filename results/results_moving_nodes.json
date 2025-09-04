@@ -140,6 +140,75 @@
             ],
             "optimal": 36,
             "message": "Done!"
+        },
+        {
+            "experiment": 12,
+            "duration": 3600.574572324753,
+            "solution": null,
+            "optimal": null,
+            "message": "ERROR: "
+        },
+        {
+            "experiment": 13,
+            "duration": 3600.586729288101,
+            "solution": null,
+            "optimal": null,
+            "message": "ERROR: "
+        },
+        {
+            "experiment": 14,
+            "duration": 3600.6991086006165,
+            "solution": null,
+            "optimal": null,
+            "message": "ERROR: "
+        },
+        {
+            "experiment": 15,
+            "duration": 3600.680314540863,
+            "solution": null,
+            "optimal": null,
+            "message": "ERROR: "
+        },
+        {
+            "experiment": 16,
+            "duration": 1337.3273389339447,
+            "solution": [
+                -1,
+                3,
+                35,
+                28,
+                14
+            ],
+            "optimal": 34,
+            "message": "Done!"
+        },
+        {
+            "experiment": 17,
+            "duration": 3600.626800298691,
+            "solution": null,
+            "optimal": null,
+            "message": "ERROR: "
+        },
+        {
+            "experiment": 18,
+            "duration": 3600.5950038433075,
+            "solution": null,
+            "optimal": null,
+            "message": "ERROR: "
+        },
+        {
+            "experiment": 19,
+            "duration": 3600.6325805187225,
+            "solution": null,
+            "optimal": null,
+            "message": "ERROR: "
+        },
+        {
+            "experiment": 20,
+            "duration": 3600.6925258636475,
+            "solution": null,
+            "optimal": null,
+            "message": "ERROR: "
         }
     ],
     "greedy": [
@@ -266,6 +335,121 @@
                 4
             ],
             "optimal": 31,
+            "message": "Done!"
+        },
+        {
+            "experiment": 12,
+            "duration": 0.007643461227416992,
+            "solution": [
+                -1,
+                34
+            ],
+            "optimal": 36,
+            "message": "Done!"
+        },
+        {
+            "experiment": 13,
+            "duration": 0.008647680282592773,
+            "solution": [
+                -1,
+                24,
+                7
+            ],
+            "optimal": 38,
+            "message": "Done!"
+        },
+        {
+            "experiment": 14,
+            "duration": 0.008606672286987305,
+            "solution": [
+                -1,
+                13,
+                6,
+                12
+            ],
+            "optimal": 39,
+            "message": "Done!"
+        },
+        {
+            "experiment": 15,
+            "duration": 0.008508920669555664,
+            "solution": [
+                -1,
+                28,
+                7,
+                13
+            ],
+            "optimal": 36,
+            "message": "Done!"
+        },
+        {
+            "experiment": 16,
+            "duration": 0.0074615478515625,
+            "solution": [
+                -1,
+                28,
+                13
+            ],
+            "optimal": 33,
+            "message": "Done!"
+        },
+        {
+            "experiment": 17,
+            "duration": 0.008971452713012695,
+            "solution": [
+                -1,
+                33,
+                29
+            ],
+            "optimal": 35,
+            "message": "Done!"
+        },
+        {
+            "experiment": 18,
+            "duration": 0.009277582168579102,
+            "solution": [
+                -1,
+                12,
+                9,
+                4,
+                23,
+                33
+            ],
+            "optimal": 38,
+            "message": "Done!"
+        },
+        {
+            "experiment": 19,
+            "duration": 0.007985353469848633,
+            "solution": [
+                -1,
+                27,
+                3
+            ],
+            "optimal": 34,
+            "message": "Done!"
+        },
+        {
+            "experiment": 20,
+            "duration": 0.008331298828125,
+            "solution": [
+                -1,
+                2,
+                9
+            ],
+            "optimal": 36,
+            "message": "Done!"
+        },
+        {
+            "experiment": 21,
+            "duration": 0.008512735366821289,
+            "solution": [
+                -1,
+                2,
+                6,
+                36
+            ],
+            "optimal": 46,
             "message": "Done!"
         }
     ],
@@ -517,6 +701,226 @@
             "dual_bound": 36.0,
             "gap": 0.0,
             "message": "Done!"
+        },
+        {
+            "experiment": 12,
+            "duration": 26.064335823059082,
+            "solution": [
+                -1,
+                34
+            ],
+            "optimal": 36.0,
+            "found_solution": [
+                -1,
+                34
+            ],
+            "suboptimal": 36.0,
+            "primal_bound": 36.0,
+            "dual_bound": 36.0,
+            "gap": 0.0,
+            "message": "Done!"
+        },
+        {
+            "experiment": 13,
+            "duration": 41.4306423664093,
+            "solution": [
+                -1,
+                24,
+                7
+            ],
+            "optimal": 38.0,
+            "found_solution": [
+                -1,
+                24,
+                7
+            ],
+            "suboptimal": 38.0,
+            "primal_bound": 38.0,
+            "dual_bound": 38.0,
+            "gap": 0.0,
+            "message": "Done!"
+        },
+        {
+            "experiment": 14,
+            "duration": 22.43401074409485,
+            "solution": [
+                -1,
+                13,
+                6,
+                12
+            ],
+            "optimal": 39.0,
+            "found_solution": [
+                -1,
+                13,
+                6,
+                12
+            ],
+            "suboptimal": 39.0,
+            "primal_bound": 39.0,
+            "dual_bound": 39.0,
+            "gap": 0.0,
+            "message": "Done!"
+        },
+        {
+            "experiment": 15,
+            "duration": 29.6147301197052,
+            "solution": [
+                -1,
+                28,
+                7,
+                13
+            ],
+            "optimal": 36.0,
+            "found_solution": [
+                -1,
+                28,
+                7,
+                13
+            ],
+            "suboptimal": 36.0,
+            "primal_bound": 36.0,
+            "dual_bound": 36.0,
+            "gap": 0.0,
+            "message": "Done!"
+        },
+        {
+            "experiment": 16,
+            "duration": 26.887176990509033,
+            "solution": [
+                -1,
+                28,
+                3,
+                35,
+                14
+            ],
+            "optimal": 34.0,
+            "found_solution": [
+                -1,
+                28,
+                3,
+                35,
+                14
+            ],
+            "suboptimal": 34.0,
+            "primal_bound": 34.0,
+            "dual_bound": 34.0,
+            "gap": 0.0,
+            "message": "Done!"
+        },
+        {
+            "experiment": 17,
+            "duration": 25.680063009262085,
+            "solution": [
+                -1,
+                1,
+                35,
+                29,
+                26,
+                31
+            ],
+            "optimal": 36.0,
+            "found_solution": [
+                -1,
+                1,
+                35,
+                29,
+                26,
+                31
+            ],
+            "suboptimal": 36.0,
+            "primal_bound": 36.0,
+            "dual_bound": 36.0,
+            "gap": 0.0,
+            "message": "Done!"
+        },
+        {
+            "experiment": 18,
+            "duration": 25.9006507396698,
+            "solution": [
+                -1,
+                12,
+                9,
+                4,
+                23,
+                33
+            ],
+            "optimal": 38.0,
+            "found_solution": [
+                -1,
+                12,
+                9,
+                4,
+                23,
+                33
+            ],
+            "suboptimal": 38.0,
+            "primal_bound": 38.0,
+            "dual_bound": 38.0,
+            "gap": 0.0,
+            "message": "Done!"
+        },
+        {
+            "experiment": 19,
+            "duration": 19.675427198410034,
+            "solution": [
+                -1,
+                27,
+                3
+            ],
+            "optimal": 34.0,
+            "found_solution": [
+                -1,
+                27,
+                3
+            ],
+            "suboptimal": 34.0,
+            "primal_bound": 34.0,
+            "dual_bound": 34.0,
+            "gap": 0.0,
+            "message": "Done!"
+        },
+        {
+            "experiment": 20,
+            "duration": 32.632890701293945,
+            "solution": [
+                -1,
+                2,
+                9
+            ],
+            "optimal": 36.0,
+            "found_solution": [
+                -1,
+                2,
+                9
+            ],
+            "suboptimal": 36.0,
+            "primal_bound": 36.0,
+            "dual_bound": 36.0,
+            "gap": 0.0,
+            "message": "Done!"
+        },
+        {
+            "experiment": 21,
+            "duration": 62.535176277160645,
+            "solution": [
+                -1,
+                2,
+                6,
+                36
+            ],
+            "optimal": 46.0,
+            "found_solution": [
+                -1,
+                2,
+                6,
+                36
+            ],
+            "suboptimal": 46.0,
+            "primal_bound": 46.0,
+            "dual_bound": 46.0,
+            "gap": 0.0,
+            "message": "Done!"
         }
     ],
     "ilp": [
@@ -757,6 +1161,224 @@
             "suboptimal": 36.0,
             "primal_bound": 36.0,
             "dual_bound": 36.0,
+            "gap": 0.0,
+            "message": "Done!"
+        },
+        {
+            "experiment": 12,
+            "duration": 120.39634990692139,
+            "solution": [
+                -1,
+                34
+            ],
+            "optimal": 36.0,
+            "found_solution": [
+                -1,
+                34
+            ],
+            "suboptimal": 36.0,
+            "primal_bound": 36.0,
+            "dual_bound": 36.0,
+            "gap": 0.0,
+            "message": "Done!"
+        },
+        {
+            "experiment": 13,
+            "duration": 160.92689037322998,
+            "solution": [
+                -1,
+                24,
+                31
+            ],
+            "optimal": 38.0,
+            "found_solution": [
+                -1,
+                24,
+                31
+            ],
+            "suboptimal": 38.0,
+            "primal_bound": 38.0,
+            "dual_bound": 38.0,
+            "gap": 0.0,
+            "message": "Done!"
+        },
+        {
+            "experiment": 14,
+            "duration": 95.3944799900055,
+            "solution": [
+                -1,
+                13,
+                6,
+                12
+            ],
+            "optimal": 39.0,
+            "found_solution": [
+                -1,
+                13,
+                6,
+                12
+            ],
+            "suboptimal": 39.0,
+            "primal_bound": 39.0,
+            "dual_bound": 39.0,
+            "gap": 0.0,
+            "message": "Done!"
+        },
+        {
+            "experiment": 15,
+            "duration": 159.2544605731964,
+            "solution": [
+                -1,
+                28,
+                7,
+                13
+            ],
+            "optimal": 36.0,
+            "found_solution": [
+                -1,
+                28,
+                7,
+                13
+            ],
+            "suboptimal": 36.0,
+            "primal_bound": 36.0,
+            "dual_bound": 36.0,
+            "gap": 0.0,
+            "message": "Done!"
+        },
+        {
+            "experiment": 16,
+            "duration": 187.13186049461365,
+            "solution": [
+                -1,
+                28,
+                35,
+                3,
+                14
+            ],
+            "optimal": 34.0,
+            "found_solution": [
+                -1,
+                28,
+                35,
+                3,
+                14
+            ],
+            "suboptimal": 34.0,
+            "primal_bound": 34.0,
+            "dual_bound": 34.0,
+            "gap": 0.0,
+            "message": "Done!"
+        },
+        {
+            "experiment": 17,
+            "duration": 148.94860339164734,
+            "solution": [
+                -1,
+                1,
+                33,
+                35,
+                2
+            ],
+            "optimal": 36.0,
+            "found_solution": [
+                -1,
+                1,
+                33,
+                35,
+                2
+            ],
+            "suboptimal": 36.0,
+            "primal_bound": 36.0,
+            "dual_bound": 36.0,
+            "gap": 0.0,
+            "message": "Done!"
+        },
+        {
+            "experiment": 18,
+            "duration": 117.58118462562561,
+            "solution": [
+                -1,
+                12,
+                9,
+                4,
+                33,
+                23
+            ],
+            "optimal": 38.0,
+            "found_solution": [
+                -1,
+                12,
+                9,
+                4,
+                33,
+                23
+            ],
+            "suboptimal": 38.0,
+            "primal_bound": 38.0,
+            "dual_bound": 38.0,
+            "gap": 0.0,
+            "message": "Done!"
+        },
+        {
+            "experiment": 19,
+            "duration": 145.92822241783142,
+            "solution": [
+                -1,
+                27,
+                3
+            ],
+            "optimal": 34.0,
+            "found_solution": [
+                -1,
+                27,
+                3
+            ],
+            "suboptimal": 34.0,
+            "primal_bound": 34.0,
+            "dual_bound": 34.0,
+            "gap": 0.0,
+            "message": "Done!"
+        },
+        {
+            "experiment": 20,
+            "duration": 194.76192808151245,
+            "solution": [
+                -1,
+                2,
+                9
+            ],
+            "optimal": 36.0,
+            "found_solution": [
+                -1,
+                2,
+                9
+            ],
+            "suboptimal": 36.0,
+            "primal_bound": 36.0,
+            "dual_bound": 36.0,
+            "gap": 0.0,
+            "message": "Done!"
+        },
+        {
+            "experiment": 21,
+            "duration": 553.9528656005859,
+            "solution": [
+                -1,
+                2,
+                6,
+                36
+            ],
+            "optimal": 46.0,
+            "found_solution": [
+                -1,
+                2,
+                6,
+                36
+            ],
+            "suboptimal": 46.0,
+            "primal_bound": 46.0,
+            "dual_bound": 46.0,
             "gap": 0.0,
             "message": "Done!"
         }
@@ -1011,6 +1633,194 @@
             "dual_bound": 3.0,
             "gap": 0.4,
             "message": "ERROR: Runner exceded the timeout limit"
+        },
+        {
+            "experiment": 11,
+            "duration": 3619.123764514923,
+            "solution": null,
+            "optimal": null,
+            "found_solution": [
+                -1,
+                3,
+                20,
+                10,
+                12,
+                0
+            ],
+            "suboptimal": 6.0,
+            "primal_bound": 34.0,
+            "dual_bound": 1.0,
+            "gap": 0.9705882352941176,
+            "message": "ERROR: Runner exceded the timeout limit"
+        },
+        {
+            "experiment": 12,
+            "duration": 3879.277067422867,
+            "solution": null,
+            "optimal": null,
+            "found_solution": [
+                -1,
+                8
+            ],
+            "suboptimal": 1.0,
+            "primal_bound": 39.0,
+            "dual_bound": 1.0,
+            "gap": 0.9743589743589743,
+            "message": "ERROR: Runner exceded the timeout limit"
+        },
+        {
+            "experiment": 13,
+            "duration": 3672.087572813034,
+            "solution": null,
+            "optimal": null,
+            "found_solution": [
+                -1,
+                7,
+                24
+            ],
+            "suboptimal": 38.0,
+            "primal_bound": 2.0,
+            "dual_bound": 1.0,
+            "gap": 0.5,
+            "message": "ERROR: Runner exceded the timeout limit"
+        },
+        {
+            "experiment": 14,
+            "duration": 30.665973901748657,
+            "solution": [
+                -1,
+                13,
+                12,
+                6
+            ],
+            "optimal": 39.0,
+            "found_solution": [
+                -1,
+                13,
+                12,
+                6
+            ],
+            "suboptimal": 39.0,
+            "primal_bound": 1.0,
+            "dual_bound": 1.0,
+            "gap": 0.0,
+            "message": "Done!"
+        },
+        {
+            "experiment": 15,
+            "duration": 3991.717870950699,
+            "solution": null,
+            "optimal": null,
+            "found_solution": [
+                -1,
+                28,
+                7,
+                13,
+                12,
+                37,
+                20,
+                8,
+                4,
+                0,
+                39,
+                36,
+                31
+            ],
+            "suboptimal": 36.0,
+            "primal_bound": 4.0,
+            "dual_bound": 1.0,
+            "gap": 0.75,
+            "message": "ERROR: Runner exceded the timeout limit"
+        },
+        {
+            "experiment": 16,
+            "duration": 4030.3565146923065,
+            "solution": null,
+            "optimal": null,
+            "found_solution": [
+                -1,
+                2,
+                28,
+                16,
+                15,
+                0,
+                1,
+                19,
+                9,
+                5,
+                23,
+                7,
+                4
+            ],
+            "suboptimal": 31.0,
+            "primal_bound": 9.0,
+            "dual_bound": 1.0,
+            "gap": 0.8888888888888888,
+            "message": "ERROR: Runner exceded the timeout limit"
+        },
+        {
+            "experiment": 17,
+            "duration": 3639.2050518989563,
+            "solution": null,
+            "optimal": null,
+            "found_solution": [
+                -1
+            ],
+            "suboptimal": 0.0,
+            "primal_bound": 40.0,
+            "dual_bound": 1.0,
+            "gap": 0.975,
+            "message": "ERROR: Runner exceded the timeout limit"
+        },
+        {
+            "experiment": 18,
+            "duration": 3826.3549547195435,
+            "solution": null,
+            "optimal": null,
+            "found_solution": [
+                -1
+            ],
+            "suboptimal": 0.0,
+            "primal_bound": 40.0,
+            "dual_bound": 1.0,
+            "gap": 0.975,
+            "message": "ERROR: Runner exceded the timeout limit"
+        },
+        {
+            "experiment": 19,
+            "duration": 3759.2450017929077,
+            "solution": null,
+            "optimal": null,
+            "found_solution": [
+                -1,
+                22
+            ],
+            "suboptimal": 1.0,
+            "primal_bound": 39.0,
+            "dual_bound": 1.0,
+            "gap": 0.9743589743589743,
+            "message": "ERROR: Runner exceded the timeout limit"
+        },
+        {
+            "experiment": 20,
+            "duration": 3924.425282239914,
+            "solution": null,
+            "optimal": null,
+            "found_solution": [
+                -1,
+                34,
+                2,
+                9,
+                0,
+                3,
+                11,
+                10
+            ],
+            "suboptimal": 36.0,
+            "primal_bound": 4.0,
+            "dual_bound": 1.0,
+            "gap": 0.75,
+            "message": "ERROR: Runner exceded the timeout limit"
         }
     ],
     "eilp": [
@@ -1207,6 +2017,204 @@
             "suboptimal": 20.0,
             "primal_bound": 20.0,
             "dual_bound": 20.0,
+            "gap": 0.0,
+            "message": "Done!"
+        },
+        {
+            "experiment": 11,
+            "duration": 1.60455322265625,
+            "solution": [
+                -1,
+                38,
+                8
+            ],
+            "optimal": 36.0,
+            "found_solution": [
+                -1,
+                38,
+                8
+            ],
+            "suboptimal": 36.0,
+            "primal_bound": 36.0,
+            "dual_bound": 36.0,
+            "gap": 0.0,
+            "message": "Done!"
+        },
+        {
+            "experiment": 12,
+            "duration": 1.4948768615722656,
+            "solution": [
+                -1,
+                34
+            ],
+            "optimal": 36.0,
+            "found_solution": [
+                -1,
+                34
+            ],
+            "suboptimal": 36.0,
+            "primal_bound": 36.0,
+            "dual_bound": 36.0,
+            "gap": 0.0,
+            "message": "Done!"
+        },
+        {
+            "experiment": 13,
+            "duration": 1.3922574520111084,
+            "solution": [
+                -1,
+                24,
+                31
+            ],
+            "optimal": 38.0,
+            "found_solution": [
+                -1,
+                24,
+                31
+            ],
+            "suboptimal": 38.0,
+            "primal_bound": 38.0,
+            "dual_bound": 38.0,
+            "gap": 0.0,
+            "message": "Done!"
+        },
+        {
+            "experiment": 14,
+            "duration": 1.3922810554504395,
+            "solution": [
+                -1,
+                13,
+                12
+            ],
+            "optimal": 39.0,
+            "found_solution": [
+                -1,
+                13,
+                12
+            ],
+            "suboptimal": 39.0,
+            "primal_bound": 39.0,
+            "dual_bound": 39.0,
+            "gap": 0.0,
+            "message": "Done!"
+        },
+        {
+            "experiment": 15,
+            "duration": 1.516918659210205,
+            "solution": [
+                -1,
+                28,
+                13
+            ],
+            "optimal": 36.0,
+            "found_solution": [
+                -1,
+                28,
+                13
+            ],
+            "suboptimal": 36.0,
+            "primal_bound": 36.0,
+            "dual_bound": 36.0,
+            "gap": 0.0,
+            "message": "Done!"
+        },
+        {
+            "experiment": 16,
+            "duration": 2.143399953842163,
+            "solution": [
+                -1,
+                28,
+                14
+            ],
+            "optimal": 34.0,
+            "found_solution": [
+                -1,
+                28,
+                14
+            ],
+            "suboptimal": 34.0,
+            "primal_bound": 34.0,
+            "dual_bound": 34.0,
+            "gap": 0.0,
+            "message": "Done!"
+        },
+        {
+            "experiment": 17,
+            "duration": 1.4125158786773682,
+            "solution": [
+                -1,
+                1,
+                35
+            ],
+            "optimal": 36.0,
+            "found_solution": [
+                -1,
+                1,
+                35
+            ],
+            "suboptimal": 36.0,
+            "primal_bound": 36.0,
+            "dual_bound": 36.0,
+            "gap": 0.0,
+            "message": "Done!"
+        },
+        {
+            "experiment": 18,
+            "duration": 1.3836588859558105,
+            "solution": [
+                -1,
+                12,
+                33
+            ],
+            "optimal": 38.0,
+            "found_solution": [
+                -1,
+                12,
+                33
+            ],
+            "suboptimal": 38.0,
+            "primal_bound": 38.0,
+            "dual_bound": 38.0,
+            "gap": 0.0,
+            "message": "Done!"
+        },
+        {
+            "experiment": 19,
+            "duration": 1.6378543376922607,
+            "solution": [
+                -1,
+                27,
+                3
+            ],
+            "optimal": 34.0,
+            "found_solution": [
+                -1,
+                27,
+                3
+            ],
+            "suboptimal": 34.0,
+            "primal_bound": 34.0,
+            "dual_bound": 34.0,
+            "gap": 0.0,
+            "message": "Done!"
+        },
+        {
+            "experiment": 20,
+            "duration": 1.414949655532837,
+            "solution": [
+                -1,
+                2,
+                9
+            ],
+            "optimal": 36.0,
+            "found_solution": [
+                -1,
+                2,
+                9
+            ],
+            "suboptimal": 36.0,
+            "primal_bound": 36.0,
+            "dual_bound": 36.0,
             "gap": 0.0,
             "message": "Done!"
         }
