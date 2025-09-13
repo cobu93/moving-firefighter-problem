@@ -211,6 +211,216 @@
             "message": "ERROR: "
         },
         {
+            "experiment": 21,
+            "duration": 3601.774351119995,
+            "solution": null,
+            "optimal": null,
+            "message": "ERROR: "
+        },
+        {
+            "experiment": 22,
+            "duration": 3601.400678396225,
+            "solution": null,
+            "optimal": null,
+            "message": "ERROR: "
+        },
+        {
+            "experiment": 23,
+            "duration": 3601.4182209968567,
+            "solution": null,
+            "optimal": null,
+            "message": "ERROR: "
+        },
+        {
+            "experiment": 24,
+            "duration": 3601.3932073116302,
+            "solution": null,
+            "optimal": null,
+            "message": "ERROR: "
+        },
+        {
+            "experiment": 25,
+            "duration": 3601.410674571991,
+            "solution": null,
+            "optimal": null,
+            "message": "ERROR: "
+        },
+        {
+            "experiment": 26,
+            "duration": 3601.229219198227,
+            "solution": null,
+            "optimal": null,
+            "message": "ERROR: "
+        },
+        {
+            "experiment": 27,
+            "duration": 3601.442590236664,
+            "solution": null,
+            "optimal": null,
+            "message": "ERROR: "
+        },
+        {
+            "experiment": 28,
+            "duration": 3601.390286922455,
+            "solution": null,
+            "optimal": null,
+            "message": "ERROR: "
+        },
+        {
+            "experiment": 29,
+            "duration": 3601.304130554199,
+            "solution": null,
+            "optimal": null,
+            "message": "ERROR: "
+        },
+        {
+            "experiment": 30,
+            "duration": 3601.236214160919,
+            "solution": null,
+            "optimal": null,
+            "message": "ERROR: "
+        },
+        {
+            "experiment": 31,
+            "duration": 3601.2489607334137,
+            "solution": null,
+            "optimal": null,
+            "message": "ERROR: "
+        },
+        {
+            "experiment": 32,
+            "duration": 3601.4799766540527,
+            "solution": null,
+            "optimal": null,
+            "message": "ERROR: "
+        },
+        {
+            "experiment": 33,
+            "duration": 3601.254934310913,
+            "solution": null,
+            "optimal": null,
+            "message": "ERROR: "
+        },
+        {
+            "experiment": 34,
+            "duration": 3601.5663051605225,
+            "solution": null,
+            "optimal": null,
+            "message": "ERROR: "
+        },
+        {
+            "experiment": 35,
+            "duration": 3601.6495122909546,
+            "solution": null,
+            "optimal": null,
+            "message": "ERROR: "
+        },
+        {
+            "experiment": 36,
+            "duration": 3601.5504689216614,
+            "solution": null,
+            "optimal": null,
+            "message": "ERROR: "
+        },
+        {
+            "experiment": 37,
+            "duration": 3601.2656853199005,
+            "solution": null,
+            "optimal": null,
+            "message": "ERROR: "
+        },
+        {
+            "experiment": 38,
+            "duration": 3601.18976855278,
+            "solution": null,
+            "optimal": null,
+            "message": "ERROR: "
+        },
+        {
+            "experiment": 39,
+            "duration": 3601.555776834488,
+            "solution": null,
+            "optimal": null,
+            "message": "ERROR: "
+        },
+        {
+            "experiment": 40,
+            "duration": 3601.9716498851776,
+            "solution": null,
+            "optimal": null,
+            "message": "ERROR: "
+        },
+        {
+            "experiment": 41,
+            "duration": 3601.285053253174,
+            "solution": null,
+            "optimal": null,
+            "message": "ERROR: "
+        },
+        {
+            "experiment": 42,
+            "duration": 3601.7802493572235,
+            "solution": null,
+            "optimal": null,
+            "message": "ERROR: "
+        },
+        {
+            "experiment": 43,
+            "duration": 3601.244508743286,
+            "solution": null,
+            "optimal": null,
+            "message": "ERROR: "
+        },
+        {
+            "experiment": 44,
+            "duration": 3601.4606976509094,
+            "solution": null,
+            "optimal": null,
+            "message": "ERROR: "
+        },
+        {
+            "experiment": 45,
+            "duration": 3601.441071510315,
+            "solution": null,
+            "optimal": null,
+            "message": "ERROR: "
+        },
+        {
+            "experiment": 46,
+            "duration": 3601.7230684757233,
+            "solution": null,
+            "optimal": null,
+            "message": "ERROR: "
+        },
+        {
+            "experiment": 47,
+            "duration": 3601.5169007778168,
+            "solution": null,
+            "optimal": null,
+            "message": "ERROR: "
+        },
+        {
+            "experiment": 48,
+            "duration": 3601.7505152225494,
+            "solution": null,
+            "optimal": null,
+            "message": "ERROR: "
+        },
+        {
+            "experiment": 49,
+            "duration": 3601.2598299980164,
+            "solution": null,
+            "optimal": null,
+            "message": "ERROR: "
+        },
+        {
+            "experiment": 50,
+            "duration": 3601.496726036072,
+            "solution": null,
+            "optimal": null,
+            "message": "ERROR: "
+        },
+        {
             "experiment": 51,
             "duration": 0.09184598922729492,
             "solution": [
@@ -3078,6 +3288,132 @@
             "message": "ERROR: "
         },
         {
+            "experiment": 33,
+            "duration": 532.5224320888519,
+            "solution": null,
+            "optimal": null,
+            "message": "ERROR: "
+        },
+        {
+            "experiment": 34,
+            "duration": 512.3691303730011,
+            "solution": null,
+            "optimal": null,
+            "message": "ERROR: "
+        },
+        {
+            "experiment": 35,
+            "duration": 482.80087637901306,
+            "solution": null,
+            "optimal": null,
+            "message": "ERROR: "
+        },
+        {
+            "experiment": 36,
+            "duration": 536.5768175125122,
+            "solution": null,
+            "optimal": null,
+            "message": "ERROR: "
+        },
+        {
+            "experiment": 37,
+            "duration": 533.5826184749603,
+            "solution": null,
+            "optimal": null,
+            "message": "ERROR: "
+        },
+        {
+            "experiment": 38,
+            "duration": 598.4046051502228,
+            "solution": null,
+            "optimal": null,
+            "message": "ERROR: "
+        },
+        {
+            "experiment": 39,
+            "duration": 340.421199798584,
+            "solution": null,
+            "optimal": null,
+            "message": "ERROR: "
+        },
+        {
+            "experiment": 40,
+            "duration": 466.8905553817749,
+            "solution": null,
+            "optimal": null,
+            "message": "ERROR: "
+        },
+        {
+            "experiment": 41,
+            "duration": 3603.790666103363,
+            "solution": null,
+            "optimal": null,
+            "message": "ERROR: "
+        },
+        {
+            "experiment": 42,
+            "duration": 1525.1758539676666,
+            "solution": null,
+            "optimal": null,
+            "message": "ERROR: "
+        },
+        {
+            "experiment": 43,
+            "duration": 3604.564121723175,
+            "solution": null,
+            "optimal": null,
+            "message": "ERROR: "
+        },
+        {
+            "experiment": 44,
+            "duration": 1999.2074661254883,
+            "solution": null,
+            "optimal": null,
+            "message": "ERROR: "
+        },
+        {
+            "experiment": 45,
+            "duration": 1722.3642928600311,
+            "solution": null,
+            "optimal": null,
+            "message": "ERROR: "
+        },
+        {
+            "experiment": 46,
+            "duration": 3603.3774831295013,
+            "solution": null,
+            "optimal": null,
+            "message": "ERROR: "
+        },
+        {
+            "experiment": 47,
+            "duration": 3603.4064617156982,
+            "solution": null,
+            "optimal": null,
+            "message": "ERROR: "
+        },
+        {
+            "experiment": 48,
+            "duration": 1799.2529916763306,
+            "solution": null,
+            "optimal": null,
+            "message": "ERROR: "
+        },
+        {
+            "experiment": 49,
+            "duration": 1811.8591313362122,
+            "solution": null,
+            "optimal": null,
+            "message": "ERROR: "
+        },
+        {
+            "experiment": 50,
+            "duration": 1880.795620918274,
+            "solution": null,
+            "optimal": null,
+            "message": "ERROR: "
+        },
+        {
             "experiment": 51,
             "duration": 14.678894758224487,
             "solution": [
@@ -3780,6 +4116,222 @@
         {
             "experiment": 24,
             "duration": 1672.2588202953339,
+            "solution": null,
+            "optimal": null,
+            "message": "ERROR: "
+        },
+        {
+            "experiment": 25,
+            "duration": 4250.513955831528,
+            "solution": null,
+            "optimal": null,
+            "found_solution": [
+                -1,
+                9,
+                18,
+                1
+            ],
+            "suboptimal": 5.0,
+            "primal_bound": 45.0,
+            "dual_bound": 1.0,
+            "gap": 0.9777777777777777,
+            "message": "ERROR: Runner exceded the timeout limit"
+        },
+        {
+            "experiment": 26,
+            "duration": 1728.7178099155426,
+            "solution": null,
+            "optimal": null,
+            "message": "ERROR: "
+        },
+        {
+            "experiment": 27,
+            "duration": 3581.7272005081177,
+            "solution": null,
+            "optimal": null,
+            "message": "ERROR: "
+        },
+        {
+            "experiment": 28,
+            "duration": 3827.2184660434723,
+            "solution": null,
+            "optimal": null,
+            "found_solution": [
+                -1,
+                1,
+                14,
+                2
+            ],
+            "suboptimal": 46.0,
+            "primal_bound": 4.0,
+            "dual_bound": 1.0,
+            "gap": 0.75,
+            "message": "ERROR: Runner exceded the timeout limit"
+        },
+        {
+            "experiment": 29,
+            "duration": 1940.9285657405853,
+            "solution": null,
+            "optimal": null,
+            "message": "ERROR: "
+        },
+        {
+            "experiment": 30,
+            "duration": 4050.237233877182,
+            "solution": null,
+            "optimal": null,
+            "found_solution": [
+                -1
+            ],
+            "suboptimal": 0.0,
+            "primal_bound": 50.0,
+            "dual_bound": 1.0,
+            "gap": 0.98,
+            "message": "ERROR: Runner exceded the timeout limit"
+        },
+        {
+            "experiment": 31,
+            "duration": 520.0285749435425,
+            "solution": null,
+            "optimal": null,
+            "message": "ERROR: "
+        },
+        {
+            "experiment": 32,
+            "duration": 360.56840324401855,
+            "solution": null,
+            "optimal": null,
+            "message": "ERROR: "
+        },
+        {
+            "experiment": 33,
+            "duration": 346.1474425792694,
+            "solution": null,
+            "optimal": null,
+            "message": "ERROR: "
+        },
+        {
+            "experiment": 34,
+            "duration": 330.6209833621979,
+            "solution": null,
+            "optimal": null,
+            "message": "ERROR: "
+        },
+        {
+            "experiment": 35,
+            "duration": 664.5721662044525,
+            "solution": null,
+            "optimal": null,
+            "message": "ERROR: "
+        },
+        {
+            "experiment": 36,
+            "duration": 3808.4505722522736,
+            "solution": null,
+            "optimal": null,
+            "found_solution": [
+                -1
+            ],
+            "suboptimal": 0.0,
+            "primal_bound": 75.0,
+            "dual_bound": 1.0,
+            "gap": 0.9866666666666667,
+            "message": "ERROR: Runner exceded the timeout limit"
+        },
+        {
+            "experiment": 37,
+            "duration": 346.9566776752472,
+            "solution": null,
+            "optimal": null,
+            "message": "ERROR: "
+        },
+        {
+            "experiment": 38,
+            "duration": 461.18681144714355,
+            "solution": null,
+            "optimal": null,
+            "message": "ERROR: "
+        },
+        {
+            "experiment": 39,
+            "duration": 301.4787063598633,
+            "solution": null,
+            "optimal": null,
+            "message": "ERROR: "
+        },
+        {
+            "experiment": 40,
+            "duration": 288.85537695884705,
+            "solution": null,
+            "optimal": null,
+            "message": "ERROR: "
+        },
+        {
+            "experiment": 41,
+            "duration": 655.0502529144287,
+            "solution": null,
+            "optimal": null,
+            "message": "ERROR: "
+        },
+        {
+            "experiment": 42,
+            "duration": 419.1275658607483,
+            "solution": null,
+            "optimal": null,
+            "message": "ERROR: "
+        },
+        {
+            "experiment": 43,
+            "duration": 261.25980591773987,
+            "solution": null,
+            "optimal": null,
+            "message": "ERROR: "
+        },
+        {
+            "experiment": 44,
+            "duration": 460.38974356651306,
+            "solution": null,
+            "optimal": null,
+            "message": "ERROR: "
+        },
+        {
+            "experiment": 45,
+            "duration": 490.26038360595703,
+            "solution": null,
+            "optimal": null,
+            "message": "ERROR: "
+        },
+        {
+            "experiment": 46,
+            "duration": 498.25628781318665,
+            "solution": null,
+            "optimal": null,
+            "message": "ERROR: "
+        },
+        {
+            "experiment": 47,
+            "duration": 465.6771697998047,
+            "solution": null,
+            "optimal": null,
+            "message": "ERROR: "
+        },
+        {
+            "experiment": 48,
+            "duration": 200.94205141067505,
+            "solution": null,
+            "optimal": null,
+            "message": "ERROR: "
+        },
+        {
+            "experiment": 49,
+            "duration": 611.7125880718231,
+            "solution": null,
+            "optimal": null,
+            "message": "ERROR: "
+        },
+        {
+            "experiment": 50,
+            "duration": 665.5384011268616,
             "solution": null,
             "optimal": null,
             "message": "ERROR: "
